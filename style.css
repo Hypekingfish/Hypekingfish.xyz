@@ -1,0 +1,29 @@
+@layer base {
+    :root {
+        --black: #000000FF;
+        --white: #FFFFFFFF;
+        --grey: #8f8e8e;
+        --lightBlue: #a0dbf2;
+		--blue: #5bcefa;
+		--lightPink: #f2c9d4;
+		--pink: #f5a9b8;
+        --main: "MoMontserrat", sans-serif;
+        --heading: "EB Garamond", serif;
+		--base-size: 1.167rem;
+		--scale: 1.2;
+		--h1: calc(var(--h2) * var(--scale));
+		--h2: calc(var(--h3) * var(--scale));
+		--h3: calc(var(--h4) * var(--scale));
+		--h4: calc(var(--h5) * var(--scale));
+		--h5: calc(var(--h6) * var(--scale));
+		--h6: var(--base-size);
+    }
+    body {
+        font-family: var(--main);
+        margin: 0;
+        padding: 0;
+        font-size: var(--base-size);
+        line-height: 1.5;
+        /* background-color: var(--black); */
+    }
+}

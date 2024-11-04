@@ -94,6 +94,137 @@
         max-width: 1200px;
         margin: 0 auto;
     }
+    header h1 {
+        font-size: var(--h3);
+        color: var(--pink);
+        font-weight: 300;
+        margin: 0;
+    }
+    header a {
+        text-decoration: none;
+        color: var(--pink);
+    }
+    header a:hover {
+        color: var(--blue);
+    }
+    header svg {
+        width: 30px;
+        fill: var(--blue);
+        margin-top: 0.5rem;
+    }
+    header a:hover svg {
+        fill: var(--pink);
+    }
+    nav {
+        font-family: var(--heading);
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    nav a {
+        text-decoration: none;
+        color: var(--pink);
+    }
+    nav a:hover {
+        color: var(--blue);
+    }
+    .nav-button {
+        background-color: var(--blue);
+        color: var(--black);
+        border-radius: 20px;
+        padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+    }
+    .nav-button:hover {
+        background-color: var(--pink);
+        color: var(--black);
+    }
+}
+@media (max-width: 830px) {
+    header {
+        justify-content: center;
+    }
+    header h1 {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width: 404px) {
+header {
+    justify-content: center;
+}
+header h1 {
+    flex-basis: auto;
+}
+header button {
+    display: block;
+    font-size: 3rem;
+    line-height: 1;
+    border: 0;
+    background-color: transparent;
+    color: var(--blue);
+}
+header button::after {
+    content: "\2630";
+}
+nav {
+    position: fixed;
+    top: 0;
+    right: 200%;
+    width: 100vw;
+    height: 100vh;
+    background: var(--black);
+    padding-top: 20%;
+    transition: right 0s 0.5s opacity 0.5s;
+}
+button:focus + nav,
+button:focus-within + nav {
+    right: 0;
+    opacity: 1;
+    transition: right 0s, opacity 0.5s;
+}
+nav ul {
+    display: block;
+    text-align: center;
+    position: relative;
+    top: -50vh;
+    transition: top 0.5s;
+}
+button:focus + nav ul,
+button:focus-within + nav {
+    top: 0vh;
+}
+
+nav ul::after {
+    content: "\2716";
+    color: var(--blue);
+    display: block;
+    position: absolute;
+    top: 0.125rem;
+    right: 0.5rem;
+    font-size: 3rem;
+    line-height: 1;
+}
+nav li {
+    margin-top: 1.25rem;
+}
+.nav-button {
+    display: inline-block;
+    background-color: var(--blue);
+    color: var(--black);
+    border-radius: 10px;
+    padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
 }
 @layer footer {
     footer {
@@ -116,6 +247,113 @@
         font-size: 3rem;
     }
     footer p {
+        color: var(--pink);
+    }
+}
+@layer IFR {
+    .IFR {
+        text-align: center;
+        font-family: var(--body);
+        padding: 4rem 0;
+        color: var(--pink);
+    }
+    .IFR img {
+        border-radius: 40px;
+    }
+    .IFR p {
+        color: var(--blue);
+    }
+}
+@layer VATSIM {
+    .VATSIM {
+        text-align: center;
+        font-family: var(--body);
+        padding: 4rem 0;
+        color: var(--pink);
+    }
+    .VATSIM img {
+        border-radius: 40px;
+    }
+    .VATSIM p {
+        color: var(--blue);
+    }
+    .FHeader h2 {
+        text-align: center;
+        color: var(--blue);
+    }
+}
+@layer VFR {
+    .VFR {
+        text-align: center;
+        font-family: var(--body);
+        padding: 4rem 0;
+        color: var(--pink);
+    }
+    .VFR img{
+        border-radius: 40px;
+    }
+    .VFR p {
+        color: var(--blue);
+    }
+}
+@layer Rainier {
+    .rainier {
+        text-align: center;
+    }
+    .rainier img {
+        border-radius: 40px;
+    }
+    .rainier p {
+        color: var(--blue);
+    }
+    .RHeader h2 {
+        text-align: center;
+        color: var(--blue);
+    }
+}
+@layer About {
+    .AHeader h2 {
+        text-align: center;
+        color: var(--blue);
+    }
+}
+@layer Welcome {
+    .welcome {
+        text-align: center;
+        font-family: var(--body);
+        padding: 4rem 0;
+        color: var(--pink);
+    }
+    .welcome img {
+        border-radius: 40px;
+    }
+    .welcome p {
+        color: var(--blue);
+    }
+    .WHeader h2 {
+        text-align: center;
+        color: var(--blue);
+    }
+}
+@layer HEMS {
+    .HEMS {
+        text-align: center;
+        font-family: var(--body);
+        padding: 4rem 0;
+        color: var(--pink);
+    }
+    .HEMS img {
+        border-radius: 40px;
+    }
+    .HEMS p {
+        color: var(--blue);
+    }
+}
+@layer RainierAbout {
+    .RainierAbout {
+        text-align: center;
+    }
+    .RainierAbout p {
         color: var(--pink);
     }
 }

@@ -23,6 +23,36 @@
             </nav>
         </header>
         <section class="">
+            <div id="vatsim-hours">
+                <p>Controlling Hours: Loading...</p>
+                <p>Pilot Hours: Loading...</p>
+              </div>
+              
+              <script>
+                async function fetchVatsimHours() {
+                  try {
+                    // Replace with your Netlify function URL
+                    const response = await fetch('https://https://hypekingfish-me.netlify.app/.netlify/functions/FetchVatsimdata');
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+              
+                    const data = await response.json();
+                    
+                    // Insert data into HTML elements
+                    document.getElementById('vatsim-hours').innerHTML = `
+                      <p>Controlling Hours: ${data.controllerHours}</p>
+                      <p>Pilot Hours: ${data.pilotHours}</p>
+                    `;
+                  } catch (error) {
+                    console.error("Error fetching VATSIM hours:", error);
+                    document.getElementById('vatsim-hours').innerText = "Error loading hours.";
+                  }
+                }
+              
+                // Call the function when the page loads
+                document.addEventListener("DOMContentLoaded", fetchVatsimHours);
+              </script>
         </section>
         <article>
         </article>

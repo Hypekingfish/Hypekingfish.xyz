@@ -32,27 +32,39 @@
                 async function fetchVatsimHours() {
                   try {
                     // Replace with your Netlify function URL
-                    const response = await fetch('https://https://hypekingfish-me.netlify.app/.netlify/functions/FetchVatsimdata');
+                    const response = await fetch('https://hypekingfish-me.netlify.app//.netlify/functions/FetchVatsimdata');
+              
                     if (!response.ok) {
                       throw new Error(`HTTP error! Status: ${response.status}`);
                     }
               
                     const data = await response.json();
                     
-                    // Insert data into HTML elements
-                    document.getElementById('vatsim-hours').innerHTML = `
-                      <p>Controlling Hours: ${data.controllerHours}</p>
-                      <p>Pilot Hours: ${data.pilotHours}</p>
-                    `;
+                    // Check if data is valid and update the HTML
+                    if (data.controllerHours !== undefined && data.pilotHours !== undefined) {
+                      document.getElementById('vatsim-hours').innerHTML = `
+                        <p>Controlling Hours: ${data.controllerHours}</p>
+                        <p>Pilot Hours: ${data.pilotHours}</p>
+                      `;
+                    } else {
+                      throw new Error("Data format is incorrect");
+                    }
                   } catch (error) {
                     console.error("Error fetching VATSIM hours:", error);
-                    document.getElementById('vatsim-hours').innerText = "Error loading hours.";
+                    
+                    // Display an error message without clearing the content
+                    document.getElementById('vatsim-hours').innerHTML = `
+                      <p>Error loading hours. Please try again later.</p>
+                    `;
                   }
                 }
               
-                // Call the function when the page loads
-                document.addEventListener("DOMContentLoaded", fetchVatsimHours);
-              </script>
+                // Retry every minute if the data fails to load
+                document.addEventListener("DOMContentLoaded", () => {
+                  fetchVatsimHours();
+                  setInterval(fetchVatsimHours, 60000); // Retry every 60 seconds
+                });
+              </script>              
         </section>
         <article>
         </article>

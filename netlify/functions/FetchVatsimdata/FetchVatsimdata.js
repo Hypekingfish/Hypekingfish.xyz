@@ -1,35 +1,33 @@
-const { schedule } = require('@netlify/functions');
-const fetch = require('node-fetch');
+// Import schedule from Netlify functions
+import { schedule } from '@netlify/functions';
 
-// Schedule the function to run every minute
-module.exports.handler = schedule('* * * * *', async (event) => {
+export const handler = schedule('* * * * *', async (event) => {
   try {
-    // Fetch VATSIM hours
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats');
+    // Use dynamic import for node-fetch
+    const fetch = (await import('node-fetch')).default;
+
+    const url = `https://api.vatsim.net/v2/members/1630701/stats`;
+    const response = await fetch(url);
+
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`Failed to fetch: ${response.status}`);
     }
 
     const data = await response.json();
-    const controllerHours = data.atc;
-    const pilotHours = data.pilot;
-
-    // Log the VATSIM hours in the Netlify function logs
-    console.log(`Controlling Hours: ${controllerHours}`);
-    console.log(`Pilot Hours: ${pilotHours}`);
-    console.log(`Next function run at ${new Date().toLocaleString()}`);
 
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        message: `Fetched VATSIM hours successfully.`,
-        controllerHours,
-        pilotHours,
+        controllerHours: data.atc,
+        pilotHours: data.pilot,
       }),
     };
   } catch (error) {
     console.error("Error fetching VATSIM hours:", error);
-
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Failed to fetch VATSIM hours" }),

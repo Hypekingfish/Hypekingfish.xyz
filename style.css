@@ -37,6 +37,8 @@
         /* Full screen size */
         height: 100vh;
         margin: 0;
+
+
     }
     p {
         color: var(--white);
@@ -369,3 +371,4 @@ nav li {
         color: var(--pink);
     }
 }
+

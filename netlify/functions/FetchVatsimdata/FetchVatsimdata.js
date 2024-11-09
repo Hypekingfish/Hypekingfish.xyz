@@ -1,7 +1,7 @@
 // Import schedule from Netlify functions
 import { schedule } from '@netlify/functions';
 
-export const handler = schedule('* 5 * * *', async (event) => {
+export const handler = schedule('* * * * *', async (event) => {
   try {
     // Use dynamic import for node-fetch
     const fetch = (await import('node-fetch')).default;

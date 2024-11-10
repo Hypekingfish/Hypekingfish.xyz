@@ -41,14 +41,14 @@
     const data = await response.json();
 
     // Check if data is valid and update the HTML
-    if (data.controllerHours !== undefined && data.pilotHours !== undefined) {
-      document.getElementById('vatsim-hours').innerHTML = `
-        <p>Controlling Hours: ${data.controllerHours}</p>
-        <p>Pilot Hours: ${data.pilotHours}</p>
-      `;
-    } else {
-      throw new Error("Data format is incorrect");
-    }
+    if (data.atc !== undefined && data.pilot !== undefined) {
+  document.getElementById('vatsim-hours').innerHTML = `
+    <p>Controlling Hours: ${data.atc}</p>
+    <p>Pilot Hours: ${data.pilot}</p>
+  `;
+} else {
+  throw new Error("Data format is incorrect");
+}
   } catch (error) {
     console.error("Error fetching VATSIM hours:", error);
 

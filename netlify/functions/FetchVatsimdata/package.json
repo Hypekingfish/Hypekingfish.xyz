@@ -1,5 +1,5 @@
 {
-  "name": "FetchVatsimdata",
+  "name": "fetch-vatsimdata",
   "version": "1.0.0",
   "description": "netlify functions:create - scheduled function in JavaScript",
   "main": "FetchVatsimdata.js",

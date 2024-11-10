@@ -15,6 +15,10 @@ export const handler = schedule('* * * * *', async (event) => {
 
     const data = await response.json();
 
+    // Check if 'data.atc' and 'data.pilot' are defined and extract them
+    const controllerHours = data?.atc?.hours || 0; // Default to 0 if undefined
+    const pilotHours = data?.pilot?.hours || 0;
+
     return {
       statusCode: 200,
       headers: {
@@ -22,8 +26,8 @@ export const handler = schedule('* * * * *', async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        controllerHours: data.atc,
-        pilotHours: data.pilot,
+        controllerHours,
+        pilotHours,
       }),
     };
   } catch (error) {

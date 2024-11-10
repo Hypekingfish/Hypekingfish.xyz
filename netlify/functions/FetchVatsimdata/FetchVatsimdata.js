@@ -25,10 +25,7 @@ export const handler = schedule('* * * * *', async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        controllerHours: data.atc,
-        pilotHours: data.pilot,
-      }),
+      body: JSON.stringify({ controllerHours: data.atc, pilotHours: data.pilot }),
     };
 
   } catch (error) {

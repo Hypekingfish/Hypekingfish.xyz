@@ -1,8 +1,8 @@
 import { schedule } from '@netlify/functions';
 import axios from "axios";
 
-// Define the function to handle requests
-export const handler = async (event, context) => {
+// Define the scheduled function
+export const handler = schedule("@hourly", async (event, context) => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
@@ -13,12 +13,10 @@ export const handler = async (event, context) => {
   };
 
   try {
-    // Make the Axios request
     const response = await axios(config);
     const atcData = JSON.stringify(response.data.atc);
     const pilotData = JSON.stringify(response.data.pilot);
 
-    // Return the response as JSON
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -29,10 +27,9 @@ export const handler = async (event, context) => {
   } catch (error) {
     console.error(error);
 
-    // Handle errors
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Failed to fetch VATSIM data" })
     };
   }
-};
+});

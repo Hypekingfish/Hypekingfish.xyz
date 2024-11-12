@@ -376,8 +376,14 @@ nav li {
         color: var(--pink);
     }
 }
-@layer Youtube {
-    .Youtube p {
-        text-align: left;
+@layer Vatsim {
+    .Vatsim p {
+        color: var(--pink);
+    }
+    .Vatsim img {
+        border-radius: 40px;
+    }
+    #right {
+        text-align: right;
     }
 }

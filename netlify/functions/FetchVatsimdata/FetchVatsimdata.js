@@ -1,61 +1,38 @@
-// import { schedule } from '@netlify/functions';
+import { schedule } from '@netlify/functions';
 import axios from "axios";
 
-// export const handler = schedule('* * * * *', async (event) => {
-//   try {
-//     // Log to track the start of the function
-//     console.log('Fetching VATSIM data...');
-    
-//     const fetch = (await import('node-fetch')).default;
-//     const url = `https://api.vatsim.net/v2/members/1630701/stats`;
-//     const response = await fetch(url);
+// Define the function to handle requests
+export const handler = async (event, context) => {
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'https://api.vatsim.net/v2/members/1630701/stats',
+    headers: { 
+      'Accept': 'application/json'
+    }
+  };
 
-//     // Check if the response is OK
-//     if (!response.ok) {
-//       throw new Error(`Failed to fetch: ${response.status}`);
-//     }
+  try {
+    // Make the Axios request
+    const response = await axios(config);
+    const atcData = JSON.stringify(response.data.atc);
+    const pilotData = JSON.stringify(response.data.pilot);
 
-//     // Parse the response data
-//     const data = await response.json();
-//     console.log('Fetched data:', response.data); // Log the fetched data
+    // Return the response as JSON
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        atc: atcData,
+        pilot: pilotData
+      })
+    };
+  } catch (error) {
+    console.error(error);
 
-//     // Return a valid response
-//     return {
-//       statusCode: 200,
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         controllerHours: response.data.atc,
-//         pilotHours: response.data.pilot
-//       }),
-//     };
-
-//   } catch (error) {
-//     // Log and return error response
-//     console.error("Error fetching VATSIM hours:", error);
-//     return {
-//       statusCode: 500,
-//       body: JSON.stringify({ error: "Failed to fetch VATSIM hours" }),
-//     };
-//   }
-// });
-
-
-let config = {
-  method: 'get',
-maxBodyLength: Infinity,
-  url: 'https://api.vatsim.net/v2/members/1630701/stats',
-  headers: { 
-    'Accept': 'application/json'
+    // Handle errors
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to fetch VATSIM data" })
+    };
   }
 };
-
-axios(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data.atc));
-  console.log(JSON.stringify(response.data.pilot))
-})
-.catch((error) => {
-  console.log(error);
-});

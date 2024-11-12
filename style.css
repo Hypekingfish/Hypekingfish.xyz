@@ -376,4 +376,8 @@ nav li {
         color: var(--pink);
     }
 }
-
+@layer Youtube {
+    .Youtube p {
+        text-align: left;
+    }
+}

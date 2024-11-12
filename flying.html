@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
         <title>Hypekingfish</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
     </head>
     <body class="container">
@@ -32,7 +32,7 @@
             <script>
               async function fetchVatsimHours() {
                 try {
-                  const response = await fetch('https://hypekingfish-me.netlify.app/.netlify/functions/FetchVatsimdata');
+                  // const response = await fetch('https://hypekingfish-me.netlify.app/.netlify/functions/FetchVatsimdata');
 
                   if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -50,7 +50,7 @@
                 throw new Error("Data format is incorrect");
               }
                 } catch (error) {
-                  console.error("Error fetching VATSIM hours:", error);
+                  // console.error("Error fetching VATSIM hours:", error);
 
                   // Display an error message without clearing the content
                   document.getElementById('vatsim-hours').innerHTML = `

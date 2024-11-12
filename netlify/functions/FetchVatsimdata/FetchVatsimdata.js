@@ -2,7 +2,7 @@ import { schedule } from '@netlify/functions';
 import axios from "axios";
 
 // Define the scheduled function
-export const handler = schedule("@hourly", async (event, context) => {
+export const handler = schedule("@minute", async (event, context) => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,

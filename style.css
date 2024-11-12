@@ -378,6 +378,7 @@ nav li {
 }
 @layer Vatsim {
     .Vatsim p {
+        display: flex;
         color: var(--pink);
     }
     .Vatsim img {

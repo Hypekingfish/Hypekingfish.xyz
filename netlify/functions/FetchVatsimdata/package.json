@@ -11,7 +11,8 @@
     "netlify",
     "serverless",
     "javascript",
-    "schedule"
+    "schedule",
+    "axios"
   ],
   "author": "Netlify",
   "license": "MIT",

@@ -372,7 +372,7 @@ nav li {
 @layer Vatsim {
     .vatsim-container {
         display: flex;
-        align-items: center;
+        align-items: left;
         gap: 2rem;
         padding: 2rem;
         max-width: 1200px;

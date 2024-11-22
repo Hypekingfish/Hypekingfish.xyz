@@ -33,13 +33,31 @@
             <h2>My Flight Simulation Journey</h2>
         </section>
         <section class="Vatsim">
-            <h2>VATSIM Stats</h2>
+            <h2>VATSIM Experience</h2>
             <div class="vatsim-container">
                 <div id="vatsim-stats" class="vatsim-text">
-                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
-                    <p>Controller Hours: <span id="controller-hours">Loading...</span></p>
-                    <img src="img/GA_Friend.PNG" alt="VATSIM General Aviation Aircraft"/>
-                    <p>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+                    <div class="controller-section">
+                        <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
+                        <h3>Controller Ratings</h3>
+                        <ul class="certifications">
+                            <li>S1 - Ground Controller</li>
+                            <li>S2 - Tower Controller</li>
+                            <li>S3 - Approach Controller</li>
+                            <!-- Add your actual ratings -->
+                        </ul>
+                        <p>Total Controller Hours: <span id="controller-hours">Loading...</span></p>
+                    </div>
+                    
+                    <div class="pilot-section">
+                        <img src="img/GA_Friend.PNG" alt="VATSIM General Aviation Aircraft"/>
+                        <h3>Pilot Ratings</h3>
+                        <ul class="certifications">
+                            <li>P1 - Private Pilot</li>
+                            <li>P2 - Instrument Rating</li>
+                            <!-- Add your actual ratings -->
+                        </ul>
+                        <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+                    </div>
                 </div>
             </div>
             <script>
@@ -54,6 +72,17 @@
                         document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
                     });
             </script>
+        </section>
+        <section class="upcoming-events">
+            <h3>Upcoming Events</h3>
+            <div class="event-list">
+                <div class="event-card">
+                    <h4>VATSIM Cross The Pond</h4>
+                    <p>Date: April 15, 2024</p>
+                    <p>Role: Controller</p>
+                    <a href="#" class="event-link">Event Details →</a>
+                </div>
+            </div>
         </section>
         <section class="flight-info">
             <h3>My Flight Simulation Experience</h3>
@@ -72,6 +101,38 @@
                 <li>California (KLAX, KSFO, KSAN)</li>
                 <li>East Coast (KJFK, KBOS, KIAD)</li>
             </ul>
+
+            <h3>My Simulation Setup</h3>
+            <div class="setup-details">
+                <ul>
+                    <li>Flight Controls: Honeycomb Alpha & Bravo</li>
+                    <li>Rudder Pedals: Thrustmaster TPR</li>
+                    <li>Display: Triple 27" monitors</li>
+                    <li>TrackIR for head tracking</li>
+                </ul>
+            </div>
+        </section>
+        <section class="flight-log">
+            <h3>Recent Flights Log</h3>
+            <div class="flight-grid">
+                <div class="flight-card">
+                    <h4>KPDX → KSEA</h4>
+                    <p>Aircraft: B737-800</p>
+                    <p>Duration: 45min</p>
+                    <p>Date: 2024-03-20</p>
+                </div>
+                <!-- Add more flight cards as needed -->
+            </div>
+        </section>
+        <section class="screenshot-gallery">
+            <h3>Flight Gallery</h3>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="img/flight-screenshots/sunset-cruise.jpg" alt="Sunset Cruise over Seattle"/>
+                    <figcaption>Evening approach into KSEA</figcaption>
+                </figure>
+                <!-- Add more gallery items -->
+            </div>
         </section>
         <footer>
             <p><small><img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag"/></small></p>

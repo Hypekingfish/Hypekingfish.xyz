@@ -25,48 +25,24 @@
             </nav>
         </header>
         <section class="Vatsim">
-            <div id="vatsim-hours">
-                <p><strong>Controlling Hours:</strong> Loading...</p>
-                <p><strong>Pilot Hours:</strong> Loading...</p>
-            </div>
-            <!-- <script>
-              async function fetchVatsimHours() {
-                try {
-                const response = await fetch('https://hypekingfish-me.netlify.app/.netlify/functions/FetchVatsimdata');
-
-                  if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                  }
-
-                  const data = await response.json();
-
-                  // Check if data is valid and update the HTML
-                  if (data.atc !== undefined && data.pilot !== undefined) {
-                document.getElementById('vatsim-hours').innerHTML =`
-                  <p>Controlling Hours: ${response.data.atc}</p>
-                  <p>Pilot Hours: ${response.data.pilot}</p>
-                `;
-              } else {
-                throw new Error("Data format is incorrect");
-              }
-                } catch (error) {
-                  // console.error("Error fetching VATSIM hours:", error);
-
-                  // Display an error message without clearing the content
-                document.getElementById('vatsim-hours').innerHTML = `
-                    <p>Error loading hours. Please try again later.</p>
-                  `;
-                }
-              }
-
-// Retry every minute if the data fails to load
-document.addEventListener("DOMContentLoaded", () => {
-  fetchVatsimHours();
-  // setInterval(fetchVatsimHours, 60000); // Retry every 60 seconds
-});
-
-            </script>               -->
-        </section>
+          <h2>VATSIM Stats</h2>
+          <div id="vatsim-stats">
+              <p>Controller Hours: <span id="controller-hours">Loading...</span></p>
+              <p>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+          </div>
+          <script>
+              fetch('/.netlify/functions/FetchVatsimdata')
+                  .then(response => response.json())
+                  .then(data => {
+                      document.getElementById('controller-hours').textContent = data.controllerHours;
+                      document.getElementById('pilot-hours').textContent = data.pilotHours;
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                      document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
+                  });
+          </script>
+      </section>
         <article>
         </article>
         <footer>

@@ -1,10 +1,10 @@
 import { schedule } from '@netlify/functions';
 import axios from "axios";
 
-
-export const handler = schedule('* * * * *', async (event) => {
+// Rename the handler function to avoid redeclaration
+const fetchVatsimData = async (event) => {
   try {
-    let config = {
+    const config = {
       method: 'get',
       maxBodyLength: Infinity,
       url: 'https://api.vatsim.net/v2/members/1630701/stats',
@@ -13,64 +13,28 @@ export const handler = schedule('* * * * *', async (event) => {
       }
     };
     
-    axios(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data.atc));
-        console.log(JSON.stringify(response.data.pilot));
-        // Log to track the start of the function
-        console.log('Fetching VATSIM data...');
-        // Check if the response is OK
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.status}`);
-        }
-        // Return a valid response
-        return {
-          statusCode: 200,
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            controllerHours: response.data.atc,
-            pilotHours: response.data.pilot
-          }),
-        };
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const response = await axios(config);
+    
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        controllerHours: response.data.atc,
+        pilotHours: response.data.pilot
+      }),
+    };
   } catch (error) {
-    console.log(error);
+    console.error('Error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
+    };
   }
-});
+};
 
-          // // Log to track the start of the function
-          // console.log('Fetching VATSIM data...');
-        // // Check if the response is OK
-        //   if (!response.ok) {
-        //   throw new Error(`Failed to fetch: ${response.status}`);
-        //   }
-          // Return a valid response
-    //       return {
-    //         statusCode: 200,
-    //         headers: {
-    //        "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //         controllerHours: response.data.atc,
-    //         pilotHours: response.data.pilot
-    //       }),
-    //      };
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
-        
-        
-    //     } catch (error) {
-    // // Log and return error response
-    //       console.error("Error fetching VATSIM hours:", error);
-    //       return {
-    //       statusCode: 500,
-    //       body: JSON.stringify({ error: "Failed to fetch VATSIM hours" }),
-//     };
-//    }
-//  });
+// Export the scheduled function (runs every hour)
+export const handler = schedule("@hourly", fetchVatsimData);
+
+ 

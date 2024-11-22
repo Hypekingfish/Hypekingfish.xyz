@@ -611,6 +611,13 @@ nav li {
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
+    .Vatsim-Controlling li {
+        text-align: center;
+        color: var(--pink);
+        font-family: var(--heading);
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
     .gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

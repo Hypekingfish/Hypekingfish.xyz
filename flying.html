@@ -57,7 +57,6 @@
                       // Add error checking before setting values
                       const elements = {
                           'controller-hours': data.controllerHours,
-                          'pilot-hours': data.pilotHours,
                           's1-hours': data.s1Hours,
                           // 's2-hours': data.s2Hours,
                           // 's3-hours': data.s3Hours
@@ -96,6 +95,9 @@
                         <figcaption>Carbon Cub group flight</figcaption>
                     </figure>
                 </div>
+            </div>
+            <div id="vatsim-stats" class="vatsim-text">
+                <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
             </div>
             <script>
                 fetch('/.netlify/functions/GetVatsimData')

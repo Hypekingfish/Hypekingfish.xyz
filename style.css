@@ -611,6 +611,24 @@ nav li {
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    .gallery-grid figure {
+        margin: 0;
+    }
+    .gallery-grid img {
+        border-radius: 20px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .gallery-grid figcaption {
+        color: var(--pink);
+        text-align: center;
+    }
     /* Optimize Vatsim container for mobile */
     @media (max-width: 768px) {
         .vatsim-container {

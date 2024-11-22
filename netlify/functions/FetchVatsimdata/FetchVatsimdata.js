@@ -1,5 +1,6 @@
 import { schedule } from '@netlify/functions';
-import axios from "axios";
+import pkg from 'axios';
+const { default: axios } = pkg;
 
 // Rename the handler function to avoid redeclaration
 const fetchVatsimData = async (event) => {

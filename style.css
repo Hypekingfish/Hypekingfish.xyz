@@ -394,7 +394,8 @@ nav li {
         flex: 1;
         padding: 1rem;
     }
-    .vatsim-image img {
+    .vatsim-text img {
+        border-radius: 40px;
         height: 24px;
         width: auto;
     }

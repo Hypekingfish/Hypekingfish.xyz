@@ -18,7 +18,8 @@ export const handler = async (event, context) => {
       },
       body: JSON.stringify({
         controllerHours: data.atc,
-        pilotHours: data.pilot
+        pilotHours: data.pilot,
+        s1Hours: data.s1
       }),
     };
   } catch (error) {

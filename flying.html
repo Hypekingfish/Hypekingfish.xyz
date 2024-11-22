@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
         <title>Hypekingfish</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
         <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
     </head>
@@ -26,13 +26,13 @@
             </nav>
         </header>
         <section class="Vatsim">
-          <h2>VATSIM Stats</h2>
-          <div class="vatsim-container">
-              </div>
-              <div id="vatsim-stats" class="vatsim-text">
-                <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/><p> Controller Hours: <span id="controller-hours">Loading...</span></p>
-                <img src="img/GA_Friend.PNG" alt="VATSIM General Aviation Aircraft"/><p> Pilot Hours: <span id="pilot-hours">Loading...</span></p>
-              </div>
+          <h2>My VATSIM Experience</h2>
+          <div class="controller-section">
+            <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
+              <h3>Controller Ratings</h3>
+              <ul class="certifications">
+                <li>S1 - Ground Controller <span class="hours" id="s1-hours">Loading...</span></li>
+              </ul>
           </div>
           <script>
               fetch('/.netlify/functions/GetVatsimData')
@@ -40,7 +40,7 @@
                   .then(data => {
                       document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
                       document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
-                    //   document.getElementById('s1-hours').textContent = ` ${data.s1Hours}`;
+                      document.getElementById('s1-hours').textContent = ` ${data.s1Hours}`;
                   })
                   .catch(error => {
                       console.error('Error:', error);

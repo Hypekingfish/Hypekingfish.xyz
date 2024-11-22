@@ -376,7 +376,27 @@ nav li {
         gap: 8px;
         padding: 1rem;
     }
+
+    .vatsim-image {
+        flex: 1;
+    }
+
+    .vatsim-text {
+        flex: 1;
+    }
     .vatsim-image img {
+        height: 24px;
+        width: auto;
+    }
+    .Vatsim p {
+        color: var(--pink);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .Vatsim-image p {
+        color: var(--pink);
         height: 24px;
         width: auto;
     }

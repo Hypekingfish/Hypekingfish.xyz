@@ -334,9 +334,35 @@ nav li {
     }
 }
 @layer About {
-    .AHeader h2 {
+    .AHeader {
         text-align: center;
-        color: var(--blue);
+        padding: 2rem 0;
+    }
+
+    .AHeader h2 {
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .about {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .about p {
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .about ul {
+        padding-left: 1.5rem;
+    }
+
+    .about li {
+        margin-bottom: 0.5rem;
     }
 }
 @layer Welcome {

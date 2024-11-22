@@ -432,6 +432,8 @@ nav li {
         display: flex;
         justify-content: center;
         gap: 1rem;
+        margin-top: -2rem; /* Move icons closer to footer */
+        padding-bottom: 1rem;
     }
     .social-links i {
         color: var(--blue);

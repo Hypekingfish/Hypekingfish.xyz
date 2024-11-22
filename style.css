@@ -379,12 +379,12 @@ nav li {
 @layer Vatsim {
     .Vatsim p {
         display: flex;
-        color: var(--pink);
+        align-items: center;
+        gap: 8px;  /* Space between elements */
     }
+    
     .Vatsim img {
-        border-radius: 40px;
-    }
-    #right {
-        text-align: right;
+        height: 24px;  /* Adjust size as needed */
+        width: auto;
     }
 }

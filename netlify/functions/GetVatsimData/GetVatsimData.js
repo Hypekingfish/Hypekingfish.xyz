@@ -14,11 +14,25 @@ export const handler = async (event, context) => {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*", // Enable CORS
+        "Access-Control-Allow-Origin": "*",
+        "X-RateLimit-Limit": response.headers.get('X-RateLimit-Limit'),
+        "X-RateLimit-Remaining": response.headers.get('X-RateLimit-Remaining'),
       },
       body: JSON.stringify({
         controllerHours: data.atc,
-        pilotHours: data.pilot
+        pilotHours: data.pilot,
+        ratingHours: {
+          observer: data.rating_hours.OBS || 0,
+          student1: data.rating_hours.S1 || 0,
+          student2: data.rating_hours.S2 || 0,
+          student3: data.rating_hours.S3 || 0,
+          controller1: data.rating_hours.C1 || 0,
+          controller3: data.rating_hours.C3 || 0,
+          instructor1: data.rating_hours.I1 || 0,
+          instructor3: data.rating_hours.I3 || 0,
+          supervisor: data.rating_hours.SUP || 0,
+          administrator: data.rating_hours.ADM || 0
+        }
       }),
     };
   } catch (error) {

@@ -40,9 +40,10 @@
                         <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
                         <h3>Controller Ratings</h3>
                         <ul class="certifications">
-                            <li>S1 - Ground Controller <span class="hours" id="s1-hours">Loading...</span> hours</li>
-                            <li>S2 - Tower Controller <span class="hours" id="s2-hours">Loading...</span> hours</li>
-                            <li>S3 - Approach Controller <span class="hours" id="s3-hours">Loading...</span> hours</li>
+                            <li>S1 - Ground Controller</li>
+                            <li>S2 - Tower Controller</li>
+                            <li>S3 - Approach Controller</li>
+                            <!-- Add your actual ratings -->
                         </ul>
                         <p>Total Controller Hours: <span id="controller-hours">Loading...</span></p>
                     </div>
@@ -65,9 +66,6 @@
                     .then(data => {
                         document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
                         document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
-                        document.getElementById('s1-hours').textContent = ` ${data.s1Hours}`;
-                        document.getElementById('s2-hours').textContent = ` ${data.s2Hours}`;
-                        document.getElementById('s3-hours').textContent = ` ${data.s3Hours}`;
                     })
                     .catch(error => {
                         console.error('Error:', error);

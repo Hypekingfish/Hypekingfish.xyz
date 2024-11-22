@@ -27,15 +27,15 @@
         <section class="Vatsim">
           <h2>VATSIM Stats</h2>
           <div id="vatsim-stats">
-              <p>Controller Hours: <span id="controller-hours"> Loading...</span></p>
-              <p>Pilot Hours: <span id="pilot-hours"> Loading...</span></p>
+              <p>Controller Hours: <span id="controller-hours">Loading...</span></p>
+              <p>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
           </div>
           <script>
               fetch('/.netlify/functions/GetVatsimData')
                   .then(response => response.json())
                   .then(data => {
-                      document.getElementById('controller-hours').textContent = data.controllerHours;
-                      document.getElementById('pilot-hours').textContent = data.pilotHours;
+                      document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
+                      document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
                   })
                   .catch(error => {
                       console.error('Error:', error);

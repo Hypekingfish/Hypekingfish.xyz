@@ -27,10 +27,17 @@
         </header>
         <section class="Vatsim">
           <h2>My VATSIM Experience</h2>
+          <div>
+            <div class="gallery-grid">
+                <figure>
+                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
+                    <figcaption>VATSIM PDX ASDEX Controller Display</figcaption>
+                </figure>
+            </div>
+          </div>
           <div id="vatsim-stats" class="vatsim-text">
             <div class="controller-section">
-              <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
-              <h3>Controller Ratings</h3>
+              <h4>Controller Ratings</h4>
               <ul class="certifications">
                 <li>S1 - Ground Controller <span class="hours" id="s1-hours">Loading...</span> hours</li>
                 <!-- <li>S2 - Tower Controller <span class="hours" id="s2-hours">Loading...</span> hours</li> -->
@@ -40,7 +47,6 @@
               <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
             </div>
           </div>
-          
           <script>
               fetch('/.netlify/functions/GetVatsimData')
                   .then(response => response.json())

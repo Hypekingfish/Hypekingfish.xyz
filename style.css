@@ -93,18 +93,30 @@
 @layer header {
     header {
         display: flex;
-        flex-flow: row wrap;
+        align-items: center;
         justify-content: space-between;
-        align-items: baseline;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        padding: 1rem;
     }
     header h1 {
-        font-size: var(--h3);
-        color: var(--pink);
-        font-weight: 300;
         margin: 0;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+    }
+    header h1 img {
+        height: 50px;
+        width: auto;
+        display: block;
+        margin: 0 1rem;
+    }
+    header h1 a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    header nav {
+        display: flex;
+        align-items: center;
     }
     header a {
         text-decoration: none;

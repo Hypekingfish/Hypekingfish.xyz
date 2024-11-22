@@ -461,7 +461,19 @@ nav li {
     }
 
     .about li {
+        color: var(--pink);
+        text-align: center;
+        font-family: var(--heading);
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         margin-bottom: 0.5rem;
+    }
+    .about h3 {
+        color: var(--darkBlue);
+        text-align: center;
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     /* Make sections more mobile-friendly */
     @media (max-width: 768px) {

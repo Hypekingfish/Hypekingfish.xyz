@@ -66,20 +66,28 @@
                     .then(data => {
                         console.log('Received data:', data);
                         
-                        const formatHours = hours => (parseFloat(hours) || 0).toFixed(2);
+                        const updateElement = (id, value) => {
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.textContent = (parseFloat(value) || 0).toFixed(2);
+                            } else {
+                                console.error(`Element with id '${id}' not found`);
+                            }
+                        };
                         
-                        document.getElementById('controller-hours').textContent = formatHours(data.controllerHours);
-                        document.getElementById('pilot-hours').textContent = formatHours(data.pilotHours);
-                        
-                        document.getElementById('s1-hours').textContent = formatHours(data.s1Hours);
-                        document.getElementById('s2-hours').textContent = formatHours(data.s2Hours);
-                        document.getElementById('s3-hours').textContent = formatHours(data.s3Hours);
+                        updateElement('controller-hours', data.controllerHours);
+                        updateElement('pilot-hours', data.pilotHours);
+                        updateElement('s1-hours', data.s1Hours);
+                        updateElement('s2-hours', data.s2Hours);
+                        updateElement('s3-hours', data.s3Hours);
                     })
                     .catch(error => {
                         console.error('Error:', error);
                         const statsElement = document.getElementById('vatsim-stats');
                         if (statsElement) {
                             statsElement.innerHTML = '<p class="error">Unable to load VATSIM statistics. Please try again later.</p>';
+                        } else {
+                            console.error("Stats element not found");
                         }
                     });
             </script>

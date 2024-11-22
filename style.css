@@ -25,16 +25,21 @@
         padding: 0;
         font-size: var(--base-size);
         line-height: 1.5;
-        background: url('img/Freedom_One.PNG/');
+        background: url('img/Freedom_One.PNG/') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;  /* This is key - keeps bg fixed while scrolling */
-        min-height: 100vh;  /* Minimum height of 100% of viewport */
-        margin: 0;
-        /* Mobile optimization for background */
+        
+        /* Special handling for iOS devices */
+        @supports (-webkit-touch-callout: none) {
+            background-attachment: scroll; /* Prevents split background on iOS */
+            min-height: -webkit-fill-available; /* Better height handling on iOS */
+        }
+
+        /* Other mobile optimizations */
         @media (max-width: 768px) {
-            background-attachment: scroll; /* Better performance on mobile */
+            background-attachment: scroll;
             background-position: top center;
         }
     }

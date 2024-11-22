@@ -604,6 +604,13 @@ nav li {
         height: 24px;
         width: auto;
     }
+    .Vatsim h2 {
+        text-align: center;
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
     /* Optimize Vatsim container for mobile */
     @media (max-width: 768px) {
         .vatsim-container {

@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 
 const handler = schedule("* * * * *", async (event, context) => {
   try {
+    console.log('Function started');
     const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats', {
       headers: {
         'Accept': 'application/json'
@@ -10,8 +11,9 @@ const handler = schedule("* * * * *", async (event, context) => {
     });
     
     const data = await response.json();
+    console.log('Received data:', data);
     
-    return {
+    const result = {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
@@ -21,6 +23,10 @@ const handler = schedule("* * * * *", async (event, context) => {
         pilotHours: data.pilot
       }),
     };
+    
+    console.log('Returning:', result);
+    return result;
+    
   } catch (error) {
     console.error('Error:', error);
     return {

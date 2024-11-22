@@ -31,7 +31,7 @@
               <p>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
           </div>
           <script>
-              fetch('/.netlify/functions/FetchVatsimdata')
+              fetch('/.netlify/functions/GetVatsimData')
                   .then(response => response.json())
                   .then(data => {
                       document.getElementById('controller-hours').textContent = data.controllerHours;

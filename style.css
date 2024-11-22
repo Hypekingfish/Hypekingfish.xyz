@@ -427,3 +427,12 @@ nav li {
         width: auto;
     }
 }
+@layer social-links {
+    .social-links {
+        color: var(--blue);
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+

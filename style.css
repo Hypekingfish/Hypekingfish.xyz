@@ -628,6 +628,9 @@ nav li {
     .gallery-grid figcaption {
         color: var(--pink);
         text-align: center;
+        font-family: var(--heading);
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     /* Optimize Vatsim container for mobile */
     @media (max-width: 768px) {

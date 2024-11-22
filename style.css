@@ -353,10 +353,11 @@ nav li {
     }
 
     .about p {
-        color: var(--darkBlue);
+        color: var(--pink);
         text-align: center;
         line-height: 1.6;
         margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .about ul {

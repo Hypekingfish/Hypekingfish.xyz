@@ -5,6 +5,7 @@
         --grey: #8f8e8e;
         --lightBlue: #a0dbf2;
 		--blue: #5bcefa;
+        --darkBlue: #0077be;
 		--lightPink: #f2c9d4;
 		--pink: #f5a9b8;
         --main: "MoMontserrat", sans-serif;
@@ -436,7 +437,7 @@ nav li {
         padding-bottom: 1rem;
     }
     .social-links i {
-        color: var(--blue);
+        color: var(--darkBlue);
         font-size: 2rem;
     }
 }

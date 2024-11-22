@@ -22,13 +22,9 @@ export const handler = async (event, context) => {
         controllerHours: data.atc,
         pilotHours: data.pilot,
         ratingHours: {
-          s1: data.atc_ratings?.find(r => r.rating === 2)?.hours || 0,
-          s2: data.atc_ratings?.find(r => r.rating === 3)?.hours || 0,
-          s3: data.atc_ratings?.find(r => r.rating === 4)?.hours || 0,
-          c1: data.atc_ratings?.find(r => r.rating === 5)?.hours || 0,
-          c3: data.atc_ratings?.find(r => r.rating === 7)?.hours || 0,
-          i1: data.atc_ratings?.find(r => r.rating === 8)?.hours || 0,
-          i3: data.atc_ratings?.find(r => r.rating === 10)?.hours || 0
+          s1: data.s1,
+          s2: data.s2,
+          s3: data.s3,
         }
       }),
     };

@@ -20,7 +20,10 @@ const handler = schedule("0 * * * *", async (event, context) => {
       },
       body: JSON.stringify({
         controllerHours: data.atc,
-        pilotHours: data.pilot
+        pilotHours: data.pilot,
+        s1Hours: data.s1,
+        s2Hours: data.s2,
+        s3Hours: data.s3
       }),
     };
     

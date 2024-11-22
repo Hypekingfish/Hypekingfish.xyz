@@ -50,6 +50,9 @@
               <p>Total Controller Hours: <span id="controller-hours">Loading...</span></p>
             </div>
           </div>
+          <div class="About-Vatsim-Controlling">
+            <p>I've been controlling on VATSIM since July of 2024. I started out as a pilot, but quickly found a love for controlling. I've been a part of the virtual ZSE ARTCC and made many friends along the way.</p>
+          </div>
           <script>
               fetch('/.netlify/functions/GetVatsimData')
                   .then(response => response.json())
@@ -95,9 +98,6 @@
                         <figcaption>Carbon Cub group flight</figcaption>
                     </figure>
                 </div>
-            </div>
-            <div id="vatsim-stats" class="vatsim-text">
-                <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
             </div>
             <script>
                 fetch('/.netlify/functions/GetVatsimData')

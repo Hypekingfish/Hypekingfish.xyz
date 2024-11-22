@@ -22,16 +22,13 @@ export const handler = async (event, context) => {
         controllerHours: data.atc,
         pilotHours: data.pilot,
         ratingHours: {
-          observer: data.rating_hours.OBS || 0,
-          student1: data.rating_hours.S1 || 0,
-          student2: data.rating_hours.S2 || 0,
-          student3: data.rating_hours.S3 || 0,
-          controller1: data.rating_hours.C1 || 0,
-          controller3: data.rating_hours.C3 || 0,
-          instructor1: data.rating_hours.I1 || 0,
-          instructor3: data.rating_hours.I3 || 0,
-          supervisor: data.rating_hours.SUP || 0,
-          administrator: data.rating_hours.ADM || 0
+          s1: data.atc_ratings?.find(r => r.rating === 2)?.hours || 0,
+          s2: data.atc_ratings?.find(r => r.rating === 3)?.hours || 0,
+          s3: data.atc_ratings?.find(r => r.rating === 4)?.hours || 0,
+          c1: data.atc_ratings?.find(r => r.rating === 5)?.hours || 0,
+          c3: data.atc_ratings?.find(r => r.rating === 7)?.hours || 0,
+          i1: data.atc_ratings?.find(r => r.rating === 8)?.hours || 0,
+          i3: data.atc_ratings?.find(r => r.rating === 10)?.hours || 0
         }
       }),
     };

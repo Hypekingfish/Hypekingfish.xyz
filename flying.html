@@ -27,27 +27,49 @@
         </header>
         <section class="Vatsim">
           <h2>My VATSIM Experience</h2>
-          <div class="controller-section">
-            <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
+          <div id="vatsim-stats" class="vatsim-text">
+            <div class="controller-section">
+              <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
               <h3>Controller Ratings</h3>
               <ul class="certifications">
-                <li>S1 - Ground Controller <span class="hours" id="s1-hours">Loading...</span></li>
+                <li>S1 - Ground Controller <span class="hours" id="s1-hours">Loading...</span> hours</li>
+                <!-- <li>S2 - Tower Controller <span class="hours" id="s2-hours">Loading...</span> hours</li> -->
+                <!-- <li>S3 - Approach Controller <span class="hours" id="s3-hours">Loading...</span> hours</li> -->
               </ul>
+              <p>Total Controller Hours: <span id="controller-hours">Loading...</span></p>
+              <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+            </div>
           </div>
+          
           <script>
               fetch('/.netlify/functions/GetVatsimData')
                   .then(response => response.json())
                   .then(data => {
-                      document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
-                      document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
-                      document.getElementById('s1-hours').textContent = ` ${data.s1Hours}`;
+                      // Add error checking before setting values
+                      const elements = {
+                          'controller-hours': data.controllerHours,
+                          'pilot-hours': data.pilotHours,
+                          's1-hours': data.s1Hours,
+                          // 's2-hours': data.s2Hours,
+                          // 's3-hours': data.s3Hours
+                      };
+
+                      for (const [id, value] of Object.entries(elements)) {
+                          const element = document.getElementById(id);
+                          if (element) {
+                              element.textContent = value;
+                          }
+                      }
                   })
                   .catch(error => {
                       console.error('Error:', error);
-                      document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
+                      const statsElement = document.getElementById('vatsim-stats');
+                      if (statsElement) {
+                          statsElement.textContent = 'Failed to load VATSIM stats';
+                      }
                   });
           </script>
-      </section>
+        </section>
         <article>
         </article>
         <footer>

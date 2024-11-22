@@ -14,18 +14,11 @@ export const handler = async (event, context) => {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "X-RateLimit-Limit": response.headers.get('X-RateLimit-Limit'),
-        "X-RateLimit-Remaining": response.headers.get('X-RateLimit-Remaining'),
+        "Access-Control-Allow-Origin": "*", // Enable CORS
       },
       body: JSON.stringify({
         controllerHours: data.atc,
-        pilotHours: data.pilot,
-        ratingHours: {
-          s1Hours: data.s1,
-          s2Hours: data.s2,
-          s3Hours: data.s3,
-        }
+        pilotHours: data.pilot
       }),
     };
   } catch (error) {

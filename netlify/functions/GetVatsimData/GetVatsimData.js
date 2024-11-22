@@ -22,9 +22,9 @@ export const handler = async (event, context) => {
         controllerHours: data.atc,
         pilotHours: data.pilot,
         ratingHours: {
-          s1: data.s1,
-          s2: data.s2,
-          s3: data.s3,
+          s1Hours: data.s1,
+          s2Hours: data.s2,
+          s3Hours: data.s3,
         }
       }),
     };

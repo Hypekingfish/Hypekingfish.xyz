@@ -40,6 +40,7 @@
                   .then(data => {
                       document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
                       document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
+                    //   document.getElementById('s1-hours').textContent = ` ${data.s1Hours}`;
                   })
                   .catch(error => {
                       console.error('Error:', error);

@@ -429,10 +429,13 @@ nav li {
 }
 @layer social-links {
     .social-links {
-        color: var(--blue);
         display: flex;
         justify-content: center;
         gap: 1rem;
+    }
+    .social-links i {
+        color: var(--blue);
+        font-size: 2rem;
     }
 }
 

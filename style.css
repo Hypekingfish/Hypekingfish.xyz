@@ -377,14 +377,14 @@ nav li {
     }
 }
 @layer Vatsim {
-    .Vatsim p {
+    .vatsim-container {
         display: flex;
         align-items: center;
-        gap: 8px;  /* Space between elements */
+        gap: 8px;
+        padding: 1rem;
     }
-    
-    .Vatsim img {
-        height: 24px;  /* Adjust size as needed */
+    .vatsim-image img {
+        height: 24px;
         width: auto;
     }
 }

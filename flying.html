@@ -26,9 +26,14 @@
         </header>
         <section class="Vatsim">
           <h2>VATSIM Stats</h2>
-          <div id="vatsim-stats">
-              <p><img src="img/PDX_ASDEX.png"/>Controller Hours: <span id="controller-hours">Loading...</span></p>
-              <p><img src="img/Freedom_One.PNG"/>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+          <div class="vatsim-container">
+              <div class="vatsim-image">
+                  <img src="img/PDX_ASDEX.png" alt="VATSIM">
+              </div>
+              <div id="vatsim-stats" class="vatsim-text">
+                  <p><img src="img/PDX_ASDEX.png" alt="Controller"/> Controller Hours: <span id="controller-hours">Loading...</span></p>
+                  <p><img src="img/Freedom_One.PNG" alt="Pilot"/> Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+              </div>
           </div>
           <script>
               fetch('/.netlify/functions/GetVatsimData')

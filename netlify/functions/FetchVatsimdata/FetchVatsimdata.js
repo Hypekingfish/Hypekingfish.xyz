@@ -1,20 +1,15 @@
 import { schedule } from '@netlify/functions';
-import pkg from 'axios';
-const { default: axios } = pkg;
+import fetch from 'node-fetch';
 
-// Rename the handler function to avoid redeclaration
-const fetchVatsimData = async (event) => {
+const handler = schedule("* * * * *", async (event, context) => {
   try {
-    const config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: 'https://api.vatsim.net/v2/members/1630701/stats',
+    const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats', {
       headers: {
         'Accept': 'application/json'
       }
-    };
+    });
     
-    const response = await axios(config);
+    const data = await response.json();
     
     return {
       statusCode: 200,
@@ -22,8 +17,8 @@ const fetchVatsimData = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        controllerHours: response.data.atc,
-        pilotHours: response.data.pilot
+        controllerHours: data.atc,
+        pilotHours: data.pilot
       }),
     };
   } catch (error) {
@@ -33,9 +28,8 @@ const fetchVatsimData = async (event) => {
       body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
     };
   }
-};
+});
 
-// Export the scheduled function (runs every minute)
-export const handler = schedule("* * * * *", fetchVatsimData);
+export { handler };
 
  

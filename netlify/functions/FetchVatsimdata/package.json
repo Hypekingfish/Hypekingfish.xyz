@@ -3,6 +3,6 @@
   "type": "module",
   "dependencies": {
     "@netlify/functions": "^2.8.2",
-    "axios": "^1.6.2"
+    "node-fetch": "^3.3.2"
   }
 }

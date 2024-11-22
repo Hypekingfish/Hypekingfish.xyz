@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, intial-scale=1.0" />
@@ -7,48 +7,72 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
         <title>Hypekingfish</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet"/>
         <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
         <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
     </head>
     <body class="container">
         <header>
             <h1>
-                <a href="index.html" aria-label="Go Home"><span>Hypekingfish</span></a> 
+                <a href="index.html" aria-label="Go Home">
+                    <img src="img/FnBLogo_FINAL_800.png" alt="Hypekingfish Logo"/>
+                    <span>Hypekingfish</span>
+                </a>
             </h1>
             <button type="button" tabindex="-1" hidden></button>
             <nav>
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="flying.html">Flying</a></li>
-                    <li><a href="#">Placeholder</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </header>
+        <section class="FHeader">
+            <h2>My Flight Simulation Journey</h2>
+        </section>
         <section class="Vatsim">
-          <h2>VATSIM Stats</h2>
-          <div class="vatsim-container">
-              </div>
-              <div id="vatsim-stats" class="vatsim-text">
-                <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/><p> Controller Hours: <span id="controller-hours">Loading...</span></p>
-                <img src="img/GA_Friend.PNG" alt="VATSIM General Aviation Aircraft"/><p> Pilot Hours: <span id="pilot-hours">Loading...</span></p>
-              </div>
-          </div>
-          <script>
-              fetch('/.netlify/functions/GetVatsimData')
-                  .then(response => response.json())
-                  .then(data => {
-                      document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
-                      document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
-                  })
-                  .catch(error => {
-                      console.error('Error:', error);
-                      document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
-                  });
-          </script>
-      </section>
-        <article>
-        </article>
+            <h2>VATSIM Stats</h2>
+            <div class="vatsim-container">
+                <div id="vatsim-stats" class="vatsim-text">
+                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
+                    <p>Controller Hours: <span id="controller-hours">Loading...</span></p>
+                    <img src="img/GA_Friend.PNG" alt="VATSIM General Aviation Aircraft"/>
+                    <p>Pilot Hours: <span id="pilot-hours">Loading...</span></p>
+                </div>
+            </div>
+            <script>
+                fetch('/.netlify/functions/GetVatsimData')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
+                        document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
+                    });
+            </script>
+        </section>
+        <section class="flight-info">
+            <h3>My Flight Simulation Experience</h3>
+            <p>With over 1,500 hours in Microsoft Flight Simulator, I've developed a deep passion for virtual aviation. I regularly fly on VATSIM, a network that simulates real-world air traffic control and pilot interactions.</p>
+            
+            <h3>Favorite Aircraft</h3>
+            <ul>
+                <li>Boeing 737-800 - My go-to aircraft for short to medium-haul flights</li>
+                <li>Cessna 172 - Perfect for casual VFR flying and sightseeing</li>
+            </ul>
+
+            <h3>Regular Routes</h3>
+            <p>I frequently fly routes between major US airports, with a particular focus on:</p>
+            <ul>
+                <li>Pacific Northwest (KSEA, KPDX, KGEG)</li>
+                <li>California (KLAX, KSFO, KSAN)</li>
+                <li>East Coast (KJFK, KBOS, KIAD)</li>
+            </ul>
+        </section>
         <footer>
             <p><small><img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag"/></small></p>
             <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>

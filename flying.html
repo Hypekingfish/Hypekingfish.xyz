@@ -25,13 +25,17 @@
                 </ul>
             </nav>
         </header>
-        <section class="Vatsim">
+        <section class="Vatsim-Controlling">
           <h2>My VATSIM Controller Experience</h2>
           <div>
             <div class="gallery-grid">
                 <figure>
                     <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
                     <figcaption>VATSIM PDX ASDEX Controller Display</figcaption>
+                </figure>
+                <figure>
+                    <img src="" alt=""/>
+                    <figcaption></figcaption>
                 </figure>
             </div>
           </div>
@@ -44,7 +48,6 @@
                 <!-- <li>S3 - Approach Controller <span class="hours" id="s3-hours">Loading...</span> hours</li> -->
               </ul>
               <p>Total Controller Hours: <span id="controller-hours">Loading...</span></p>
-              <p>Total Pilot Hours: <span id="pilot-hours">Loading...</span></p>
             </div>
           </div>
           <script>
@@ -75,6 +78,45 @@
                       }
                   });
           </script>
+        </section>
+        <section class="Vatsim-Pilot">
+            <h2>My VATSIM Pilot Experience</h2>
+            <div>
+                <div class="gallery-grid">
+                    <figure>
+                        <img src="/img/Freedom_One.PNG" alt="Southwest Airlines Freedom One"/>
+                        <figcaption>Southwest Airlines Freedom One</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/img/IFR_Alaska.PNG" alt="Alaska Airlines Honoring Those Who Served"/>
+                        <figcaption>Alaska Airlines Honoring Those Who Served</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <script>
+                fetch('/.netlify/functions/GetVatsimData')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Add error checking before setting values
+                        const elements = {
+                            'pilot-hours': data.pilotHours,
+                        };
+  
+                        for (const [id, value] of Object.entries(elements)) {
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.textContent = value;
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        const statsElement = document.getElementById('vatsim-stats');
+                        if (statsElement) {
+                            statsElement.textContent = 'Failed to load VATSIM stats';
+                        }
+                    });
+            </script>
         </section>
         <article>
         </article>

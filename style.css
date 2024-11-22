@@ -562,7 +562,7 @@ nav li {
         }
     }
 }
-@layer Vatsim {
+@layer Vatsim-Controlling {
     .vatsim-container {
         display: flex;
         align-items: left;
@@ -592,19 +592,19 @@ nav li {
         height: 200px;
         width: auto;
     }
-    .Vatsim p {
+    .Vatsim-Controlling p {
         color: var(--pink);
         display: flex;
         align-items: center;
         gap: 8px;
     }
     
-    .Vatsim-image p {
+    .Vatsim-Controlling-image p {
         color: var(--pink);
         height: 24px;
         width: auto;
     }
-    .Vatsim h2 {
+    .Vatsim-Controlling h2 {
         text-align: center;
         color: var(--darkBlue);
         margin: 0;

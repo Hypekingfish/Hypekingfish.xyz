@@ -34,7 +34,7 @@ const fetchVatsimData = async (event) => {
   }
 };
 
-// Export the scheduled function (runs every hour)
-export const handler = schedule("@hourly", fetchVatsimData);
+// Export the scheduled function (runs every minute)
+export const handler = schedule("* * * * *", fetchVatsimData);
 
  

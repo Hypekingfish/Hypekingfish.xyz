@@ -373,16 +373,26 @@ nav li {
     .vatsim-container {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 1rem;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .vatsim-image {
         flex: 1;
+        max-width: 50%;
+    }
+
+    .vatsim-image img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     .vatsim-text {
         flex: 1;
+        padding: 1rem;
     }
     .vatsim-image img {
         height: 24px;

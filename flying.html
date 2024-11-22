@@ -61,18 +61,26 @@
                 </div>
             </div>
             <script>
-                fetch('/.netlify/functions/GetVatsimData')
+                fetch('/.netlify/functions/FetchVatsimdata')
                     .then(response => response.json())
                     .then(data => {
-                        document.getElementById('controller-hours').textContent = ` ${data.controllerHours}`;
-                        document.getElementById('pilot-hours').textContent = ` ${data.pilotHours}`;
-                        document.getElementById('s1-hours').textContent = ` ${data.s1}`;
-                        document.getElementById('s2-hours').textContent = ` ${data.s2}`;
-                        document.getElementById('s3-hours').textContent = ` ${data.s3}`;
+                        console.log('Received data:', data);
+                        
+                        const formatHours = hours => (parseFloat(hours) || 0).toFixed(2);
+                        
+                        document.getElementById('controller-hours').textContent = formatHours(data.controllerHours);
+                        document.getElementById('pilot-hours').textContent = formatHours(data.pilotHours);
+                        
+                        document.getElementById('s1-hours').textContent = formatHours(data.s1Hours);
+                        document.getElementById('s2-hours').textContent = formatHours(data.s2Hours);
+                        document.getElementById('s3-hours').textContent = formatHours(data.s3Hours);
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        document.getElementById('vatsim-stats').textContent = 'Failed to load VATSIM stats';
+                        const statsElement = document.getElementById('vatsim-stats');
+                        if (statsElement) {
+                            statsElement.innerHTML = '<p class="error">Unable to load VATSIM statistics. Please try again later.</p>';
+                        }
                     });
             </script>
         </section>

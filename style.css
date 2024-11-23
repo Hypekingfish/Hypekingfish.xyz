@@ -8,6 +8,7 @@
         --darkBlue: #0077be;
 		--lightPink: #f2c9d4;
 		--pink: #f5a9b8;
+        --red: #ff0000;
         --main: "MoMontserrat", sans-serif;
         --heading: "EB Garamond", serif;
 		--base-size: 1.167rem;
@@ -625,9 +626,16 @@ nav li {
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+    .vatsim-text h2 {
+        text-align: center;
+        color: var(--red);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
     .vatsim-text h3 {
         text-align: center;
-        color: var(--darkBlue);
+        color: var(--red);
         margin: 0;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -650,7 +658,7 @@ nav li {
     }
     .Vatsim-Pilot h3 {
         text-align: center;
-        color: var(--darkBlue);
+        color: var(--red);
         margin: 0;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

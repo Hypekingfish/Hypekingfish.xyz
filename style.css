@@ -630,7 +630,7 @@ nav li {
         color: var(--darkBlue);
         margin: 0;
         font-weight: 600;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.2);
     }
     .About-Vatsim-Controlling p {
         font-family: var(--body);

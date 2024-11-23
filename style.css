@@ -618,6 +618,20 @@ nav li {
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
+    .About-Vatsim-Controlling h3 {
+        text-align: center;
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .About-Vatsim-Controlling h4 {
+        text-align: center;
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
     .About-Vatsim-Controlling p {
         font-family: var(--body);
         font-size: 1.2rem;
@@ -625,6 +639,20 @@ nav li {
         margin-bottom: 1.5rem;
         color: var(--darkBlue);
         text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .Vatsim-Pilot h2 {
+        text-align: center;
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .Vatsim-Pilot h3 {
+        text-align: center;
+        color: var(--darkBlue);
+        margin: 0;
+        font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     .gallery-grid {

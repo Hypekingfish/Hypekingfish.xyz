@@ -657,6 +657,10 @@ nav li {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     .Vatsim-Pilot h3 {
+        border: 2px solid var(--black);
+        padding: 1rem;
+        background-color: var(--black);
+        display: inline-block;
         text-align: center;
         color: var(--red);
         margin: 0;

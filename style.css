@@ -666,6 +666,7 @@ nav li {
         margin: 0;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        opacity: 0.8; /* Added opacity */
     }
     .gallery-grid {
         display: grid;

@@ -113,17 +113,12 @@
 }
 @layer header {
     header {
-        border: 2px solid var(--red);
-        position: relative; /* Changed from fixed to relative */
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
-        background-color: var(--black); /* Optional: Add a background color */
-        z-index: 10; /* Ensure it stays above other content */
-        width: 100%; /* Ensure it spans the full width of the viewport */
     }
-    
     header h1 {
         font-family: var(--heading);
         font-weight: 600;
@@ -693,10 +688,14 @@ nav li {
         margin: 0;
     }
     .gallery-grid img {
+        transition: transform 0.3s ease-in-out;
         border-radius: 20px;
         width: 100%;
         height: auto;
         display: block;
+    }
+    .gallery-grid img:hover {
+        transform: scale(1.1);
     }
     .gallery-grid figcaption {
         color: var(--pink);

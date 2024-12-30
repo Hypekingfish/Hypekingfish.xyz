@@ -114,12 +114,16 @@
 @layer header {
     header {
         border: 2px solid var(--red);
-        position: relative;
+        position: relative; /* Changed from fixed to relative */
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
+        background-color: var(--black); /* Optional: Add a background color */
+        z-index: 10; /* Ensure it stays above other content */
+        width: 100%; /* Ensure it spans the full width of the viewport */
     }
+    
     header h1 {
         font-family: var(--heading);
         font-weight: 600;

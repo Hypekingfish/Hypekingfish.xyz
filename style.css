@@ -607,16 +607,16 @@ nav li {
         width: auto;
     }
     .Vatsim-Controlling h2 {
-        border: 2px solid var(--red);
+        border: 2px solid var(--darkBlue);
         border-radius: 40px;
         padding: 1rem;
         background-color: var(--black);
         text-align: center;
         color: var(--darkBlue);
-        margin: 0;
+        margin: 0 0 1rem 0; /* Adds space below the border */
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        opacity: 0.8;
+        opacity: 0.8; /* Added opacity */
     }
     .Vatsim-Controlling li {
         text-align: center;
@@ -661,11 +661,11 @@ nav li {
         padding: 1rem;
         background-color: var(--black);
         text-align: center;
-        color: var(--darkBlue);
-        margin: 0;
+        color: var(--red);
+        margin: 0 0 1rem 0; /* Adds space below the border */
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        opacity: 0.8;
+        opacity: 0.8; /* Added opacity */
     }
     .Vatsim-Pilot h3 {
         border: 2px solid var(--red);
@@ -674,11 +674,12 @@ nav li {
         background-color: var(--black);
         text-align: center;
         color: var(--red);
-        margin: 0 0 1rem 0;
+        margin: 0 0 1rem 0; /* Adds space below the border */
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         opacity: 0.8; /* Added opacity */
     }
+    
     .gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

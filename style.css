@@ -113,6 +113,7 @@
 }
 @layer header {
     header {
+        border: 2px solid var(--red);
         position: relative;
         display: flex;
         align-items: center;

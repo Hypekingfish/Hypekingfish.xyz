@@ -642,11 +642,14 @@ nav li {
     .vatsim-text h3 {
         border: 2px solid var(--darkBlue);
         border-radius: 40px;
+        padding: 1rem;
+        background-color: var(--black);
         text-align: center;
         color: var(--darkBlue);
-        margin: 0;
+        margin: 0 0 1rem 0;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        opacity: 0.8;
     }
     .About-Vatsim-Controlling p {
         font-family: var(--body);

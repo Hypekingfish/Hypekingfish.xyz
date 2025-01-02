@@ -760,16 +760,15 @@ nav li {
 @layer Wallpaper_Engine {
 
     .Wallpaper_Engine h2 {
-        border: 2px solid var(--red);
+        border: 2px solid var(--darkBlue);
         border-radius: 40px;
         padding: 1rem;
         background-color: var(--black);
         text-align: center;
         color: var(--red);
-        font-family: var(--heading);
         margin: 0 0 1rem 0;
         font-weight: 600;
-        opacity: 0;
+        opacity: 0.8;
     }
 
     .grid {

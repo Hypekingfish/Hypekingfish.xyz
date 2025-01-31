@@ -22,7 +22,7 @@ const handler = schedule("0 * * * *", async (event, context) => {
         controllerHours: data.atc,
         pilotHours: data.pilot,
         s1Hours: data.s1,
-        s2Hours: data.s2,
+        // s2Hours: data.s2,
         // s3Hours: data.s3
       }),
     };

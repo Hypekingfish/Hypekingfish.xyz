@@ -819,18 +819,18 @@ nav li {
     }
 }
 @layer Streaming {
-    .support-me  p{
+    .Twitch  p{
         color: var(--twitchpurple);
         text-align: left;
         font-family: var(--heading);
     }
 
-    .support-me h1 {
+    .Twitch h1 {
         color: var(--twitchpurple);
         text-align: left;
         font-family: var(--heading)
     }
-    .support-me img {
+    .Twitch img {
         height: 200px;
         width: auto;
     }

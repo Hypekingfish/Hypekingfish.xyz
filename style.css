@@ -831,7 +831,8 @@ nav li {
         font-family: var(--heading)
     }
     .support-me img {
-        
+        height: 200px;
+        width: auto;
     }
 
     @media (max-width: 768px) {

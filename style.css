@@ -821,8 +821,9 @@ nav li {
 @layer Streaming {
     .Twitch  p{
         color: var(--twitchpurple);
-        text-align: left;
+        text-align: center;
         font-family: var(--heading);
+        text-wrap: var(--scale);
     }
 
     .Twitch h1 {
@@ -833,6 +834,7 @@ nav li {
     .Twitch img {
         height: 200px;
         width: auto;
+        text-wrap: var(--scale);
     }
 
     @media (max-width: 768px) {

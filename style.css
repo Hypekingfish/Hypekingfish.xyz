@@ -296,6 +296,8 @@ nav li {
     padding: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 }
+@layer Home {
+}
 @layer footer {
     footer {
         text-align: center;
@@ -819,27 +821,16 @@ nav li {
     }
 }
 @layer Streaming {
-    .Twitch  p{
-        color: var(--twitchpurple);
-        text-align: center;
-        font-family: var(--heading);
-        text-wrap: var(--scale);
-    }
-
-    .Twitch h1 {
-        color: var(--twitchpurple);
-        text-align: left;
-        font-family: var(--heading)
-    }
-    .Twitch img {
-        height: 200px;
-        width: auto;
-        text-wrap: var(--scale);
-    }
-
-    @media (max-width: 768px) {
-        .support-me img {
-            max-width: 100%;
+        .subscriber_badges h2 {
+            border: 2px solid var(--red);
+            border-radius: 40px;
+            padding: 1rem;
+            background-color: var(--black);
+            text-align: center;
+            color: var(--red);
+            margin: 0 0 1rem 0; /* Adds space below the border */
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0.8; /* Added opacity */
         }
-    }
 }

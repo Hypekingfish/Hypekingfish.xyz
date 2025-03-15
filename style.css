@@ -606,28 +606,28 @@ nav li {
     
     .Vatsim-Controlling h2,
     .Vatsim-Controlling li {
+        width: 90%;
+        max-width: 600px;
         border: 2px solid var(--darkBlue);
         border-radius: 40px;
-        padding: 1rem;
+        padding: 1.5rem; /* Increase padding to match */
         background-color: var(--black);
         text-align: center;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         opacity: 0.8;
-        width: 90%; /* Ensure both are the same width */
-        max-width: 600px; /* Prevent it from being too wide */
     }
-    
+
     .Vatsim-Controlling h2 {
+        font-size: 1.8rem; /* Make text consistent */
         color: var(--darkBlue);
-        margin-bottom: 1rem; /* Space below */
     }
-    
+
     .Vatsim-Controlling li {
+        font-size: 1.5rem; /* Make slightly larger */
         color: var(--pink);
         font-family: var(--heading);
-        margin-bottom: 1rem; /* Keep spacing consistent */
-        list-style: none; /* Removes default bullet points */
+        list-style: none;
     }
     
     /* Optional: Centering the content */

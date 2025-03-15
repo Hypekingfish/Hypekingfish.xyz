@@ -22,16 +22,16 @@
 		--h6: var(--base-size);
     }
 
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-        z-index: -1;
-    }
+    /* body::before { */
+        /* content: ""; */
+        /* position: fixed; */
+        /* top: 0; */
+        /* left: 0; */
+        /* width: 100%; */
+        /* height: 100%; */
+        /* background: rgba(0, 0, 0, 0.6); Dark overlay */
+        /* z-index: -1; */
+    /* } */
 
     body {
         font-family: var(--main);
@@ -44,7 +44,7 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        /* backdrop-filter: blur(2px); */
+        backdrop-filter: blur(2px);
         
         /* Special handling for iOS devices */
         @supports (-webkit-touch-callout: none) {

@@ -827,12 +827,8 @@ nav li {
     
     .badge_images img {
         display: inline-flex;
-        grid-template-columns: repeat(3, 1fr);
+        margin-right: 20px;
         height: 112px;
         width: 112px;
-    }
-
-    .badge_images span {
-        text-align: center;
     }
 }

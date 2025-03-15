@@ -826,9 +826,13 @@ nav li {
     }
     
     .badge_images img {
-        display: grid;
+        display: inline-flex;
         grid-template-columns: repeat(3, 1fr);
         height: 112px;
         width: 112px;
+    }
+
+    .badge_images span {
+        text-align: center;
     }
 }

@@ -10,6 +10,7 @@
 		--pink: #f5a9b8;
         --red: #ff0000;
         --twitchpurple: #a970ff;
+        --paypalblue: #002991 ;
         --main: "MoMontserrat", sans-serif;
         --heading: "EB Garamond", serif;
 		--base-size: 1.167rem;
@@ -947,5 +948,51 @@ nav li {
 
     #twitch-embed {
         height: 320px;
+    }
+}
+@layer Shecdule {
+    .stream-schedule, .recent-clips, .stream-stats, .activity-feed, .donations, .merch-store, .about-me, .vatsim-map, .social-links {
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #2a2a2a;
+        border-radius: 8px;
+    }
+    
+    .stream-schedule ul, .activity-feed ul {
+        padding-left: 20px;
+    }
+    
+    .stream-schedule li, .activity-feed li {
+        margin-bottom: 10px;
+    }
+}
+@layer PayPal {
+    .donations h2 {
+        text-align: center;
+        color: var(--paypalblue);
+    }
+    .donations a {
+        text-decoration: none;
+    }
+    .donations p {
+        margin: 15px 0;
+        font-size: 1.1em;
+    }
+    .donations {
+        text-align: center; /* Center the content within the donations section */
+    }
+    .donate-button {
+        background-color: var(--twitchpurple);
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        text-align: center;
+        margin: 0 10px; /* Space between buttons */
+        transition: background-color 0.3s ease;
+        display: inline-block; /* Make buttons inline */
+    }
+    .donate-button:hover {
+        background-color: var(--paypalblue);
     }
 }

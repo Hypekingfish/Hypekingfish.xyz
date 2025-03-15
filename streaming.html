@@ -88,6 +88,21 @@
                 </div>
             </div>
         </section>
+        <section class="twitch-embed">
+            <h2>Live on Twitch</h2>
+            <div id="twitch-embed"></div>
+        </section>
+        
+        <script src="https://embed.twitch.tv/embed/v1.js"></script>
+        <script>
+            new Twitch.Embed("twitch-embed", {
+                width: "100%",
+                height: 480,
+                channel: "hypekingfish",  // Your Twitch username
+                layout: "video-with-chat", // Can be "video-with-chat" or just "video"
+                theme: "dark"
+            });
+        </script>
         <footer>
             <p><small><img src="img/Progress_Pride_Flag.png"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png"/></small></p>
             <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>

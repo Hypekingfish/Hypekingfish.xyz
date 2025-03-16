@@ -149,7 +149,6 @@
         text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2, 0 0 20px #ff0000, 0 0 25px #ff7300, 0 0 30px #ffcc00;
     }
 }
-
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -161,12 +160,11 @@
         transform: scale(1);
     }
 }
-
 .rainbow-text {
     font-size: 2rem;
     color: var(--twitchpurple);
     display: inline-block;
-    animation: rainbowText 3s infinite linear, pulse 2s infinite ease-in-out;
+    animation: rainbowText 3s infinite alternate, pulse 2s infinite ease-in-out;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1133,5 +1131,32 @@ nav li {
         width: 35px;
         height: 35px;
         font-size: 1em;
+    }
+}
+@layer bit_tier_badges {
+    .bit_tier_badges {
+        text-align: center;
+    }
+    .bit_tier_badges p {
+        text-align: center;
+        color: var(--twitchpurple);
+        font-family: var(--heading);
+        font-weight: 600;
+        transition: box-shadow 0.3s ease-in-out;
+        text-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
+    }
+    .bit_tier_images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .bit_tier_images img {
+        transition: transform 0.3s ease-in-out;
+        height: 112px;
+        width: 112px;
+    }
+    .bit_tier_images img:hover {
+        transform: scale(1.08);
     }
 }

@@ -848,7 +848,6 @@ nav li {
     }
 }
 
-/* Twitch Embed */
 @layer twitch {
     .twitch-embed {
         display: flex;
@@ -879,8 +878,6 @@ nav li {
         color: #9147ff; /* Twitch purple */
         text-shadow: 0px 0px 10px rgba(145, 71, 255, 0.8);
     }
-    
-    /* Twitch Player Styling */
     .Player {
         display: flex;
         flex-direction: column;
@@ -888,7 +885,6 @@ nav li {
         width: 100%;
         margin-top: 15px;
     }
-    
     #twitch-embed {
         width: 100%;
         max-width: 850px;
@@ -914,6 +910,10 @@ nav li {
             height: 400px;
         }
     }
+
+    .mobile-message a {
+        text-decoration: none;
+    }
     
     @media (max-width: 600px) {
         .twitch-embed h2 {
@@ -925,11 +925,25 @@ nav li {
         }
     }
 
-    @media (max-width: 768px) { /* Adjusts for mobile screens */
+    @media (max-width: 768px) { 
         .twitch-embed {
             display: none;
         }
+        .mobile-message {
+            display: block;
+            text-align: center;
+            color: var(--twitchpurple);
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
     }
+    
+    @media (min-width: 769px) {
+        .mobile-message {
+            display: none;
+        }
+    }
+    
     
 
 /* Stream Schedule & Other Sections */

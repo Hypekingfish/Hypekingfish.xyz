@@ -997,6 +997,10 @@ nav li {
         flex-wrap: wrap;
     }
 
+    .social-links a {
+        text-decoration: none;
+    }
+
     .social-button {
         background-color: var(--twitchpurple);
         color: white;
@@ -1009,10 +1013,6 @@ nav li {
         font-size: 1.2em;
         transition: transform 0.3s ease, color 0.3s ease;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .social-button a {
-        text-decoration: none;
     }
 
     .social-button:hover {

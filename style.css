@@ -975,23 +975,32 @@ nav li {
 @layer Social-Buttons {
     .social-links {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 12px; /* Better spacing between buttons */
     }
+
     .social-links a {
         text-decoration: none;
     }
+
     .social-button {
         background-color: var(--twitchpurple);
         color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1.2em;
-        text-align: center;
-        margin: 0 10px;
-        transition: background-color 0.3s ease;
-        display: inline-block;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%; /* Circular buttons */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
     .social-button:hover {
         background-color: var(--paypalblue);
-        box-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(145, 71, 255, 0.4);
     }
 }

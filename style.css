@@ -1011,11 +1011,11 @@ nav li {
         align-items: center;
         justify-content: center;
         font-size: 1.2em;
-        transition: transform 0.3s ease, color 0.3s ease;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        transition: shadow-box 0.3s ease-in-out;
     }
 
     .social-button:hover {
+        box-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
         background-color: var(--paypalblue);
         transform: rotate(10deg) scale(1.08);
     }

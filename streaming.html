@@ -83,7 +83,36 @@
         
                 <button type="submit">Send Message</button>
             </form>
-        </section>        
+        </section>
+        <script>
+            const form = document.querySelector('form');
+            const successMessage = document.createElement('p');
+            const errorMessage = document.createElement('p');
+        
+            successMessage.style.color = 'green';
+            errorMessage.style.color = 'red';
+        
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                    });
+        
+                    if (response.ok) {
+                        form.reset();
+                        form.appendChild(successMessage);
+                        successMessage.textContent = 'Your message has been sent!';
+                    } else {
+                        throw new Error('Something went wrong!');
+                    }
+                } catch (error) {
+                    form.appendChild(errorMessage);
+                    errorMessage.textContent = 'Error: Unable to send the message!';
+                }
+            });
+        </script>           
         <footer>
             <p><small><img src="img/Progress_Pride_Flag.png"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png"/></small></p>
             <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>

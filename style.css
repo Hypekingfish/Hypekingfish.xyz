@@ -915,6 +915,12 @@ nav li {
             height: 320px;
         }
     }
+
+    @media (max-width: 768px) { /* Adjusts for mobile screens */
+        .twitch-embed {
+            display: none;
+        }
+    }
     
 
 /* Stream Schedule & Other Sections */
@@ -1003,6 +1009,10 @@ nav li {
         font-size: 1.2em;
         transition: transform 0.3s ease, color 0.3s ease;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-button a {
+        text-decoration: none;
     }
 
     .social-button:hover {

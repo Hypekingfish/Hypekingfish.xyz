@@ -126,6 +126,37 @@
         }
     }
 }
+@keyframes rainbowText {
+    0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #ffcc00, 0 0 30px #ffcc00;
+    }
+    16% {
+        text-shadow: 0 0 5px #ff7300, 0 0 10px #ff7300, 0 0 15px #ff7300, 0 0 20px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ff7300;
+    }
+    33% {
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00, 0 0 25px #ff7300, 0 0 30px #ff7300;
+    }
+    50% {
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #ff0000;
+    }
+    66% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #0000ff, 0 0 25px #0000ff, 0 0 30px #ffcc00;
+    }
+    83% {
+        text-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #8a2be2, 0 0 25px #8a2be2, 0 0 30px #00ff00;
+    }
+    100% {
+        text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2, 0 0 20px #ff0000, 0 0 25px #ff7300, 0 0 30px #ffcc00;
+    }
+}
+
+.rainbow-text {
+    font-size: 3rem;
+    color: #fff;
+    display: inline-block;
+    animation: rainbowText 5s infinite alternate;
+}
+
 @layer header {
     header {
         position: relative;
@@ -831,6 +862,10 @@ nav li {
         font-weight: 600;
         transition: box-shadow 0.3s ease-in-out;
         text-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
+    }
+
+    .subscriber_badges, h2 {
+        text-align: center;
     }
 
     .badge_images img {

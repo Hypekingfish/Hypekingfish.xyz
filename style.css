@@ -151,11 +151,15 @@
 }
 
 .rainbow-text {
-    font-size: 3rem;
+    font-size: 4rem; /* Larger text for more impact */
     color: var(--twitchpurple);
     display: inline-block;
-    animation: rainbowText 5s infinite alternate;
+    animation: rainbowText 3s infinite linear; /* Faster, smoother animation */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Make it more bold and impactful */
 }
+
 
 @layer header {
     header {

@@ -990,4 +990,8 @@ nav li {
         transition: background-color 0.3s ease;
         display: inline-block;
     }
+    .social-button:hover {
+        background-color: var(--paypalblue);
+        box-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
+    }
 }

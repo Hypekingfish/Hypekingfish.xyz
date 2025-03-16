@@ -152,7 +152,7 @@
 
 .rainbow-text {
     font-size: 3rem;
-    color: #fff;
+    color: var(--twitchpurple);
     display: inline-block;
     animation: rainbowText 5s infinite alternate;
 }

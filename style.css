@@ -824,6 +824,15 @@ nav li {
         gap: 15px;
     }
 
+    .subscriber_badges p {
+        text-align: center;
+        color: var(--twitchpurple);
+        font-family: var(--heading);
+        font-weight: 600;
+        transition: box-shadow 0.3s ease-in-out;
+        text-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
+    }
+
     .badge_images img {
         transition: transform 0.3s ease-in-out;
         height: 100px;

@@ -68,51 +68,7 @@
             <p>Love the content? Consider supporting through donations!</p>
             <a href="https://www.paypal.com/paypalme/hypekingfish" aria-label="PayPal" target="_blank" rel="noopener noreferrer" class="donate-button">Donate via PayPal</a>
             <a href="https://ko-fi.com/fishnbuckjr02" aria-label="Ko-Fi" target="_blank" rel="noopener noreferrer" class="donate-button">Donate via Ko-Fi</a>
-        </section>
-        <section class="contact-form">
-            <h2>Contact Me</h2>
-            <form action="https://formspree.io/f/xeoaoavd" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-        
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-        
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-        
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-        <script>
-            const form = document.querySelector('form');
-            const successMessage = document.createElement('p');
-            const errorMessage = document.createElement('p');
-        
-            successMessage.style.color = 'green';
-            errorMessage.style.color = 'red';
-        
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: new FormData(form),
-                    });
-        
-                    if (response.ok) {
-                        form.reset();
-                        form.appendChild(successMessage);
-                        successMessage.textContent = 'Your message has been sent!';
-                    } else {
-                        throw new Error('Something went wrong!');
-                    }
-                } catch (error) {
-                    form.appendChild(errorMessage);
-                    errorMessage.textContent = 'Error: Unable to send the message!';
-                }
-            });
-        </script>           
+        </section>           
         <footer>
             <p><small><img src="img/Progress_Pride_Flag.png"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png"/></small></p>
             <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>

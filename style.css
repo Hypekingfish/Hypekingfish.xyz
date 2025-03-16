@@ -756,7 +756,6 @@ nav li {
     }
 }
 @layer Wallpaper_Engine {
-
     .Wallpaper_Engine h2 {
         border: 2px solid var(--darkBlue);
         border-radius: 40px;
@@ -764,24 +763,23 @@ nav li {
         background-color: var(--black);
         text-align: center;
         color: var(--red);
-        margin: 0 0 1rem 0;
         font-weight: 600;
         opacity: 0.8;
+        margin-bottom: 1rem;
     }
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts dynamically */
         gap: 1rem;
     }
 
     .grid figure {
-        margin: 0 0 1rem 0;
+        margin-bottom: 1rem;
     }
 
     .grid img {
         transition: transform 0.3s ease-in-out;
-        margin: 0 0 1rem 0;
         border-radius: 20px;
         width: 100%;
         height: auto;
@@ -789,263 +787,231 @@ nav li {
     }
 
     .grid img:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     .grid figcaption {
-        transition: transform 0.3s ease-in-out;
         border: 2px solid var(--red);
         border-radius: 40px;
-        padding: 1rem;
+        padding: 0.8rem;
         background-color: var(--black);
         text-align: center;
         color: var(--red);
-        margin: 0 0 1rem 0; /* Adds space below the border */
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        opacity: 0.8; /* Added opacity */
-    }
-
-    .grid a {
-        text-decoration: none;
-        font-family: var(--heading);
+        opacity: 0.8;
+        font-size: 0.9em; /* Scales better */
     }
 
     .grid figcaption:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 }
+
+/* Streaming Section */
 @layer Streaming {
     .subscriber_badges h2 {
         color: var(--twitchpurple);
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        font-size: 1.2em;
     }
 
     .badge_images {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
-    }
-
-    .badge_images div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        gap: 15px;
     }
 
     .badge_images img {
         transition: transform 0.3s ease-in-out;
-        height: 112px;
-        width: 112px;
+        height: 100px;
+        width: 100px;
     }
 
     .badge_images img:hover {
-        transform: scale(1.1);
+        transform: scale(1.08);
     }
 
     .badge_images span {
-        color: var(--twitchpurple);
-        font-family: var(--heading);
-        font-weight: 600;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-size: 0.9em; /* Scales text */
     }
 }
+
+/* Twitch Embed */
 @layer twitch {
-    /* Twitch Embed Section */
-.twitch-embed {
-    text-align: center;
-    background: linear-gradient(135deg, #1f1f23, #26262b);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    color: #fff;
-    max-width: 850px;
-    margin: 30px auto;
-    transition: transform 0.3s ease-in-out;
-}
-
-.twitch-embed:hover {
-    transform: scale(1.02);
-}
-
-.twitch-embed h2 {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #9147ff; /* Twitch purple */
-    text-shadow: 0px 0px 10px rgba(145, 71, 255, 0.8);
-}
-
-/* Twitch Player Styling */
-.Player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 15px;
-}
-
-#twitch-embed {
-    width: 100%;
-    max-width: 850px;
-    height: 480px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #9147ff; /* Twitch accent color */
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-#twitch-embed:hover {
-    box-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
     .twitch-embed {
-        max-width: 95%;
+        text-align: center;
+        background: linear-gradient(135deg, #1f1f23, #26262b);
         padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        max-width: 90%;
+        margin: 20px auto;
+        transition: transform 0.3s ease-in-out;
     }
 
-    #twitch-embed {
-        height: 400px;
+    .twitch-embed:hover {
+        transform: scale(1.02);
     }
-}
 
-@media (max-width: 600px) {
     .twitch-embed h2 {
         font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        color: #9147ff;
+        text-shadow: 0px 0px 10px rgba(145, 71, 255, 0.8);
     }
 
+    /* Twitch Player */
     #twitch-embed {
-        height: 320px;
+        width: 100%;
+        max-width: 100%;
+        height: 360px;
+        border-radius: 12px;
+        border: 2px solid #9147ff;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    #twitch-embed:hover {
+        box-shadow: 0 0 15px rgba(145, 71, 255, 0.6);
     }
 }
+
+/* Stream Schedule & Other Sections */
 @layer Shecdule {
     .stream-schedule, .recent-clips, .stream-stats, .activity-feed, .donations, .merch-store, .about-me, .vatsim-map, .social-links {
-        padding: 20px;
-        margin: 20px 0;
+        padding: 15px;
+        margin: 15px 0;
         background-color: #2a2a2a;
         border-radius: 8px;
     }
     
     .stream-schedule ul, .activity-feed ul {
-        padding-left: 20px;
+        padding-left: 15px;
     }
     
     .stream-schedule li, .activity-feed li {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 }
+
+/* PayPal Section */
 @layer PayPal {
     .donations h2 {
         text-align: center;
         color: var(--paypalblue);
+        font-size: 1.2em;
     }
+
+    .donations p {
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    .donations {
+        text-align: center;
+    }
+
     .donations a {
         text-decoration: none;
     }
-    .donations p {
-        margin: 15px 0;
-        font-size: 1.1em;
+    
+    .donate-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Adds spacing between buttons */
+        flex-wrap: wrap; /* Ensures responsiveness */
     }
-    .donations {
-        text-align: center; /* Center the content within the donations section */
-    }
+    
     .donate-button {
         background-color: var(--twitchpurple);
         color: #ffffff;
         padding: 10px 20px;
         border-radius: 5px;
         font-size: 1.2em;
-        text-align: center;
-        margin: 0 10px; /* Space between buttons */
         transition: background-color 0.3s ease;
-        display: inline-block; /* Make buttons inline */
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap; /* Prevents line breaks inside buttons */
+        min-width: 150px; /* Ensures buttons are of equal size */
     }
+    
     .donate-button:hover {
         background-color: var(--paypalblue);
     }
-}
+
+/* Social Buttons */
 @layer Social-Buttons {
     .social-links {
-        text-align: center;
         display: flex;
         justify-content: center;
-        gap: 12px; /* Better spacing between buttons */
-    }
-
-    .social-links a {
-        text-decoration: none;
+        gap: 8px;
+        flex-wrap: wrap;
     }
 
     .social-button {
         background-color: var(--twitchpurple);
         color: white;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%; /* Circular buttons */
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5em;
+        font-size: 1.2em;
         transition: transform 0.3s ease, color 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
 
     .social-button:hover {
         background-color: var(--paypalblue);
-        transform: rotate(10deg) scale(1.1);
-        box-shadow: 0 6px 12px rgba(145, 71, 255, 0.4);
+        transform: rotate(10deg) scale(1.08);
     }
 }
-@layer Contact-me {
-    .contact-form {
-        max-width: 600px;
-        margin: auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 10px;
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .twitch-embed {
+        max-width: 95%;
+        padding: 15px;
     }
-    
-    .contact-form h2 {
-        color: var(--black);
-        text-align: center;
-        margin-bottom: 20px;
+
+    #twitch-embed {
+        height: 320px;
     }
-    
-    .contact-form label {
-        font-size: 1rem;
-        margin-bottom: 5px;
-        display: block;
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
-    
-    .contact-form input, .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .twitch-embed h2 {
+        font-size: 20px;
     }
-    
-    .contact-form button {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        cursor: pointer;
+
+    #twitch-embed {
+        height: 280px;
     }
-    
-    .contact-form button:hover {
-        background-color: #45a049;
-    }    
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .donate-button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .social-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
 }

@@ -1004,3 +1004,48 @@ nav li {
         box-shadow: 0 6px 12px rgba(145, 71, 255, 0.4);
     }
 }
+@layer Contact-me {
+    .contact-form {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
+    
+    .contact-form h2 {
+        color: var(--black);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form label {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+    
+    .contact-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+        background-color: #45a049;
+    }    
+}

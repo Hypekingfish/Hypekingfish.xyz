@@ -755,30 +755,6 @@ nav li {
         }
     }
 }
-@layer social-links {
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: -2rem; /* Move icons closer to footer */
-        padding-bottom: 1rem;
-    }
-    .social-links i {
-        color: var(--darkBlue);
-        font-size: 2rem;
-    }
-    /* Optimize social links for mobile */
-    @media (max-width: 768px) {
-        .social-links {
-            margin-top: -1rem;
-            gap: 0.5rem;
-        }
-        
-        .social-links i {
-            font-size: 1.5rem;
-        }
-    }
-}
 @layer Wallpaper_Engine {
 
     .Wallpaper_Engine h2 {
@@ -995,4 +971,7 @@ nav li {
     .donate-button:hover {
         background-color: var(--paypalblue);
     }
+}
+@layer Social-Buttons {
+
 }

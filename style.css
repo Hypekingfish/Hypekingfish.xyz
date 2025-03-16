@@ -163,16 +163,16 @@
 }
 
 .rainbow-text {
-    font-size: 4rem; /* Larger text for more impact */
+    font-size: 4rem;
     color: var(--twitchpurple);
     display: inline-block;
-    animation: rainbowText 3s infinite alternate, pulse 2s infinite ease-in-out; /* Faster, smoother animation */
+    animation: rainbowText 3s infinite linear, pulse 2s infinite ease-in-out;
     font-weight: 700;
     letter-spacing: 2px;
-    text-transform: uppercase; /* Make it more bold and impactful */
+    text-transform: uppercase;
+    text-shadow: 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #ffcc00, 0 0 30px #00ff00, 0 0 35px #0000ff, 0 0 40px #8a2be2;
+    transform-origin: center center;  /* Ensure it grows from the center */
 }
-
-
 @layer header {
     header {
         position: relative;

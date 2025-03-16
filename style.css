@@ -163,7 +163,7 @@
 }
 
 .rainbow-text {
-    font-size: 4rem;
+    font-size: 2rem;
     color: var(--twitchpurple);
     display: inline-block;
     animation: rainbowText 3s infinite linear, pulse 2s infinite ease-in-out;

@@ -884,8 +884,8 @@ nav li {
 
     .badge_images img {
         transition: transform 0.3s ease-in-out;
-        height: 100px;
-        width: 100px;
+        height: 112px;
+        width: 112px;
     }
 
     .badge_images img:hover {

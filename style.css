@@ -198,6 +198,38 @@
         border-color: transparent;
     }
 }
+@keyframes flyover {
+    0% {
+        transform: translateX(-100vw) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(50vw) rotate(5deg);
+    }
+    100% {
+        transform: translateX(100vw) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+@keyframes glitch {
+    0% { text-shadow: none; }
+    25% { text-shadow: -2px -2px 5px rgba(255, 255, 255, 0.6); }
+    50% { text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8); }
+    75% { text-shadow: -2px 2px 5px var(--red); }
+    100% { text-shadow: none; }
+}
+
+.glitch-text {
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    animation: glitch 2s infinite alternate;
+}
 @layer header {
     header {
         position: relative;

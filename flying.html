@@ -29,12 +29,13 @@
                 </ul>
             </nav>
         </header>
-        <!-- <section class="seattle_artcc">
-            <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2>
+        <section class="seattle_artcc">
+            <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
             <p>Welcome to my Seattle ARTCC experience! Here, you’ll find insights into my air traffic control sessions, real-time VATSIM data, and traffic trends at major ZSE airports.</p>
             <div class="zse-info">
                 <ul>
                     <li><strong>Last Controlled:</strong> KSEA Tower</li>
+                    <p>Total Vatsim Hours: <span id="vatsim-hours">Loading...</span></p>
                     <li><strong>Total Hours:</strong> 120+ on VATSIM</li>
                     <li><strong>Favorite Airport:</strong> KPDX (Portland Intl)</li>
                 </ul>
@@ -42,8 +43,7 @@
             <div class="aircraft-animation">
                 <span>✈️</span>
             </div>
-        </section> -->
-        
+        </section>
         <section class="Vatsim-Controlling">
             <h2 class="glitch-text">
                 <span class="plane-icon">✈️</span> My VATSIM Controller Experience
@@ -145,6 +145,42 @@
                         }
                     });
             </script>
+            <script>
+                fetch('/.netlify/functions/GetVatsimData')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Fetched Data:', data); // Debugging line
+            
+                        // Ensure values are numbers and handle missing data
+                        const controllerHours = parseFloat(data.controllerHours) || 0;
+                        const pilotHours = parseFloat(data.pilotHours) || 0;
+                        const combinedHours = controllerHours + pilotHours;
+            
+                        console.log('Controller Hours:', controllerHours);
+                        console.log('Pilot Hours:', pilotHours);
+                        console.log('Combined Hours:', combinedHours);
+            
+                        const elements = {
+                            'controller-hours': controllerHours,
+                            'pilot-hours': pilotHours,
+                            'vatsim-hours': combinedHours
+                        };
+            
+                        for (const [id, value] of Object.entries(elements)) {
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.textContent = value;
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching VATSIM data:', error);
+                        const statsElement = document.getElementById('vatsim-stats');
+                        if (statsElement) {
+                            statsElement.textContent = 'Failed to load VATSIM stats';
+                        }
+                    });
+            </script>            
         </section>
         <footer>
             <p><img src="/img/Progress_Pride_Flag.png">Made with passion by Hypekingfish<img src="/img/Progress_Pride_Flag.png"></p>

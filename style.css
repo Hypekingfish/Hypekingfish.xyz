@@ -1259,6 +1259,46 @@ nav li {
         background: transparent;
         animation: rainbowShadow 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
     }
+    .flight-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 80vw;
+        margin: 20px auto;
+    }
+    
+    .airport-label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    
+    .left {
+        align-self: flex-start;
+    }
+    
+    .right {
+        align-self: flex-end;
+    }
+    
+    .flight-path {
+        position: relative;
+        width: 80vw;
+        height: 50px;
+        border-bottom: 2px dashed white;
+        margin: 10px auto;
+        overflow: hidden;
+    }
+    
+    .plane {
+        position: absolute;
+        left: 0;
+        top: -20px;
+        width: 60px;
+        height: auto;
+        transition: transform 1s ease-in-out, left 15s linear;
+    }        
 }
 @layer scroll_button {
     .scroll-to-top {

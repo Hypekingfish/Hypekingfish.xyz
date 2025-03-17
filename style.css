@@ -11,6 +11,8 @@
         --red: #ff0000;
         --twitchpurple: #a970ff;
         --paypalblue: #002991 ;
+        --zseblue: #1f7cbc;
+        --zsegreen: #486c3e;
         --main: "MoMontserrat", sans-serif;
         --heading: "EB Garamond", serif;
 		--base-size: 1.167rem;
@@ -1218,4 +1220,51 @@ nav li {
     .bit_tier_images img:hover {
         transform: scale(1.08);
     }
+}
+@layer seattle_artcc {
+    .seattle_artcc {
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .seattle_artcc img {
+        border-radius: 20px;
+    }
+    
+    .zse-info {
+        margin-top: 10px;
+        font-size: 1.1rem;
+    }
+    @keyframes rainbowShadow {
+        0% { box-shadow: 0 0 10px var(--zsegreen); }
+        25% { box-shadow: 0 0 15px var(--zseblue); }
+        50% { box-shadow: 0 0 20px var(--zsegreen); }
+        75% { box-shadow: 0 0 25px var(--zseblue); }
+        100% { box-shadow: 0 0 10px #e1e9e9; }
+    }
+    
+    .rainbow-box {
+        background: transparent;
+        animation: rainbowShadow 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
+    }
+}
+@layer scroll_button {
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        display: none; /* Hidden by default */
+        transition: opacity 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+        background-color: #0056b3;
+    }    
 }

@@ -171,6 +171,33 @@
     text-shadow: 0 0 15px #ff0000, 0 0 20px #ff7300, 0 0 25px #ffcc00, 0 0 30px #00ff00, 0 0 35px #0000ff, 0 0 40px #8a2be2;
     transform-origin: center center;  /* Ensure it grows from the center */
 }
+/* Style for the typewriter effect */
+.typewriter {
+    font-size: 2rem;
+    font-family: var(--heading);
+    color: #fff;
+    border-right: 3px solid #00ff00; /* Simulates the cursor */
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Start with 0 width */
+    animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+/* Typewriter animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* Blinking cursor */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
 @layer header {
     header {
         position: relative;

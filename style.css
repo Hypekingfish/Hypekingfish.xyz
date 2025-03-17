@@ -732,6 +732,7 @@ nav li {
         border-radius: 40px;
         padding: 1.5rem; /* Increase padding to match */
         background-color: var(--black);
+        margin-bottom: 5px;
         text-align: center;
         font-weight: 600;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

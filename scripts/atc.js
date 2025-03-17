@@ -5,8 +5,8 @@ fetch('/.netlify/functions/GetVatsimData')
                       const elements = {
                           'controller-hours': data.controllerHours,
                           's1-hours': data.s1Hours,
-                         // 's2-hours': data.s2Hours,
-                         // 's3-hours': data.s3Hours
+                          's2-hours': data.s2Hours,
+                          's3-hours': data.s3Hours
                       };
 
                       for (const [id, value] of Object.entries(elements)) {

@@ -1262,12 +1262,14 @@ nav li {
     .flight-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; 
         justify-content: center;
         position: relative;
         width: 80vw;
         margin: 20px auto;
-    }
+        max-width: 100%;  /* Ensure it doesn't exceed the viewport width */
+        padding-left: 0;  /* Prevent any unwanted padding on the left */
+    }    
     
     .airport-label {
         font-size: 1.2rem;

@@ -1262,11 +1262,9 @@ nav li {
     .flight-container {
         display: flex;
         flex-direction: column;
-        align-items: center;  /* Centers content horizontally */
-        justify-content: center;  /* Centers content vertically */
+        align-items: center;
         position: relative;
         width: 80vw;
-        height: 100vh;  /* Adjust based on how much space you need */
         margin: 20px auto;
     }
     
@@ -1274,7 +1272,6 @@ nav li {
         font-size: 1.2rem;
         font-weight: bold;
         margin: 10px 0;
-        text-align: center;  /* Center text within the element */
     }
     
     .left {
@@ -1296,11 +1293,12 @@ nav li {
     
     .plane {
         position: absolute;
+        left: 0;
         top: -20px;
         width: 60px;
         height: auto;
         transition: transform 1s ease-in-out, left 15s linear;
-    }                
+    }        
 }
 @layer scroll_button {
     .scroll-to-top {

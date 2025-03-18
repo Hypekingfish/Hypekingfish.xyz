@@ -1325,8 +1325,7 @@ nav li {
         text-align: left;
         font-weight: bold;
         text-shadow: 0 0 10px var(--zseblue), 0 0 15px rgba(0, 0, 0, 0.5); /* Add a subtle highlight */
-        background-image: linear-gradient(to right, 
-            #005577, /* Dark Teal */
+        background-image: linear-gradient(to right,
             #ff3333,  /* Bright Red */
             #aa66bb, 
             #55aadd, 

@@ -27,7 +27,7 @@ function animatePlane() {
 
             setTimeout(() => {
                 plane.style.transition = "left 15s linear";
-                plane.style.left = "calc(100% - 60px)";
+                plane.style.left = "calc(100% - 100px)";
             }, 1500);
         }, 10000); // 20s wait at PDX
     }

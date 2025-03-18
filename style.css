@@ -1301,18 +1301,38 @@ nav li {
         font-size: 1.2rem;
         font-weight: bold;
         margin: 10px 0;
-        width: 100%;  /* Make label take full width */
+        /* width: 100%;  Make label take full width */
     }
     
     .left {
         align-self: flex-start; /* Align to the left */
         text-align: left;
+        font-weight: bold;
+        background-image: linear-gradient(to right, /* Add the missing comma */
+            #005577, /* Dark Teal */
+            #ff3333,  /* Bright Red */
+            #aa66bb,
+            #55aadd,
+            #00aa88
+        );
+        -webkit-background-clip: text; /* Clip the background to the text */
+        color: transparent;  /* Make the text color transparent to show the gradient */
     }
+    
     
     .right {
         align-self: flex-end;  /* Align to the right */
-        text-align: right;;
+        text-align: right;     /* Align text to the right */
+        font-weight: bold;     /* Optional: Make text bold */
+        background-image: linear-gradient(to right, 
+            #002664,  /* Red */
+            #50c800,  /* Orange */
+            #00afff   /* Blue */
+        );
+        -webkit-background-clip: text; /* Clip the background to the text */
+        color: transparent;   /* Make the text color transparent so the gradient is visible */
     }
+    
     
     .flight-path {
         position: relative;

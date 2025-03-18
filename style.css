@@ -1268,7 +1268,14 @@ nav li {
     .seattle_artcc img {
         border-radius: 20px;
     }
-    
+    .seattle_artcc h2 {
+        background-image: linear-gradient(to right, /* Add the missing comma */
+            #1f7cbc, /* Dark Teal */
+            #486c3e  /* Bright Red */
+            );
+        -webkit-background-clip: text; /* Clip the background to the text */
+        color: transparent;  /* Make the text color transparent to show the gradient */
+    }
     .zse-info {
         margin-top: 10px;
         font-size: 1.1rem;

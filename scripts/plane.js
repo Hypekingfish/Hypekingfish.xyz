@@ -5,7 +5,7 @@ function animatePlane() {
     if (forward) {
         plane.style.transition = "left 15s linear";
         plane.style.transform = "scaleX(1)";
-        plane.style.left = "calc(100% - 60px)"; // Ensures plane stops before going off-screen
+        plane.style.left = "calc(100% - 100px)"; // Ensures plane stops before going off-screen
 
         setTimeout(() => {
             setTimeout(() => {
@@ -17,7 +17,7 @@ function animatePlane() {
                 plane.style.transition = "left 15s linear";
                 plane.style.left = "0px"; // Moves back correctly
             }, 1500);
-        }, 20000); // 20s wait at SEA
+        }, 10000); // 20s wait at SEA
     } else {
         setTimeout(() => {
             setTimeout(() => {
@@ -29,7 +29,7 @@ function animatePlane() {
                 plane.style.transition = "left 15s linear";
                 plane.style.left = "calc(100% - 60px)";
             }, 1500);
-        }, 20000); // 20s wait at PDX
+        }, 10000); // 20s wait at PDX
     }
 
     forward = !forward;

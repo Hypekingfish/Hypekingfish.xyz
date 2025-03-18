@@ -1268,6 +1268,12 @@ nav li {
     .seattle_artcc img {
         border-radius: 20px;
     }
+    .seattle_artcc p {
+        color: var(--zsegreen);
+        font-weight: 600;
+        text-align: center;
+        font-family: var(--heading);
+    }
     .seattle_artcc h2 {
         background-image: linear-gradient(to right, /* Add the missing comma */
             #1f7cbc, /* Dark Teal */
@@ -1279,6 +1285,9 @@ nav li {
     .zse-info {
         margin-top: 10px;
         font-size: 1.1rem;
+    }
+    .zse-info p {
+        text-align: center;
     }
     @keyframes rainbowShadow {
         0% { box-shadow: 0 0 10px var(--zsegreen); }

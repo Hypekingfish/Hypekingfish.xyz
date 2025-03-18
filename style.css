@@ -1370,3 +1370,79 @@ nav li {
         background-color: #0056b3;
     }    
 }
+@layer aircraft {
+    .aircraft-showcase {
+        text-align: center;
+        padding: 30px;
+        position: relative;
+    }
+    
+    .carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .carousel-track {
+        display: flex;
+        gap: 20px;
+        width: 300px;
+        overflow: hidden;
+        position: relative;
+        perspective: 1000px;
+    }
+    
+    .aircraft-card {
+        flex: 0 0 100%;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transform: scale(0.8) translateX(100%);
+    }
+    
+    .aircraft-card.active {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+    
+    .aircraft-card img {
+        width: 100%;
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .aircraft-card img:hover {
+        transform: scale(1.1);
+    }
+    
+    button.prev, button.next {
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 24px;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }
+    
+    button.prev:hover, button.next:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+    
+    button.prev { left: 10px; }
+    button.next { right: 10px; }
+    
+    .aircraft-info {
+        margin-top: 20px;
+        font-size: 1.5em;
+        color: #ffcc00;
+        font-weight: bold;
+    }
+    
+}

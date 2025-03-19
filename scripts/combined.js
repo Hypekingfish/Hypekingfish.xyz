@@ -3,12 +3,12 @@ fetch('/.netlify/functions/GetVatsimData')
     .then(data => {
         console.log('Fetched Data:', data); // Debugging line
 
-        // Function to convert decimal hours to HH:mm format
+        // Function to convert decimal hours to HH:mm format, handling 1000+ hours
         function formatHours(hours) {
             const totalMinutes = Math.round(hours * 60);
             const hh = Math.floor(totalMinutes / 60);
             const mm = totalMinutes % 60;
-            return `${hh}:${mm.toString().padStart(2, '0')}`;
+            return `${hh.toLocaleString()}:${mm.toString().padStart(2, '0')}`;
         }
 
         // Ensure values are numbers and handle missing data

@@ -29,6 +29,12 @@ document.querySelector('.close-lightbox').addEventListener('click', function() {
     document.getElementById("lightbox").classList.add("hidden");
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".star-rating").forEach(function (starContainer) {
+        let rating = parseInt(starContainer.getAttribute("data-rating"));
+        starContainer.innerHTML = "★".repeat(rating) + "☆".repeat(5 - rating);
+    });
+    
 // Rotating Testimonials
 const testimonials = [
     "Very good work for what seemed like the first few sessions on ground. Keep it up and keep practicing. Would Fly Again: Yes",

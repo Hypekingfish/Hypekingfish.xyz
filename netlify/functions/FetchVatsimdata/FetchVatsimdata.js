@@ -18,23 +18,27 @@ const handler = schedule("* * * * *", async (event, context) => {
     }
 
     const data = await vatsimNetResponse.json();
-    const data = await vatsimHistoryResponse.json();
+    const historyData = await vatsimHistoryResponse.json();
 
     console.log('Received data:', data);
     console.log('Received history data:', data);
-    
+
+    // Structure the response to match the required format
     const result = {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        Callsign: data.callsign,
-        controllerHours: data.atc,
-        pilotHours: data.pilot,
-        s1Hours: data.s1,
-        s2Hours: data.s2,
-        s3Hours: data.s3,
+        Callsign: data.callsign, // from stats endpoint
+        controllerHours: data.atc, // from stats endpoint
+        pilotHours: data.pilot, // from stats endpoint
+        s1Hours: data.s1, // from stats endpoint
+        s2Hours: data.s2, // from stats endpoint
+        s3Hours: data.s3, // from stats endpoint
+        // Add history-related data if needed, like:
+        // You can extract specific fields from historyData if needed
+        // history: historyData or specific history fields
       }),
     };
     

@@ -18,9 +18,7 @@ const handler = schedule("* * * * *", async (event, context) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-       Callsign: data.callsign
-      }),
+      body: JSON.stringify({Callsign: data.callsign}),
     };
     
     console.log('Returning:', result);

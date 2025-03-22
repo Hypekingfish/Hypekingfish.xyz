@@ -1,9 +1,7 @@
-import { schedule } from '@netlify/functions';
-import fetch from 'node-fetch';
-
-const handler = schedule("* * * * *", async (event, context) => {
+export const handler = async (event, context) => {
   try {
-    console.log('Function started');
+    // Here you would typically fetch from your database where the scheduled function stores the data
+    // For now, we'll just call the VATSIM API directly
     const response = await fetch('https://vatsim.dev/api/core-api/members-api-retrieve-member-stats', {
       headers: {
         'Accept': 'application/json'
@@ -11,30 +9,21 @@ const handler = schedule("* * * * *", async (event, context) => {
     });
     
     const data = await response.json();
-    console.log('Received data:', data);
     
-    const result = {
+    return {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*", // Enable CORS
       },
       body: JSON.stringify({
         Callsign: data.callsign
       }),
     };
-    
-    console.log('Returning:', result);
-    return result;
-    
   } catch (error) {
-    console.error('Error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
     };
   }
-});
-
-export { handler };
-
- 
+}; 

@@ -221,7 +221,23 @@
         opacity: 0;
     }
 }
+@keyframes nebulaAnimation {
+    0% { background-color: #6a0dad; }
+    25% { background-color: #ff1493; }
+    50% { background-color: #00ffff; }
+    75% { background-color: #0000ff; }
+    100% { background-color: #ff6347; }
+}
 
+.nebula-background {
+    animation: nebulaAnimation 15s infinite ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 @keyframes glitch {
     0% { text-shadow: none; }
     25% { text-shadow: -2px -2px 5px rgba(255, 255, 255, 0.6); }

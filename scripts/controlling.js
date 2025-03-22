@@ -30,11 +30,21 @@ document.querySelector('.close-lightbox').addEventListener('click', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".star-rating").forEach(function (starContainer) {
-        let rating = parseInt(starContainer.getAttribute("data-rating"));
-        starContainer.innerHTML = "★".repeat(rating) + "☆".repeat(5 - rating);
+    document.querySelectorAll(".star-rating").forEach((ratingElement) => {
+        let rating = parseInt(ratingElement.getAttribute("data-rating"));
+        ratingElement.innerHTML = generateStars(rating);
     });
-    
+});
+
+// Function to generate star symbols dynamically
+function generateStars(rating) {
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+        stars += i <= rating ? "&#9733;" : "&#9734;"; // ★ = filled star, ☆ = empty star
+    }
+    return stars;
+}
+
 // Rotating Testimonials
 const testimonials = [
     "Very good work for what seemed like the first few sessions on ground. Keep it up and keep practicing. Would Fly Again: Yes",

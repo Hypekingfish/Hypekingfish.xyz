@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const handler = schedule("0 * * * *", async (event, context) => {
   try {
     console.log('Function started');
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats', {
+    const response = await fetch('https://api.vatsim.net/v2/members/1630701/history', {
       headers: {
         'Accept': 'application/json'
       }
@@ -19,6 +19,7 @@ const handler = schedule("0 * * * *", async (event, context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        Callsign: data.callsign,
         controllerHours: data.atc,
         pilotHours: data.pilot,
         s1Hours: data.s1,

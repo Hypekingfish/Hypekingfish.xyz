@@ -14,7 +14,7 @@ const handler = schedule("* * * * *", async (event, context) => {
       }),
     ]);
     
-    const data = await response.json();
+    const data = await vatsimNetResponse.json();
     console.log('Received data:', data);
     
     const result = {

@@ -1,10 +1,10 @@
 import { schedule } from '@netlify/functions';
 import fetch from 'node-fetch';
 
-const handler = schedule("0 * * * *", async (event, context) => {
+const handler = schedule("* * * * *", async (event, context) => {
   try {
     console.log('Function started');
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats', {
+    const response = await fetch('https://vatsim.dev/api/core-api/members-api-retrieve-member-stats', {
       headers: {
         'Accept': 'application/json'
       }
@@ -19,12 +19,7 @@ const handler = schedule("0 * * * *", async (event, context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        Callsign: data.callsign,
-        controllerHours: data.atc,
-        pilotHours: data.pilot,
-        s1Hours: data.s1,
-        s2Hours: data.s2,
-        s3Hours: data.s3
+        Callsign: data.callsign
       }),
     };
     

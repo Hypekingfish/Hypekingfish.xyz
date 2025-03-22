@@ -1,14 +1,18 @@
 import { schedule } from '@netlify/functions';
 import fetch from 'node-fetch';
 
-const handler = schedule("* * * * *", async (event, context) => {
+const handler = schedule("0 * * * *", async (event, context) => {
   try {
     console.log('Function started');
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/history', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+
+    const [vatsimNetResponse] = await Promise.all([
+      fetch('https://api.vatsim.net/v2/members/1630701/stats', {
+        headers: { 'accept': 'application/json'},
+      }),
+      fetch('https://api.vatsim.net/v2/members/1630701/history', {
+        headers: { 'accept': 'application/json'},
+      }),
+    ]);
     
     const data = await response.json();
     console.log('Received data:', data);

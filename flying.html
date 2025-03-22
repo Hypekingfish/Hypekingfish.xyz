@@ -101,46 +101,69 @@
                 <span class="plane-icon">✈️</span> My VATSIM ATC Journey
             </h2>            
         
+            <!-- Gallery Section -->
             <div class="gallery-grid">
                 <figure>
-                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display"/>
-                    <figcaption>PDX ASDEX - Managing traffic like a pro!</figcaption>
+                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display" class="lightbox-trigger"/>
+                    <figcaption>PDX ASDEX - Keeping an eye on every aircraft</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/Seattle_Tower.png" alt="Seattle Tower View"/>
+                    <img src="img/Seattle_Tower.png" alt="Seattle Tower View" class="lightbox-trigger"/>
                     <figcaption>Seattle Tower - A breathtaking view of the airspace</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/ATC-Radar.png" alt="Radar Monitoring in Action" class="lightbox-trigger"/>
+                    <figcaption>Radar view - Precision in every instruction</figcaption>
                 </figure>
             </div>
         
+            <!-- About Section -->
             <div class="About-Vatsim-Controlling">
                 <p>
-                    My journey as a VATSIM controller began in **July 2024**, and it has been an exhilarating ride ever since.  
-                    Originally a VATSIM pilot, I quickly discovered my passion for **air traffic control**.  
-                    The **ZSE ARTCC** community has been like a second family, and every session brings a new challenge!
+                    My journey as a **VATSIM controller** started in **July 2024**, and it has been an adrenaline-fueled adventure ever since.  
+                    From a **VATSIM pilot** to an air traffic controller, I’ve developed a deep appreciation for the art of **handling live traffic**  
+                    and coordinating complex approaches at **ZSE ARTCC**. The teamwork, the rush, the challenge – it's what keeps me coming back!
                 </p>
             </div>
         
+            <!-- Live Controller Stats Section -->
             <div id="vatsim-stats" class="vatsim-text">
                 <div class="controller-section">
                     <h2>Controller Ratings & Achievements</h2>
                     <ul class="certifications">
-                        <li>⭐ S1 - Ground Controller - <span class="hours" id="s1-hours">Loading...</span> hours</li>
-                        <li>⭐ S2 - Tower Controller - <span class="hours" id="s2-hours">Loading...</span> hours</li>
-                        <li>⭐ S3 - Approach Controller - <span class="hours" id="s3-hours">Loading...</span> hours</li>
+                        <li>⭐ S1 - Ground Controller - <span class="hours counter" id="s1-hours" data-target="250">0</span> hours</li>
+                        <li>⭐ S2 - Tower Controller - <span class="hours counter" id="s2-hours" data-target="180">0</span> hours</li>
+                        <li>⭐ S3 - Approach Controller - <span class="hours counter" id="s3-hours" data-target="75">0</span> hours</li>
                     </ul>
-                    <h3>🎯 Total Controller Hours: <span id="controller-hours">Loading...</span></h3>
+                    <h3>🎯 Total Controller Hours: <span id="controller-hours" class="counter" data-target="505">0</span></h3>
                 </div>
             </div>
         
+            <!-- Memorable Moments Section -->
             <div class="atc-moments">
                 <h3>Memorable ATC Moments</h3>
                 <ul>
-                    <li>🚀 Successfully managed a **record-breaking** number of arrivals at PDX</li>
-                    <!-- <li>🎤 Directed a low-visibility **ILS approach** like a real-world controller</li> -->
-                    <!-- <li>🌍 Helped mentor new controllers joining the **ZSE ARTCC**</li> -->
+                    <li>🚀 Successfully managed **record-breaking arrivals** at PDX.</li>
+                    <!-- <li>🎤 Directed a low-visibility **ILS approach** like a pro.</li> -->
+                    <!-- <li>🌍 Helped mentor new controllers at **ZSE ARTCC**.</li> -->
+                    <!-- <li>⚡ Handled an emergency **Mayday situation** with precision.</li> -->
                 </ul>
             </div>
+        
+            <!-- Live Testimonials -->
+            <!-- <div class="testimonials">
+                <h3>🗣 What Pilots & Controllers Say</h3>
+                <blockquote id="testimonial-text">
+                    "One of the most professional controllers at ZSE – always clear and precise!" – CaptainJack47
+                </blockquote>
+            </div> -->
         </section>
+        
+        <!-- Lightbox for Fullscreen Image View -->
+        <div id="lightbox" class="hidden">
+            <span class="close-lightbox">&times;</span>
+            <img id="lightbox-img" src="" alt="Expanded View">
+        </div>
         <section class="Vatsim-Pilot">
             <h2 class="">My VATSIM Pilot Experience</h2>
             <div>
@@ -207,6 +230,7 @@
         <script src="scripts/atc.js"></script>
         <script src="scripts/carousel.js"></script>
         <script src="scripts/combined.js"></script>
+        <script src="scripts/controlling.js"></script>
         <script src="scripts/gallery.js"></script>
         <script src="scripts/plane.js"></script>
         <script src="scripts/pilot.js"></script>

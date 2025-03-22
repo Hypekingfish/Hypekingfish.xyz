@@ -1,44 +1,62 @@
 import { schedule } from '@netlify/functions';
 import fetch from 'node-fetch';
 
-const handler = schedule("0 * * * *", async (event, context) => {
+const handler = schedule("* * * * *", async (event, context) => {
   try {
     console.log('Function started');
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/stats', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-    
-    const data = await response.json();
-    console.log('Received data:', data);
-    
+
+    // Fetch data from both APIs simultaneously using Promise.all
+    const [vatsimNetResponse, vatsimDevResponse] = await Promise.all([
+      fetch('https://api.vatsim.net/v2/members/1630701/stats', {
+        headers: { 'Accept': 'application/json' },
+      }),
+      fetch('https://vatsim.dev/api/core-api/members-api-retrieve-member-stats', {
+        headers: { 'Accept': 'application/json' },
+      }),
+    ]);
+
+    // Check if both responses are OK
+    if (!vatsimNetResponse.ok || !vatsimDevResponse.ok) {
+      throw new Error('One or both API requests failed');
+    }
+
+    // Parse both responses
+    const vatsimNetData = await vatsimNetResponse.json();
+    const vatsimDevData = await vatsimDevResponse.json();
+
+    console.log('Received data from vatsim.net:', vatsimNetData);
+    console.log('Received data from vatsim.dev:', vatsimDevData);
+
+    // Combine the data or handle it as needed
     const result = {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        controllerHours: data.atc,
-        pilotHours: data.pilot,
-        s1Hours: data.s1,
-        s2Hours: data.s2,
-        s3Hours: data.s3
+        vatsimNetControllerHours: vatsimNetData.atc,
+        vatsimNetPilotHours: vatsimNetData.pilot,
+        vatsimNetS1Hours: vatsimNetData.s1,
+        vatsimNetS2Hours: vatsimNetData.s2,
+        vatsimNetS3Hours: vatsimNetData.s3,
+        vatsimDevControllerHours: vatsimDevData.atc,
+        vatsimDevPilotHours: vatsimDevData.pilot,
+        vatsimDevS1Hours: vatsimDevData.s1,
+        vatsimDevS2Hours: vatsimDevData.s2,
+        vatsimDevS3Hours: vatsimDevData.s3
       }),
     };
-    
+
     console.log('Returning:', result);
     return result;
-    
+
   } catch (error) {
     console.error('Error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
+      body: JSON.stringify({ error: 'Failed to fetch VATSIM data', details: error.message }),
     };
   }
 });
 
 export { handler };
-
- 

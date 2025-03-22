@@ -1,7 +1,7 @@
 import { schedule } from '@netlify/functions';
 import fetch from 'node-fetch';
 
-const handler = schedule("* * * * *", async (event, context) => {
+const handler = schedule("0 * * * *", async (event, context) => {
   try {
     console.log('Function started');
 
@@ -15,9 +15,15 @@ const handler = schedule("* * * * *", async (event, context) => {
       }),
     ]);
 
-    // Check if both responses are OK
-    if (!vatsimNetResponse.ok || !vatsimDevResponse.ok) {
-      throw new Error('One or both API requests failed');
+    // Check if vatsim.net response is OK
+    if (!vatsimNetResponse.ok) {
+      throw new Error(`Failed vatsim.net API request with status: ${vatsimNetResponse.status}`);
+    }
+
+    // Check if vatsim.dev response is OK
+    if (!vatsimDevResponse.ok) {
+      const text = await vatsimDevResponse.text(); // Get the response as text if not OK
+      throw new Error(`Failed vatsim.dev API request with status: ${vatsimDevResponse.status}. Response: ${text}`);
     }
 
     // Parse both responses

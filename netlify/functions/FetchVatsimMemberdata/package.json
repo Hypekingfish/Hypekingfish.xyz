@@ -1,5 +1,5 @@
 {
-  "name": "fetch-vatsim-member-data",
+  "name": "fetch-vatsim-data",
   "type": "module",
   "dependencies": {
     "@netlify/functions": "^2.8.2",

@@ -1529,6 +1529,7 @@ nav li {
         text-align: center;
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
+        background: fixed;
         color: white;
         padding: 10px;
         font-size: 16px;
@@ -1742,4 +1743,42 @@ nav li {
     .hidden {
         display: none;
     }
+@layer trvia-button {
+    .extension-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.extension-item {
+    background: transparent;
+    padding: 1rem;
+}
+
+.extension-button {
+    display: inline-block;
+    background-color: #7d1eff;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.extension-button:hover {
+    background-color: #5e15c3;
+}
+
+.extension-item p {
+    margin-top: 0.8rem;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+}
 }

@@ -13,6 +13,15 @@
         <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
     </head>
     <body class="container">
+        <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="flying.html">Flying</a>
+        <a href="streaming.html">Streaming</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
         <header>
             <h1>
                 <a href="index.html" aria-label="Go Home">
@@ -20,15 +29,8 @@
                     <span>Hypekingfish</span>
                 </a>
             </h1>
-            <button type="button" tabindex="-1" hidden></button>
         </section>
-            <nav>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="flying.html">Flying</a></li>
-                    <li><a href="streaming.html">Streaming</a></li>
-                </ul>
-            </nav>
+    </div>
         </header>
         <section class="seattle_artcc">
             <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
@@ -48,7 +50,7 @@
                 <div class="airport-label right">SEA (Seattle-Tacoma Intl)</div>
             </div>                                                            
         </section>
-        <section class="virtual-zse">
+        <!-- <section class="virtual-zse">
             <h2>
                 <img src="https://zseartcc.org/new/public/images/logo_edit.png"> 
                 Virtual ZSE ARTCC 
@@ -73,7 +75,7 @@
                 <a href="https://www.vatsim.net" target="_blank" class="button">Visit VATSIM</a>
                 <a href="https://zseartcc.org" target="_blank" class="button">Visit ZSE ARTCC</a>
             </div>
-        </section>
+        </section> -->
         <section class="Vatsim-Controlling">
             <h2 class="glitch-text">
                 <span class="plane-icon">✈️</span> My VATSIM ATC Journey
@@ -168,13 +170,6 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Lightbox for Fullscreen Image View -->
-        <div id="lightbox" class="hidden">
-            <span class="close-lightbox">&times;</span>
-            <img id="lightbox-img" src="" alt="Expanded View">
-        </div>
-        
         <section class="Vatsim-Pilot">
             <h2 class="">My VATSIM Pilot Experience</h2>
             <div>
@@ -195,41 +190,55 @@
             </div>
             <h3 class="">Total Pilot Hours: <span id="pilot-hours">Loading...</span></h3>            
         </section>
-        <section class="image-carousel">
-            <div class="carousel-container">
-                <h2>My Fleet</h2>
-                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                <div class="carousel-slide">
-                    <div class="carousel-item">
-                        <img src="img/Alaska Airlines/ASA - N487AS.png" class="carousel-image" alt="Alaska One World Livery">
-                        <div class="caption">Alaska One World Livery</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Alaska Airlines/ASA - N512AS.png" class="carousel-image" alt="ATC Session 2">
-                        <div class="caption">Guiding a heavy 777 to final.</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Alaska Airlines/ASA - N318AS.png" class="carousel-image" alt="ATC Session 3">
-                        <div class="caption">Foggy approach into PDX!</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Freedom_One.png" class="carousel-image" alt="ATC Session 4">
-                        <div class="caption">Southwest Freedom One</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Delta/Delta_A350.png" class="carousel-image" alt="ATC Session 5">
-                        <div class="caption">Delta A350 on a long-haul!</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/SWA-N8603F.PNG" class="carousel-image" alt="SWA at KBOI">
-                        <div class="caption">SWA at KBOI</div>
-                    </div>
-                </div>
-                <button class="next" onclick="moveSlide(1)">&#10095;</button>
-                <div class="carousel-dots"></div>
-                <div class="progress-bar"></div>
+        <div class="Icontainer">
+            <div class="mySlides">
+                <div class="numbertext">1 / 6</div>
+                <img src="img/Air Canada/ACA - C-FTJV.png"/>
             </div>
-        </section>
+            <div class="mySlides">
+                <div class="numbertext">2 / 6</div>
+                <img src="img/Alaska Airlines/ASA - N570AS.png"/>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">3 / 6</div>
+                <img src="img/American Airlines/AAL - N337PJ.png"/>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="img/Avelo Airlines/VXP - N801XT.png"/>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="img/Comair Limited/BAW - ZS-ZWG.png"/>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="img/Corendon Dutch Airlines/CND - PH-CDF.png"/>
+            </div>
+        </div>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <div class="row">
+            <div class="column">
+            <img class="demo cursor" src="img/Air Canada/ACA - C-FTJV.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="img/Alaska Airlines/ASA - N570AS.png" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="img/American Airlines/AAL - N337PJ.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="img/Avelo Airlines/VXP - N801XT.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="img/Comair Limited/BAW - ZS-ZWG.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="img/Corendon Dutch Airlines/CND - PH-CDF.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+            </div>
+        </div>
         <footer>
             <p><img src="/img/Progress_Pride_Flag.png">Made with passion by Hypekingfish<img src="/img/Progress_Pride_Flag.png"></p>
             <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>

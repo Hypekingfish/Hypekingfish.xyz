@@ -460,7 +460,7 @@ nav li {
 }
 @layer footer {
     .site-footer {
-        background: linear-gradient(155deg, #181818 25%, #6c63ff 100%);
+        background: linear-gradient(155deg, var(--padresgold) 25%, var(--padresbrown) 100%);
         color: #fff;
         padding: 2.5em 0 1.5em 0;
         margin-top: 3em;
@@ -516,7 +516,7 @@ nav li {
         font-weight: 700;
         letter-spacing: 0.04em;
         font-size: 1.15em;
-        background: linear-gradient(90deg, #f5a9b8 0%, #6c63ff 100%);
+        background: linear-gradient(155deg, var(--padresbrown) 25%, var(--padresgold) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

@@ -1819,7 +1819,6 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #232526 0%, #414345 100%);
     min-height: 100vh;
 }
 
@@ -1878,8 +1877,8 @@ body, html {
 .middle h1, .middle h2, .middle h3 {
     margin: 0 0 1rem 0;
     font-size: 2.5rem;
-    color: var(--padresgold);
-    text-shadow: 0 2px 10px #000, 0 0 20px var(--padresgold);
+    color: #ffcc00;
+    text-shadow: 0 2px 10px #000, 0 0 20px #ffcc00;
     letter-spacing: 3px;
 }
 

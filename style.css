@@ -460,7 +460,7 @@ nav li {
 }
 @layer footer {
     .site-footer {
-        background: linear-gradient(90deg, #181818 60%, #6c63ff 100%);
+        background: linear-gradient(155deg, #181818 25%, #6c63ff 100%);
         color: #fff;
         padding: 2.5em 0 1.5em 0;
         margin-top: 3em;
@@ -476,9 +476,7 @@ nav li {
         top: -40px;
         left: -60px;
         width: 180px;
-        height: 180px;
-        background: radial-gradient(circle, #6c63ff 0%, transparent 70%);
-        opacity: 0.25;
+        height: 180px;        
         z-index: 0;
     }
     .site-footer::after {
@@ -488,7 +486,6 @@ nav li {
         right: -60px;
         width: 180px;
         height: 180px;
-        background: radial-gradient(circle, #f5a9b8 0%, transparent 70%);
         opacity: 0.18;
         z-index: 0;
     }
@@ -514,7 +511,6 @@ nav li {
         height: 2em;
         vertical-align: middle;
         border-radius: 5px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
     .footer-title {
         font-weight: 700;

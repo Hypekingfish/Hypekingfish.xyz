@@ -1817,42 +1817,133 @@ nav li {
 @layer comingsoon {
 body, html {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
 }
+
 .bgimg {
-  height: 100%;
-  position: relative;
-  color: white;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    box-shadow: 0 0 40px 10px rgba(0,0,0,0.7) inset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Position text in the top-left corner */
 .topleft {
-  position: absolute;
-  top: 0;
-  left: 16px;
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.4);
+    padding: 8px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Position text in the bottom-left corner */
 .bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
+    position: absolute;
+    bottom: 24px;
+    left: 32px;
+    font-size: 1rem;
+    opacity: 0.8;
+    background: rgba(0,0,0,0.3);
+    padding: 6px 14px;
+    border-radius: 8px;
 }
 
-/* Position text in the middle */
 .middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(34,34,34,0.7);
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+    animation: fadeIn 1.2s ease;
 }
 
-/* Style the <hr> element */
+.middle h1, .middle h2, .middle h3 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    color: var(--padresgold);
+    text-shadow: 0 2px 10px #000, 0 0 20px var(--padresgold);
+    letter-spacing: 3px;
+}
+
+.middle p {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 1px 6px #000;
+}
+
+.comingsoon-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7300 0%, #ffcc00 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 12px rgba(255, 204, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+.comingsoon-btn:hover {
+    background: linear-gradient(90deg, #ffcc00 0%, #ff7300 100%);
+    transform: scale(1.05);
+}
+
 hr {
-  margin: auto;
-  width: 40%;
+    margin: 2rem auto;
+    width: 40%;
+    border: 0;
+    border-top: 2px solid #ffcc00;
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    .bgimg {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    .middle {
+        padding: 1.2rem 0.5rem;
+        border-radius: 10px;
+    }
+    .middle h1, .middle h2, .middle h3 {
+        font-size: 1.5rem;
+    }
+    .topleft, .bottomleft {
+        left: 10px;
+        right: 10px;
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    hr {
+        width: 70%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%);}
+    to { opacity: 1; transform: translate(-50%, -50%);}
 }
 }
 @layer flyingimages {

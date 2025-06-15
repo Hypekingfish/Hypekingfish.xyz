@@ -4,10 +4,10 @@
         --white: #FFFFFFFF;
         --grey: #8f8e8e;
         --lightBlue: #a0dbf2;
-		--blue: #5bcefa;
+        --blue: #5bcefa;
         --darkBlue: #0077be;
-		--lightPink: #f2c9d4;
-		--pink: #f5a9b8;
+        --lightPink: #f2c9d4;
+        --pink: #f5a9b8;
         --red: #ff0000;
         --twitchpurple: #a970ff;
         --paypalblue: #002991 ;
@@ -17,14 +17,15 @@
         --padresgold: #FFC425;
         --main: "MoMontserrat", sans-serif;
         --heading: "EB Garamond", serif;
-		--base-size: 1.167rem;
-		--scale: 1.2;
-		--h1: calc(var(--h2) * var(--scale));
-		--h2: calc(var(--h3) * var(--scale));
-		--h3: calc(var(--h4) * var(--scale));
-		--h4: calc(var(--h5) * var(--scale));
-		--h5: calc(var(--h6) * var(--scale));
-		--h6: var(--base-size);
+        --font-weight-heading: 600;
+        --base-size: 1.167rem;
+        --scale: 1.2;
+        --h1: calc(var(--h2) * var(--scale));
+        --h2: calc(var(--h3) * var(--scale));
+        --h3: calc(var(--h4) * var(--scale));
+        --h4: calc(var(--h5) * var(--scale));
+        --h5: calc(var(--h6) * var(--scale));
+        --h6: var(--base-size);
     }
 
     body::before {
@@ -279,15 +280,13 @@
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
-    }
     header h1 {
         font-family: var(--heading);
         font-weight: 600;
-        font-size: 2rem;
+        font-size: var(--h1);
         margin: 0;
         padding: 0 2rem;
         display: flex;
-        align-items: center;
     }
     header h1 img {
         height: 50px;
@@ -361,7 +360,7 @@
 
         header h1 {
             font-size: 1.5rem;
-            padding: 0 1rem;
+            padding: 0 0.5rem; /* Reduced padding for better mobile fit */
         }
 
         header h1 img {
@@ -603,7 +602,7 @@ nav li {
     .AHeader h2 {
         color: var(--darkBlue);
         margin: 0;
-        font-weight: 600;
+        font-weight: var(--font-weight-heading);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
@@ -629,7 +628,7 @@ nav li {
         color: var(--pink);
         text-align: center;
         font-family: var(--heading);
-        font-weight: 600;
+        font-weight: var(--font-weight-heading);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         margin-bottom: 0.5rem;
     }
@@ -637,7 +636,7 @@ nav li {
         color: var(--darkBlue);
         text-align: center;
         margin: 0;
-        font-weight: 600;
+        font-weight: var(--font-weight-heading);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     /* Make sections more mobile-friendly */
@@ -1783,45 +1782,47 @@ nav li {
         overflow: hidden;
         background-color: #2f241d;
         position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
     .topnav #myLinks {
         display: none;
     }
     .topnav a {
         color: var(--padresgold);
+        font-family: var(--heading);
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 17px;
-        display: block;
+        font-size: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
     }
-    .topnav a.icon {
+    .topnav a.topnav-icon {
         background: black;
         display: block;
         position: absolute;
         right: 0;
         top: 0;
     }
+    .topnav img {
+        height: 38px;
+        width: auto;
+        display: inline-block;
+        margin: 0 1rem 0 0;
+        vertical-align: middle;
+    }
 }
 @layer comingsoon {
-    body, html {
-        height: 100%;
-    }
-    .bgimg {
-  /* Background image */
-  background-image: url('/w3images/forestbridge.jpg');
-  /* Full-screen */
+body, html {
+    height: 100%;
+}
+.bgimg {
   height: 100%;
-  /* Center the background image */
-  background-position: center;
-  /* Scale and zoom in the image */
-  background-size: cover;
-  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
   position: relative;
-  /* Add a white text color to all elements inside the .bgimg container */
   color: white;
-  /* Add a font */
   font-family: "Courier New", Courier, monospace;
-  /* Set the font-size to 25 pixels */
   font-size: 25px;
 }
 

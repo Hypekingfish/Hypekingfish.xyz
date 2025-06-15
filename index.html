@@ -23,7 +23,9 @@
   </head>
   <body>
     <div class="topnav">
-      <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png"/>Hypekingfish</a>
+      <a href="index.html" class="active"
+        ><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a
+      >
       <div id="myLinks">
         <a href="about.html">About</a>
         <a href="flying.html">Flying</a>
@@ -34,24 +36,72 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <footer>
-      <p>
-        <small
-          ><img src="img/Progress_Pride_Flag.png" /> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png"
-        /></small>
-      </p>
-      <p>
-        <small
-          >All content &copy; 2025 of Hypekingfish, unless previous copyright
-          exists.</small
-        >
-      </p>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-branding">
+          <img
+            src="img/Progress_Pride_Flag.png"
+            alt="Progress Pride Flag"
+            class="footer-flag"
+          />
+          <span class="footer-title"
+            >Created with passion by <strong>Hypekingfish</strong></span
+          >
+          <img
+            src="img/Progress_Pride_Flag.png"
+            alt="Progress Pride Flag"
+            class="footer-flag"
+          />
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://github.com/[your-actual-username]"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://twitter.com/fishnbuckjr02"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a
+            href="https://youtube.com/yourchannel"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a
+            href="https://twitch.tv/hypekingfish"
+            aria-label="Twitch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-twitch"></i>
+          </a>
+          <a
+            href="https://discord.gg/yourdiscord"
+            aria-label="Discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <p class="footer-copyright">
+          <small>
+            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
+            All content is property of Hypekingfish unless otherwise noted.
+          </small>
+        </p>
+      </div>
     </footer>
-    <script src="scripts/navmenu.js"></script>
-    <script src="scripts/youtube.js"></script>
-    <!-- If you move these scripts to the <head>, add 'defer' like:
-    <script src="scripts/navmenu.js" defer></script>
-    <script src="scripts/youtube.js" defer></script>
-    -->
   </body>
 </html>

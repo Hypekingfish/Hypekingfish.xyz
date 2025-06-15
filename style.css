@@ -459,114 +459,118 @@ nav li {
 @layer Home {
 }
 @layer footer {
-    footer {
-        text-align: center;
-        font-family: var(--body);
-        padding: 4rem 0;
-        color: var(--padresgold);
-        background: linear-gradient(90deg, rgba(91,206,250,0.08) 0%, rgba(245,169,184,0.08) 100%);
+    .site-footer {
+        background: linear-gradient(90deg, #181818 60%, #6c63ff 100%);
+        color: #fff;
+        padding: 2.5em 0 1.5em 0;
+        margin-top: 3em;
+        font-family: 'Montserrat', Arial, sans-serif;
+        border-top: 4px solid #6c63ff;
+        box-shadow: 0 -4px 32px rgba(108, 99, 255, 0.18), 0 -2px 16px rgba(0,0,0,0.18);
         position: relative;
-        box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
-        border-top: 2px solid var(--blue);
         overflow: hidden;
     }
-    footer::before {
+    .site-footer::before {
         content: "";
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(circle at 50% 0%, rgba(169,112,255,0.15) 0%, transparent 70%);
+        top: -40px;
+        left: -60px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, #6c63ff 0%, transparent 70%);
+        opacity: 0.25;
         z-index: 0;
-        pointer-events: none;
     }
-    footer img {
-        width: 28px;
-        filter: drop-shadow(0 0 8px var(--blue));
-        vertical-align: middle;
-        transition: transform 0.3s, filter 0.3s;
-    }
-    footer img:hover {
-        transform: scale(1.2) rotate(-8deg);
-        filter: drop-shadow(0 0 16px var(--pink));
-    }
-    footer ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 2rem 0;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        gap: 3rem;
-        font-size: 2.5rem;
-        z-index: 1;
-        position: relative;
-    }
-    footer ul li {
-        transition: transform 0.2s, text-shadow 0.3s;
-        filter: drop-shadow(0 0 6px var(--blue));
-    }
-    footer ul li:hover {
-        transform: scale(1.15) rotate(4deg);
-        text-shadow: 0 0 12px var(--pink), 0 0 24px var(--blue);
-        filter: drop-shadow(0 0 16px var(--padresgold));
-    }
-    footer a {
-        color: var(--padresgold);
-        transition: color 0.2s;
-        text-decoration: none;
-    }
-    footer a:hover {
-        color: var(--blue);
-        text-shadow: 0 0 8px var(--blue);
-    }
-    footer p {
-        color: var(--padresgold);
-        font-size: 1.1rem;
-        margin-top: 2rem;
-        letter-spacing: 1px;
-        text-shadow: 0 1px 8px rgba(91,206,250,0.25);
-        z-index: 1;
-        position: relative;
-    }
-    /* Add a glowing animated bar above the footer */
-    footer::after {
+    .site-footer::after {
         content: "";
-        display: block;
         position: absolute;
-        top: 0; left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 6px;
-        border-radius: 3px;
-        background: linear-gradient(90deg, var(--blue), var(--pink), var(--twitchpurple), var(--blue));
-        background-size: 200% 100%;
-        animation: footerGlowBar 6s linear infinite;
-        z-index: 2;
-        opacity: 0.7;
+        bottom: -40px;
+        right: -60px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, #f5a9b8 0%, transparent 70%);
+        opacity: 0.18;
+        z-index: 0;
     }
-    @keyframes footerGlowBar {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
+    .footer-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
     }
-    /* Optimize footer for mobile */
-    @media (max-width: 768px) {
-        footer {
-            padding: 2rem 0;
+    .footer-branding {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75em;
+        font-size: 1.25em;
+        margin-bottom: 0.7em;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-shadow: 0 2px 8px #6c63ff33, 0 1px 2px #0008;
+    }
+    .footer-flag {
+        height: 2em;
+        vertical-align: middle;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .footer-title {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        font-size: 1.15em;
+        background: linear-gradient(90deg, #f5a9b8 0%, #6c63ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .footer-social {
+        margin: 0.7em 0 1.2em 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.2em;
+        font-size: 1.7em;
+    }
+    .footer-social a {
+        color: #fff;
+        margin: 0 0.2em;
+        font-size: 1.3em;
+        transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+        text-shadow: 0 2px 8px #6c63ff44;
+        filter: drop-shadow(0 0 4px #6c63ff55);
+    }
+    .footer-social a:hover {
+        color: #f5a9b8;
+        transform: scale(1.18) rotate(-7deg);
+        text-shadow: 0 0 16px #f5a9b8, 0 2px 8px #fff6;
+        filter: drop-shadow(0 0 8px #f5a9b8);
+    }
+    .footer-copyright {
+        font-size: 1em;
+        color: #e0e0e0;
+        letter-spacing: 0.01em;
+        margin-top: 0.7em;
+        text-shadow: 0 1px 4px #0006;
+        opacity: 0.85;
+    }
+    @media (max-width: 600px) {
+        .footer-branding {
+            flex-direction: column;
+            gap: 0.3em;
+            font-size: 1em;
         }
-        footer ul {
-            gap: 1.2rem;
-            font-size: 1.5rem;
+        .footer-social {
+            font-size: 1.2em;
+            gap: 0.7em;
         }
-        footer img {
-            width: 22px;
+        .footer-flag {
+            height: 1.3em;
         }
-        footer p {
-            font-size: 0.95rem;
-        }
-        footer::after {
-            width: 95vw;
+        .footer-content {
+            padding: 0 0.5em;
         }
     }
-}
 @layer IFR {
     .IFR {
         text-align: center;

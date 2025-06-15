@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
     </head>
-    <body class="container">
+    <body>
         <div class="topnav">
         <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png"/>Hypekingfish</a>
         <div id="myLinks">
@@ -59,27 +59,6 @@
                 </div>
             </div>
             </section>
-            <section class="Wallpaper_Engine">
-            <h2>Check Out My Wallpapers</h2>
-            <div class="wallpaper-grid">
-                <figure>
-                <img src="img/Wallpaper Engine/Rivian RS1 snow.png" alt="Forza Horizon 5 Rivian RS1"/>
-                <figcaption>
-                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3399058846" target="_blank" rel="noopener noreferrer">
-                    Get this Wallpaper
-                    </a>
-                </figcaption>
-                </figure>
-                <figure>
-                <img src="/img/Wallpaper Engine/Porsche GT3 RS snow.png" alt="Porsche 911 GT3 RS"/>
-                <figcaption>
-                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3399251831" target="_blank" rel="noopener noreferrer">
-                    Get this Wallpaper
-                    </a>
-                </figcaption>
-                </figure>
-            </div>
-            </section>
             <section class="social-links">
             <h2>Connect with Me</h2>
             <div class="social-icons">
@@ -100,20 +79,41 @@
                 </a>
             </div>
             </section>
-            <footer>
-            <p>
-                <small>
-                <img src="img/Progress_Pride_Flag.png" style="height:1em;vertical-align:middle;"/> 
-                Created with passion by Hypekingfish 
-                <img src="img/Progress_Pride_Flag.png" style="height:1em;vertical-align:middle;"/>
-                </small>
-            </p>
-            <p>
-                <small>
-                All content &copy; of Hypekingfish, unless previous copyright exists.
-                </small>
-            </p>
+            <footer class="site-footer">
+                <div class="footer-content">
+                    <div class="footer-branding">
+                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
+                        <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
+                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitch"></i>
+                        </a>
+                        <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                    <p class="footer-copyright">
+                        <small>
+                            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br>
+                            All content is property of Hypekingfish unless otherwise noted.
+                        </small>
+                    </p>
+                </div>
             </footer>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
         </main>
         <script src="scripts/navmenu.js"></script>
     </body>

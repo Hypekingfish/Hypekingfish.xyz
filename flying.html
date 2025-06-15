@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
-        <title>Hypekingfish</title>
-        <link href="style.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
-        <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
-        <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
-    </head>
-    <body class="container">
-        <div class="topnav" id="myTopnav">
-        <a href="index.html" class="active">Home</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hypekingfish</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f78443c527.js"
+      crossorigin="anonymous"
+    ></script>
+    <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="index.html" class="active">Hypekingfish</a>
+      <div id="myLinks">
         <a href="about.html">About</a>
         <a href="flying.html">Flying</a>
-        <a href="streaming.html">Streaming</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+        <a href="project.html">Projects</a>
+        <a href="streaming.html">streaming</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
-        <header>
-            <h1>
-                <a href="index.html" aria-label="Go Home">
-                    <img src="img/FnBLogo_FINAL_800.png" alt="Hypekingfish Logo"/>
-                    <span>Hypekingfish</span>
-                </a>
-            </h1>
-        </section>
-    </div>
-        </header>
-        <section class="seattle_artcc">
-            <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
-            <p>Welcome to my Seattle ARTCC experience! Here, you’ll find insights into my air traffic control sessions, real-time VATSIM data, and traffic trends at major ZSE airports.</p>
-            <div class="zse-info">
-                <ul>
-                    <!-- <p><strong>Last Controlled Field:</strong> <span id="">Loading...</span><p> -->
-                    <p><strong>Total Vatsim Hours:</strong> <span id="vatsim-hours">Loading...</span></p>
-                    <li><strong>Favorite Airport:</strong> KPDX (Portland Intl)</li>
-                </ul>
-            </div>
-            <div class="flight-container">
-                <div class="airport-label left">PDX (Portland Intl)</div>
-                <div class="flight-path">
-                    <img src="img/N915AK.png" class="plane" alt="Airplane">
-                </div>
-                <div class="airport-label right">SEA (Seattle-Tacoma Intl)</div>
-            </div>                                                            
-        </section>
-        <!-- <section class="virtual-zse">
+    <section class="seattle_artcc">
+      <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
+      <p>
+        Welcome to my Seattle ARTCC experience! Here, you’ll find insights into
+        my air traffic control sessions, real-time VATSIM data, and traffic
+        trends at major ZSE airports.
+      </p>
+      <div class="zse-info">
+        <ul>
+          <!-- <p><strong>Last Controlled Field:</strong> <span id="">Loading...</span><p> -->
+          <p>
+            <strong>Total Vatsim Hours:</strong>
+            <span id="vatsim-hours">Loading...</span>
+          </p>
+          <li><strong>Favorite Airport:</strong> KPDX (Portland Intl)</li>
+        </ul>
+      </div>
+      <div class="flight-container">
+        <div class="airport-label left">PDX (Portland Intl)</div>
+        <div class="flight-path">
+          <img src="img/N915AK.png" class="plane" alt="Airplane" />
+        </div>
+        <div class="airport-label right">SEA (Seattle-Tacoma Intl)</div>
+      </div>
+    </section>
+    <!-- <section class="virtual-zse">
             <h2>
                 <img src="https://zseartcc.org/new/public/images/logo_edit.png"> 
                 Virtual ZSE ARTCC 
@@ -76,219 +86,365 @@
                 <a href="https://zseartcc.org" target="_blank" class="button">Visit ZSE ARTCC</a>
             </div>
         </section> -->
-        <section class="Vatsim-Controlling">
-            <h2 class="glitch-text">
-                <span class="plane-icon">✈️</span> My VATSIM ATC Journey
-            </h2>            
-        
-            <!-- Gallery Section -->
-            <div class="gallery-grid">
-                <figure>
-                    <img src="img/PDX_ASDEX.png" alt="VATSIM PDX ASDEX Controller Display" class="lightbox-trigger"/>
-                    <figcaption>PDX ASDEX Controller Display</figcaption>
-                </figure>
-                <figure>
-                    <img src="img/Seattle_Tower.png" alt="Seattle Tower View" class="lightbox-trigger"/>
-                    <figcaption>Seattle Tower Operations</figcaption>
-                </figure>
-                <figure>
-                    <img src="img/ATC-Radar.png" alt="Radar Monitoring in Action" class="lightbox-trigger"/>
-                    <figcaption>Radar Monitoring in Action</figcaption>
-                </figure>
-            </div>
-        
-            <!-- About Section -->
-            <div class="About-Vatsim-Controlling">
-                <p>
-                    My journey as a **VATSIM controller** started in **July 2024**, and it has been an adrenaline-fueled adventure ever since.  
-                    From a **VATSIM pilot** to an air traffic controller, I’ve developed a deep appreciation for the art of **handling live traffic**  
-                    and coordinating at **ZSE ARTCC**. The teamwork, the rush, the challenge – it's what keeps me coming back!
-                </p>
-            </div>
-        
-            <!-- Live Controller Stats Section -->
-            <div id="vatsim-stats" class="vatsim-text">
-                <div class="controller-section">
-                    <h2>Controller Ratings & Achievements</h2>
-                    <ul class="certifications">
-                        <li>⭐ S1 - Ground Controller - <span class="hours" id="s1-hours">Loading...</span> hours</li>
-                        <li>⭐ S2 - Tower Controller - <span class="hours" id="s2-hours">Loading...</span> hours</li>
-                        <li>⭐ S3 - Approach Controller - <span class="hours" id="s3-hours">Loading...</span> hours</li>
-                    </ul>
-                    <h3>🎯 Total Controller Hours: <span class="hours" id="controller-hours">Loading...</span></h3>
-                </div>
-            </div>
-        
-            <!-- Memorable Moments Section -->
-            <div class="atc-moments">
-                <h3>Memorable ATC Moments</h3>
-                <ul>
-                    <li>🚀 Semi-Successfully managed **record-breaking arrivals** at PDX.</li>
-                    <!-- <li>🎤 Directed a low-visibility **ILS approach** like a pro.</li> -->
-                    <!-- <li>🌍 Helped mentor new controllers at **ZSE ARTCC**.</li> -->
-                    <!-- <li>⚡ Handled an emergency **Mayday situation** with precision.</li> -->
-                </ul>
-            </div>
-        
-            <div class="testimonials">
-                <h2>VATSIM Controller Reviews</h2>
-                <div class="testimonial">
-                    <p class="reviewer">Trenton Sergeant on <span class="position">PDX_GND</span></p>
-                    <p class="review-date">2025-02-05</p>
-                    <p class="review-text">
-                        did really well, could tell hes new and he did great with ground traffic!
-                    </p>    
-                    <p>
-                        Would Fly Again: Yes
-                    </p>
-                    <p class="review-signature">- unknown</p>
-                    <div class="star-rating" data-rating="5"></div>
-                </div>
-                <div class="testimonial">
-                    <p class="reviewer">Trenton Sergeant on <span class="position">SEA_GND</span></p>
-                    <p class="review-date">202-09-22</p>
-                    <p class="review-text">
-                        First time using VATSIM for ATC/Ground. Trenton was patient!
-                    </p>
-                    <p>
-                        Would Fly Again: Yes
-                    </p>
-                    <p class="review-signature">- unknown</p>
-                    <div class="star-rating" data-rating="5"></div>
-                </div>
-                <div class="testimonial">
-                    <p class="reviewer">Trenton Sergeant on <span class="position">PDX_GND</span></p>
-                    <p class="review-date">202-09-22</p>
-                    <p class="review-text">
-                        Very good work for what seemed like the first few sessions on ground. Keep it up and keep practicing.
-                    </p>
-                    <p>
-                        Would Fly Again: Yes
-                    </p>
-                    <p class="review-signature">- unknown</p>
-                    <div class="star-rating" data-rating="4"></div>
-                </div>
-            </div>
-        </section>
-        <section class="Vatsim-Pilot">
-            <h2 class="">My VATSIM Pilot Experience</h2>
-            <div>
-                <div class="gallery-grid">
-                    <figure>
-                        <img src="/img/Freedom_One.PNG" alt="Southwest Airlines Freedom One"/>
-                        <figcaption>Southwest Airlines Freedom One</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/img/IFR_Alaska.PNG" alt="Alaska Airlines Honoring Those Who Served"/>
-                        <figcaption>Alaska Airlines Honoring Those Who Served</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/img/GA_Friend.PNG" alt="Carbon Cub group flight"/>
-                        <figcaption>Carbon Cub group flight</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <h3 class="">Total Pilot Hours: <span id="pilot-hours">Loading...</span></h3>            
-        </section>
-        <div class="Icontainer">
-            <div class="mySlides">
-                <div class="numbertext">1 / 6</div>
-                <img src="img/Air Canada/ACA - C-FTJV.png"/>
-            </div>
-            <div class="mySlides">
-                <div class="numbertext">2 / 6</div>
-                <img src="img/Alaska Airlines/ASA - N570AS.png"/>
-            </div>
-            <div class="mySlides">
-                <div class="numbertext">3 / 6</div>
-                <img src="img/American Airlines/AAL - N337PJ.png"/>
-            </div>
-            <div class="mySlides">
-                <div class="numbertext">4 / 6</div>
-                <img src="img/Avelo Airlines/VXP - N801XT.png"/>
-            </div>
-            <div class="mySlides">
-                <div class="numbertext">5 / 6</div>
-                <img src="img/Comair Limited/BAW - ZS-ZWG.png"/>
-            </div>
-            <div class="mySlides">
-                <div class="numbertext">6 / 6</div>
-                <img src="img/Corendon Dutch Airlines/CND - PH-CDF.png"/>
-            </div>
+    <section class="Vatsim-Controlling">
+      <h2 class="glitch-text">
+        <span class="plane-icon">✈️</span> My VATSIM ATC Journey
+      </h2>
+
+      <!-- Gallery Section -->
+      <div class="gallery-grid">
+        <figure>
+          <img
+            src="img/PDX_ASDEX.png"
+            alt="VATSIM PDX ASDEX Controller Display"
+            class="lightbox-trigger"
+          />
+          <figcaption>PDX ASDEX Controller Display</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="img/Seattle_Tower.png"
+            alt="Seattle Tower View"
+            class="lightbox-trigger"
+          />
+          <figcaption>Seattle Tower Operations</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="img/ATC-Radar.png"
+            alt="Radar Monitoring in Action"
+            class="lightbox-trigger"
+          />
+          <figcaption>Radar Monitoring in Action</figcaption>
+        </figure>
+      </div>
+
+      <!-- About Section -->
+      <div class="About-Vatsim-Controlling">
+        <p>
+          My journey as a **VATSIM controller** started in **July 2024**, and it
+          has been an adrenaline-fueled adventure ever since. From a **VATSIM
+          pilot** to an air traffic controller, I’ve developed a deep
+          appreciation for the art of **handling live traffic** and coordinating
+          at **ZSE ARTCC**. The teamwork, the rush, the challenge – it's what
+          keeps me coming back!
+        </p>
+      </div>
+
+      <!-- Live Controller Stats Section -->
+      <div id="vatsim-stats" class="vatsim-text">
+        <div class="controller-section">
+          <h2>Controller Ratings & Achievements</h2>
+          <ul class="certifications">
+            <li>
+              ⭐ S1 - Ground Controller -
+              <span class="hours" id="s1-hours">Loading...</span> hours
+            </li>
+            <li>
+              ⭐ S2 - Tower Controller -
+              <span class="hours" id="s2-hours">Loading...</span> hours
+            </li>
+            <li>
+              ⭐ S3 - Approach Controller -
+              <span class="hours" id="s3-hours">Loading...</span> hours
+            </li>
+          </ul>
+          <h3>
+            🎯 Total Controller Hours:
+            <span class="hours" id="controller-hours">Loading...</span>
+          </h3>
         </div>
-        <div class="caption-container">
-            <p id="caption"></p>
+      </div>
+
+      <!-- Memorable Moments Section -->
+      <div class="atc-moments">
+        <h3>Memorable ATC Moments</h3>
+        <ul>
+          <li>
+            🚀 Semi-Successfully managed **record-breaking arrivals** at PDX.
+          </li>
+          <!-- <li>🎤 Directed a low-visibility **ILS approach** like a pro.</li> -->
+          <!-- <li>🌍 Helped mentor new controllers at **ZSE ARTCC**.</li> -->
+          <!-- <li>⚡ Handled an emergency **Mayday situation** with precision.</li> -->
+        </ul>
+      </div>
+
+      <div class="testimonials">
+        <h2>VATSIM Controller Reviews</h2>
+        <div class="testimonial">
+          <p class="reviewer">
+            Trenton Sergeant on <span class="position">PDX_GND</span>
+          </p>
+          <p class="review-date">2025-02-05</p>
+          <p class="review-text">
+            did really well, could tell hes new and he did great with ground
+            traffic!
+          </p>
+          <p>Would Fly Again: Yes</p>
+          <p class="review-signature">- unknown</p>
+          <div class="star-rating" data-rating="5"></div>
         </div>
-        <div class="row">
-            <div class="column">
-            <img class="demo cursor" src="img/Air Canada/ACA - C-FTJV.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="img/Alaska Airlines/ASA - N570AS.png" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="img/American Airlines/AAL - N337PJ.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="img/Avelo Airlines/VXP - N801XT.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="img/Comair Limited/BAW - ZS-ZWG.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="img/Corendon Dutch Airlines/CND - PH-CDF.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
-            </div>
+        <div class="testimonial">
+          <p class="reviewer">
+            Trenton Sergeant on <span class="position">SEA_GND</span>
+          </p>
+          <p class="review-date">202-09-22</p>
+          <p class="review-text">
+            First time using VATSIM for ATC/Ground. Trenton was patient!
+          </p>
+          <p>Would Fly Again: Yes</p>
+          <p class="review-signature">- unknown</p>
+          <div class="star-rating" data-rating="5"></div>
         </div>
-        <footer>
-            <p><img src="/img/Progress_Pride_Flag.png">Made with passion by Hypekingfish<img src="/img/Progress_Pride_Flag.png"></p>
-            <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>
-        </footer>
-        <section class="social-links">
-            <div class="social-links">
-                <a href="https://bsky.app/profile/hypekingfish.bsky.social" class="social-button" aria-label="Bluesky" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-bluesky"></i>
-                </a>
-                <a href="https://discord.gg/AxeJ6ryn2x" class="social-button" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-                <a href="https://github.com/Hypekingfish" class="social-button" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.instagram.com/yourprofile" class="social-button" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://ko-fi.com/yourkofi" class="social-button" aria-label="Ko-fi" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-mug-hot"></i>
-                </a>
-                <a href="https://paypal.me/yourlink" class="social-button" aria-label="PayPal" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-paypal"></i>
-                </a>
-                <a href="https://steamcommunity.com/id/yourprofile" class="social-button" aria-label="Steam" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-steam"></i>
-                </a>
-                <a href="https://tiktok.com/@yourusername" class="social-button" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="https://twitch.tv/hypekingfish" class="social-button" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-twitch"></i>
-                </a>
-                <a href="https://twitter.com/fishnbuckjr02" class="social-button" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.youtube.com/@yourchannel" class="social-button" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-            </div>        
-        </section>
-        <button id="theme-toggle">Toggle Dark Mode</button>
-        <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
-        <script src="scripts/atc.js"></script>
-        <script src="scripts/carousel.js"></script>
-        <script src="scripts/combined.js"></script>
-        <script src="scripts/controlling.js"></script>
-        <script src="scripts/gallery.js"></script>
-        <script src="scripts/plane.js"></script>
-        <script src="scripts/pilot.js"></script>
-        <script src="scripts/scroll.js"></script>
-    </body>
+        <div class="testimonial">
+          <p class="reviewer">
+            Trenton Sergeant on <span class="position">PDX_GND</span>
+          </p>
+          <p class="review-date">202-09-22</p>
+          <p class="review-text">
+            Very good work for what seemed like the first few sessions on
+            ground. Keep it up and keep practicing.
+          </p>
+          <p>Would Fly Again: Yes</p>
+          <p class="review-signature">- unknown</p>
+          <div class="star-rating" data-rating="4"></div>
+        </div>
+      </div>
+    </section>
+    <section class="Vatsim-Pilot">
+      <h2 class="">My VATSIM Pilot Experience</h2>
+      <div>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="/img/Freedom_One.PNG"
+              alt="Southwest Airlines Freedom One"
+            />
+            <figcaption>Southwest Airlines Freedom One</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/img/IFR_Alaska.PNG"
+              alt="Alaska Airlines Honoring Those Who Served"
+            />
+            <figcaption>Alaska Airlines Honoring Those Who Served</figcaption>
+          </figure>
+          <figure>
+            <img src="/img/GA_Friend.PNG" alt="Carbon Cub group flight" />
+            <figcaption>Carbon Cub group flight</figcaption>
+          </figure>
+        </div>
+      </div>
+      <h3 class="">
+        Total Pilot Hours: <span id="pilot-hours">Loading...</span>
+      </h3>
+    </section>
+    <div class="Icontainer">
+      <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img src="img/Air Canada/ACA - C-FTJV.png" />
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img src="img/Alaska Airlines/ASA - N570AS.png" />
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img src="img/American Airlines/AAL - N337PJ.png" />
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img src="img/Avelo Airlines/VXP - N801XT.png" />
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">5 / 6</div>
+        <img src="img/Comair Limited/BAW - ZS-ZWG.png" />
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">6 / 6</div>
+        <img src="img/Corendon Dutch Airlines/CND - PH-CDF.png" />
+      </div>
+    </div>
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/Air Canada/ACA - C-FTJV.png"
+          style="width: 100%"
+          onclick="currentSlide(1)"
+          alt="Air Canada Boeing 737-800"
+        />
+      </div>
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/Alaska Airlines/ASA - N570AS.png"
+          style="width: 100%"
+          onclick="currentSlide(2)"
+          alt="Cinque Terre"
+        />
+      </div>
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/American Airlines/AAL - N337PJ.png"
+          style="width: 100%"
+          onclick="currentSlide(3)"
+          alt="Mountains and fjords"
+        />
+      </div>
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/Avelo Airlines/VXP - N801XT.png"
+          style="width: 100%"
+          onclick="currentSlide(4)"
+          alt="Northern Lights"
+        />
+      </div>
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/Comair Limited/BAW - ZS-ZWG.png"
+          style="width: 100%"
+          onclick="currentSlide(5)"
+          alt="Nature and sunrise"
+        />
+      </div>
+      <div class="column">
+        <img
+          class="demo cursor"
+          src="img/Corendon Dutch Airlines/CND - PH-CDF.png"
+          style="width: 100%"
+          onclick="currentSlide(6)"
+          alt="Snowy Mountains"
+        />
+      </div>
+    </div>
+    <footer>
+      <p>
+        <img src="/img/Progress_Pride_Flag.png" />Made with passion by
+        Hypekingfish<img src="/img/Progress_Pride_Flag.png" />
+      </p>
+      <p>
+        <small
+          >All content &copy; of Hypekingfish, unless previous copyright
+          exists.</small
+        >
+      </p>
+    </footer>
+    <section class="social-links">
+      <div class="social-links">
+        <a
+          href="https://bsky.app/profile/hypekingfish.bsky.social"
+          class="social-button"
+          aria-label="Bluesky"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-bluesky"></i>
+        </a>
+        <a
+          href="https://discord.gg/AxeJ6ryn2x"
+          class="social-button"
+          aria-label="Discord"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a
+          href="https://github.com/Hypekingfish"
+          class="social-button"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/yourprofile"
+          class="social-button"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://ko-fi.com/yourkofi"
+          class="social-button"
+          aria-label="Ko-fi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-mug-hot"></i>
+        </a>
+        <a
+          href="https://paypal.me/yourlink"
+          class="social-button"
+          aria-label="PayPal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-paypal"></i>
+        </a>
+        <a
+          href="https://steamcommunity.com/id/yourprofile"
+          class="social-button"
+          aria-label="Steam"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-steam"></i>
+        </a>
+        <a
+          href="https://tiktok.com/@yourusername"
+          class="social-button"
+          aria-label="TikTok"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a
+          href="https://twitch.tv/hypekingfish"
+          class="social-button"
+          aria-label="Twitch"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-twitch"></i>
+        </a>
+        <a
+          href="https://twitter.com/fishnbuckjr02"
+          class="social-button"
+          aria-label="Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a
+          href="https://www.youtube.com/@yourchannel"
+          class="social-button"
+          aria-label="YouTube"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </section>
+    <script src="scripts/atc.js"></script>
+    <script src="scripts/combined.js"></script>
+    <script src="scripts/controlling.js"></script>
+    <script src="scripts/pilot.js"></script>
+    <script src="scripts/plane.js"></script>
+    <script src="scripts/navmenu.js"></script>
+    <script src="scripts/testimonials.js"></script>
+  </body>
 </html>

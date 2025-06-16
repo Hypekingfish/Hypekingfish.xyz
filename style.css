@@ -3,11 +3,7 @@
         --black: #000000FF;
         --white: #FFFFFFFF;
         --grey: #8f8e8e;
-        --lightBlue: #a0dbf2;
-        --blue: #5bcefa;
         --darkBlue: #0077be;
-        --lightPink: #f2c9d4;
-        --pink: #f5a9b8;
         --red: #ff0000;
         --twitchpurple: #a970ff;
         --paypalblue: #002991 ;
@@ -27,7 +23,7 @@
         --h4: calc(var(--h5) * var(--scale));
         --h5: calc(var(--h6) * var(--scale));
         --h6: var(--base-size);
-
+    }
     body::before {
         content: "";
         position: fixed;
@@ -533,7 +529,7 @@ nav li {
     .footer-social a:hover {
         color: var(--padresgold);
     }
-    .footer-copyright {
+    .footer-copyright{
         font-size: 1em;
         color: var(--padresgold);
         letter-spacing: 0.01em;

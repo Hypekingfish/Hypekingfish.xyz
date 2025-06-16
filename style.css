@@ -537,6 +537,13 @@ nav li {
         text-shadow: 0 1px 4px #0006;
         opacity: 0.85;
     }
+    .footer-contact {
+        display: flex;
+        justify-content: center;
+        gap: 1.5em;
+        margin-top: 0.5em;
+    }
+    
     @media (max-width: 600px) {
         .footer-branding {
             flex-direction: column;
@@ -1707,7 +1714,6 @@ nav li {
     }
     .topnav #myLinks {
         display: none;
-        flex-direction: column;
         width: 100%;
     }
     .topnav a {

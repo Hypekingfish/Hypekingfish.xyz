@@ -460,7 +460,7 @@ nav li {
 }
 @layer footer {
     .site-footer {
-        background: linear-gradient(155deg, var(--padresgold) 25%, var(--padresbrown) 100%);
+        background-color: var(--padresbrown);
         color: #fff;
         padding: 2.5em 0 1.5em 0;
         margin-top: 3em;
@@ -513,12 +513,10 @@ nav li {
         border-radius: 5px;
     }
     .footer-title {
+        color: var(--padresgold);
         font-weight: 700;
         letter-spacing: 0.04em;
         font-size: 1.15em;
-        background: linear-gradient(155deg, var(--padresbrown) 25%, var(--padresgold) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         background-clip: text;
     }
     .footer-social {
@@ -529,22 +527,16 @@ nav li {
         font-size: 1.7em;
     }
     .footer-social a {
-        color: #fff;
+        color: var(--padresgold);
         margin: 0 0.2em;
         font-size: 1.3em;
-        transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
-        text-shadow: 0 2px 8px #6c63ff44;
-        filter: drop-shadow(0 0 4px #6c63ff55);
     }
     .footer-social a:hover {
-        color: #f5a9b8;
-        transform: scale(1.18) rotate(-7deg);
-        text-shadow: 0 0 16px #f5a9b8, 0 2px 8px #fff6;
-        filter: drop-shadow(0 0 8px #f5a9b8);
+        color: var(--padresgold);
     }
     .footer-copyright {
         font-size: 1em;
-        color: #e0e0e0;
+        color: var(--padresgold);
         letter-spacing: 0.01em;
         margin-top: 0.7em;
         text-shadow: 0 1px 4px #0006;
@@ -1347,114 +1339,6 @@ nav li {
         transform: scale(1.08);
     }
 }
-@layer seattle_artcc {
-    .seattle_artcc {
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
-    .seattle_artcc img {
-        border-radius: 20px;
-    }
-    .seattle_artcc p {
-        color: var(--zsegreen);
-        font-weight: 600;
-        text-align: center;
-        font-family: var(--heading);
-    }
-        background-image: linear-gradient(to right,
-            #1f7cbc, /* Dark Teal */
-            #486c3e  /* Bright Red */
-            );
-            );
-        -webkit-background-clip: text; /* Clip the background to the text */
-        color: transparent;  /* Make the text color transparent to show the gradient */
-    }
-    .zse-info {
-        margin-top: 10px;
-        font-size: 1.1rem;
-    }
-    .zse-info p {
-        text-align: center;
-    }
-    @keyframes rainbowShadow {
-        0% { box-shadow: 0 0 10px var(--zsegreen); }
-        25% { box-shadow: 0 0 15px var(--zseblue); }
-        50% { box-shadow: 0 0 20px var(--zsegreen); }
-        75% { box-shadow: 0 0 25px var(--zseblue); }
-        100% { box-shadow: 0 0 10px #e1e9e9; }
-    }
-    
-    .rainbow-box {
-        background: transparent;
-        animation: rainbowShadow 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
-    }
-    .flight-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        justify-content: center;
-        position: relative;
-        width: 80vw;
-        margin: 20px auto;
-        max-width: 100%;  /* Ensure it doesn't exceed the viewport width */
-        padding-left: 0;  /* Prevent any unwanted padding on the left */
-    }    
-    
-    .airport-label {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin: 10px 0;
-        /* width: 100%;  Make label take full width */
-    }
-    
-    .left {
-        align-self: flex-start; /* Align to the left */
-        text-align: left;
-        font-weight: bold;
-        text-shadow: 0 0 10px var(--zseblue), 0 0 15px rgba(0, 0, 0, 0.5); /* Add a subtle highlight */
-        background-image: linear-gradient(to right,
-            #ff3333,  /* Bright Red */
-            #aa66bb, 
-            #55aadd, 
-            #00aa88
-        );
-        -webkit-background-clip: text; /* Clip the background to the text */
-        color: transparent;  /* Make the text color transparent to show the gradient */
-    }
-    
-    
-    
-    .right {
-        align-self: flex-end;  /* Align to the right */
-        text-align: right;     /* Align text to the right */
-        font-weight: bold;     /* Optional: Make text bold */
-        background-image: linear-gradient(to right, 
-            #002664,  /* Red */
-            #50c800,  /* Orange */
-            #00afff   /* Blue */
-        );
-        -webkit-background-clip: text; /* Clip the background to the text */
-        color: transparent;   /* Make the text color transparent so the gradient is visible */
-    }
-    
-    
-    .flight-path {
-        position: relative;
-        width: 80vw;
-        height: 50px;
-        border-bottom: 2px dashed white;
-        overflow: hidden;
-    }
-    
-    .plane {
-        position: absolute;
-        width: 100px;
-        height: 100%;
-        transition: transform 1s ease-in-out, left 15s linear;
-    }
-    
-}
 @layer scroll_button {
     .scroll-to-top {
         position: fixed;
@@ -1896,20 +1780,24 @@ body, html {
     padding: 0;
     min-height: 100vh;
 }
+@keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
 
 .bgimg {
     height: 100vh;
     min-height: 100vh;
     position: relative;
     color: #fff;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Montserrat", "Courier New", Courier, monospace;
     font-size: 2rem;
     letter-spacing: 2px;
-    box-shadow: 0 0 40px 10px rgba(0,0,0,0.7) inset;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(2px);
 }
 
 .topleft {
@@ -1919,10 +1807,10 @@ body, html {
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 1px;
-    background: rgba(0,0,0,0.4);
-    padding: 8px 18px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    color: #222;
+    padding: 10px 22px;
+    border-radius: 12px;
+    z-index: 2;
 }
 
 .bottomleft {
@@ -1930,10 +1818,14 @@ body, html {
     bottom: 24px;
     left: 32px;
     font-size: 1rem;
-    opacity: 0.8;
-    background: rgba(0,0,0,0.3);
-    padding: 6px 14px;
-    border-radius: 8px;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    font-family: "Montserrat", "Courier New", Courier, monospace;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    z-index: 2;
 }
 
 .middle {
@@ -1942,33 +1834,46 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background: rgba(34,34,34,0.7);
-    padding: 2.5rem 2rem;
-    border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.4);
-    animation: fadeIn 1.2s ease;
+    background: rgba(34,34,34,0.85);
+    padding: 3rem 2.5rem;
+    border-radius: 22px;
+    animation: fadeIn 1.2s cubic-bezier(.4,2,.6,1);
+    border: 2px solid #ffcc00;
+    z-index: 3;
 }
 
 .middle h1, .middle h2, .middle h3 {
-    margin: 0 0 1rem 0;
-    font-size: 2.5rem;
+    margin: 0 0 1.2rem 0;
+    font-size: 2.7rem;
     color: #ffcc00;
-    text-shadow: 0 2px 10px #000, 0 0 20px #ffcc00;
-    letter-spacing: 3px;
+    text-shadow: 0 2px 10px #000, 0 0 24px #ffcc00, 0 0 8px #9147ff;
+    letter-spacing: 4px;
+    font-family: "EB Garamond", "Montserrat", serif;
+    font-weight: 800;
+    animation: popTitle 1s cubic-bezier(.4,2,.6,1);
+}
+@keyframes popTitle {
+    0% { opacity: 0; transform: scale(0.8);}
+    80% { opacity: 1; transform: scale(1.08);}
+    100% { opacity: 1; transform: scale(1);}
 }
 
 .middle p {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     color: #fff;
     margin-bottom: 1.2rem;
-    text-shadow: 0 1px 6px #000;
+    font-family: "Montserrat", "Courier New", Courier, monospace;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    animation: fadeIn 1.8s cubic-bezier(.4,2,.6,1);
 }
 
 .comingsoon-btn {
     display: inline-block;
     margin-top: 1.5rem;
-    padding: 0.8rem 2.2rem;
-    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
     color: #fff;
     background: linear-gradient(90deg, #ff7300 0%, #ffcc00 100%);
     border: none;
@@ -1976,42 +1881,80 @@ body, html {
     cursor: pointer;
     font-weight: bold;
     letter-spacing: 2px;
-    box-shadow: 0 2px 12px rgba(255, 204, 0, 0.3);
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 16px #ffcc0044, 0 2px 8px #9147ff33;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    text-shadow: 0 1px 4px #0008;
+    border: 2px solid #fff2;
+    animation: pulseBtn 2.5s infinite alternate;
 }
-.comingsoon-btn:hover {
+@keyframes pulseBtn {
+    0% { box-shadow: 0 2px 16px #ffcc0044, 0 2px 8px #9147ff33;}
+    100% { box-shadow: 0 4px 32px #ffcc00aa, 0 2px 16px #9147ff66;}
+}
+.comingsoon-btn:hover, .comingsoon-btn:focus {
     background: linear-gradient(90deg, #ffcc00 0%, #ff7300 100%);
-    transform: scale(1.05);
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 4px 32px #ffcc00aa, 0 2px 16px #9147ff66;
+    outline: none;
 }
 
 hr {
     margin: 2rem auto;
     width: 40%;
     border: 0;
-    border-top: 2px solid #ffcc00;
-    opacity: 0.7;
+    border-top: 3px solid #ffcc00;
+    opacity: 0.8;
+    border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+    .middle {
+        padding: 2rem 1rem;
+        border-radius: 14px;
+    }
+    .middle h1, .middle h2, .middle h3 {
+        font-size: 2rem;
+    }
+    .topleft, .bottomleft {
+        left: 10px;
+        right: 10px;
+        font-size: 1rem;
+        padding: 7px 12px;
+    }
+    .comingsoon-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    hr {
+        width: 60%;
+    }
 }
 
 @media (max-width: 600px) {
     .bgimg {
         font-size: 1.1rem;
-        padding: 0 10px;
+        padding: 0 6px;
     }
     .middle {
         padding: 1.2rem 0.5rem;
         border-radius: 10px;
     }
     .middle h1, .middle h2, .middle h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
     }
     .topleft, .bottomleft {
-        left: 10px;
-        right: 10px;
-        font-size: 0.9rem;
-        padding: 6px 10px;
+        left: 6px;
+        right: 6px;
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    .comingsoon-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
     }
     hr {
-        width: 70%;
+        width: 80%;
     }
 }
 

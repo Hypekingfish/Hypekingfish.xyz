@@ -1745,6 +1745,7 @@ nav li {
         align-items: center;
         gap: 1rem;
         flex-wrap: wrap;
+        -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
     }
     .topnav #myLinks {
         display: none;
@@ -1761,6 +1762,7 @@ nav li {
         align-items: center;
         gap: 0.5rem;
         transition: background 0.2s, color 0.2s;
+        -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
     }
     .topnav a.topnav-icon {
         background: black;
@@ -1769,6 +1771,7 @@ nav li {
         right: 0;
         top: 0;
         z-index: 2;
+        -webkit-tap-highlight-color: transparent;
     }
     .topnav img {
         height: 38px;
@@ -1776,6 +1779,8 @@ nav li {
         display: inline-block;
         margin: 0 1rem 0 0;
         vertical-align: middle;
+        pointer-events: none; /* Prevent accidental drag on iOS */
+        -webkit-user-drag: none;
     }
     @media (max-width: 768px) {
         .topnav {
@@ -1816,6 +1821,12 @@ nav li {
         .topnav a.topnav-icon {
             font-size: 1.2rem;
             padding: 6px 8px;
+        }
+    }
+    /* iOS 16+ Safari fix for background-attachment and sticky issues */
+    @supports (-webkit-touch-callout: none) {
+        .topnav {
+            background-attachment: scroll !important;
         }
     }
 }

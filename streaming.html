@@ -25,152 +25,76 @@
             <i class="fa fa-bars"></i>
         </a>
         </div>
-        <section class="twitch-embed">
-            <h2 class="rainbow-text">Live on Twitch</h2>
-            <div id="twitch-embed"></div>
-        </section>
-        <section class="mobile-message">
-            <div class="mobile-message">
-                🎥 Twitch embed is hidden on mobile. Watch the stream on <a href="https://www.twitch.tv/hypekingfish" target="_blank">Twitch</a>!
+        <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-branding">
+            <img
+                src="img/Progress_Pride_Flag.png"
+                alt="Progress Pride Flag"
+                class="footer-flag"
+            />
+            <span class="footer-title"
+                >Created with passion by <strong>Hypekingfish</strong></span
+            >
+            <img
+                src="img/Progress_Pride_Flag.png"
+                alt="Progress Pride Flag"
+                class="footer-flag"
+            />
             </div>
-        </section>
-        <div class="Player">
-            <script src="https://embed.twitch.tv/embed/v1.js"></script>
-            <script>
-                new Twitch.Embed("twitch-embed", {
-                    width: "100%",
-                    height: 480,
-                    channel: "hypekingfish",  // Twitch channel username
-                    layout: "video", // Can be "video-with-chat" or just "video"
-                    theme: "dark"
-                });
-            </script>
+            <div class="footer-social">
+            <a
+                href="https://github.com/[your-actual-username]"
+                aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-github"></i>
+            </a>
+            <a
+                href="https://twitter.com/fishnbuckjr02"
+                aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a
+                href="https://youtube.com/yourchannel"
+                aria-label="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a
+                href="https://twitch.tv/hypekingfish"
+                aria-label="Twitch"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-twitch"></i>
+            </a>
+            <a
+                href="https://discord.gg/yourdiscord"
+                aria-label="Discord"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-discord"></i>
+            </a>
+            </div>
+            <p class="footer-copyright">
+            <small>
+                &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
+                All content is property of Hypekingfish unless otherwise noted.
+            </small>
+            </p>
         </div>
-        <section class="subscriber_badges">
-            <h2 class="rainbow-text">Subscriber Badges</h2>
-            <p>Thank you to all my past and future subscribers</p>
-            <div class="badge_images">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-34.png" alt="1 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-35.png" alt="2 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-36.png" alt="3 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-37.png" alt="6 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-38.png" alt="9 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-39.png" alt="12 Month Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-40.png" alt="2 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-41.png" alt="3 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-42.png" alt="4 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-43.png" alt="5 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-44.png" alt="6 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-45.png" alt="7 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-46.png" alt="8 Year Subscriber Badge">
-                    <img src="/img/Matt%27s%20Masterpieces/GAMEBOY_MONTH_YEARS-47.png" alt="9 Year Subscriber Badge">
-            </div>
-        </section>
-        <!-- *Uncomment this out when you get bit badges* -->
-        <!-- <section class="bit_tier_badges"> 
-            <h2 class="rainbow-text">Bit Tier badges</h2>
-            <p>Thank you to everyone who has supported me by cheering bits!!!</p>
-            <div class="bit_tier_images">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-34.png" alt="1 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-35.png" alt="2 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-36.png" alt="3 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-37.png" alt="6 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-38.png" alt="9 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-39.png" alt="12 Month Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-40.png" alt="2 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-41.png" alt="3 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-42.png" alt="4 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-43.png" alt="5 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-44.png" alt="6 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-45.png" alt="7 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-46.png" alt="8 Year Subscriber Badge">
-                <img src="/img/Matt's Masterpieces/GAMEBOY_MONTH_YEARS-47.png" alt="9 Year Subscriber Badge">
-        </div>
-        </section> -->
-        <section class="donations">
-            <h2 class="rainbow-text">Support the Stream</h2>
-            <p>Love the content? Consider supporting through donations or other means! Your support helps keep the stream going and improves the quality of content.</p>
-            <div class="donation-buttons">
-                <a href="https://www.paypal.com/paypalme/hypekingfish" aria-label="Donate via PayPal" target="_blank" rel="noopener noreferrer" class="donate-button">
-                    <i class="fa-brands fa-paypal"></i> Donate via PayPal
-                </a>
-                <a href="https://ko-fi.com/fishnbuckjr02" aria-label="Donate via Ko-Fi" target="_blank" rel="noopener noreferrer" class="donate-button">
-                    <i class="fa-solid fa-mug-hot"></i> Donate via Ko-Fi
-                </a>
-            </div>
-            <div class="other-support">
-                <h3>Other Ways to Support</h3>
-                <ul>
-                    <li>
-                        <i class="fa-brands fa-twitch"></i>
-                        <a href="https://www.twitch.tv/hypekingfish" target="_blank" rel="noopener noreferrer">Subscribe on Twitch</a>
-                        <span>— Get custom emotes and badges!</span>
-                    </li>
-                    <li>
-                        <i class="fa-brands fa-twitter"></i>
-                        <a href="https://twitter.com/hypekingfish" target="_blank" rel="noopener noreferrer">Follow on Twitter</a>
-                    </li>
-                    <li>
-                        <i class="fa-brands fa-youtube"></i>
-                        <a href="https://www.youtube.com/@hypekingfish" target="_blank" rel="noopener noreferrer">Subscribe on YouTube</a>
-                    </li>
-                    <li>
-                        <i class="fa-brands fa-discord"></i>
-                        <a href="https://discord.gg/hypekingfish" target="_blank" rel="noopener noreferrer">Join the Discord Community</a>
-                    </li>
-                    <li>
-                        <i class="fa-brands fa-github"></i>
-                        <a href="https://github.com/Hypekingfish" target="_blank" rel="noopener noreferrer">Star on GitHub</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="donation-note">
-                <small>
-                    All donations are greatly appreciated but never required. Thank you for your support!
-                </small>
-            </div>
-        </section>
-        <footer>
-            <p><small><img src="img/Progress_Pride_Flag.png"/> Created with passion by Hypekingfish <img src="img/Progress_Pride_Flag.png"/></small></p>
-            <p><small>All content &copy; of Hypekingfish, unless previous copyright exists.</small></p>
-        </footer>        
-        <section class="social-links">
-            <div class="social-links">
-                <a href="https://bsky.app/profile/hypekingfish.bsky.social" class="social-button" aria-label="Bluesky" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-bluesky"></i>
-                </a>
-                <a href="https://discord.gg/hypekingfish" class="social-button" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-                <a href="https://github.com/Hypekingfish" class="social-button" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.instagram.com/hypekingfish" class="social-button" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://ko-fi.com/fishnbuckjr02" class="social-button" aria-label="Ko-fi" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-mug-hot"></i>
-                </a>
-                <a href="https://paypal.me/hypekingfish" class="social-button" aria-label="PayPal" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-paypal"></i>
-                </a>
-                <a href="https://steamcommunity.com/id/hypekingfish" class="social-button" aria-label="Steam" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-steam"></i>
-                </a>
-                <a href="https://tiktok.com/@hypekingfish" class="social-button" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="https://twitch.tv/hypekingfish" class="social-button" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-twitch"></i>
-                </a>
-                <a href="https://twitter.com/hypekingfish" class="social-button" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.youtube.com/@hypekingfish" class="social-button" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-            </div>        
-        </section>
+        <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+        </footer>
         <script src="scripts/navmenu.js"></script>
     </body>
 </html>

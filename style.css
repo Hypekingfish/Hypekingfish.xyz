@@ -27,7 +27,6 @@
         --h4: calc(var(--h5) * var(--scale));
         --h5: calc(var(--h6) * var(--scale));
         --h6: var(--base-size);
-    }
 
     body::before {
         content: "";
@@ -1699,53 +1698,16 @@ nav li {
     .hidden {
         display: none;
     }
-@layer trivia-button {
-    .extension-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        justify-items: center;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .extension-item {
-        background: transparent;
-        padding: 1rem;
-    }
-
-    .extension-button {
-        display: inline-block;
-        background-color: #7d1eff;
-        color: white;
-        font-weight: bold;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: background-color 0.3s ease;
-    }
-
-    .extension-button:hover {
-        background-color: #5e15c3;
-    }
-
-    .extension-item p {
-        margin-top: 0.8rem;
-        color: #ccc;
-        font-size: 0.95rem;
-    }
-}
 @layer navbar {
     .topnav {
         overflow: hidden;
+        color: var(--padresgold);
         background-color: #2f241d;
         position: relative;
         display: flex;
         align-items: center;
         gap: 1rem;
         flex-wrap: wrap;
-        -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
     }
     .topnav #myLinks {
         display: none;
@@ -1761,8 +1723,7 @@ nav li {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        transition: background 0.2s, color 0.2s;
-        -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+
     }
     .topnav a.topnav-icon {
         background: black;
@@ -1771,7 +1732,6 @@ nav li {
         right: 0;
         top: 0;
         z-index: 2;
-        -webkit-tap-highlight-color: transparent;
     }
     .topnav img {
         height: 38px;
@@ -1779,57 +1739,7 @@ nav li {
         display: inline-block;
         margin: 0 1rem 0 0;
         vertical-align: middle;
-        pointer-events: none; /* Prevent accidental drag on iOS */
-        -webkit-user-drag: none;
     }
-    @media (max-width: 768px) {
-        .topnav {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
-            padding: 0.5rem 0.5rem 0 0.5rem;
-        }
-        .topnav a {
-            font-size: 1.1rem;
-            padding: 10px 12px;
-            width: 100%;
-            justify-content: flex-start;
-        }
-        .topnav img {
-            height: 28px;
-            margin: 0 0.5rem 0 0;
-        }
-        .topnav #myLinks {
-            width: 100%;
-        }
-        .topnav a.topnav-icon {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            padding: 8px 12px;
-            font-size: 1.5rem;
-        }
-    }
-    @media (max-width: 480px) {
-        .topnav a {
-            font-size: 1rem;
-            padding: 8px 8px;
-        }
-        .topnav img {
-            height: 22px;
-        }
-        .topnav a.topnav-icon {
-            font-size: 1.2rem;
-            padding: 6px 8px;
-        }
-    }
-    /* iOS 16+ Safari fix for background-attachment and sticky issues */
-    @supports (-webkit-touch-callout: none) {
-        .topnav {
-            background-attachment: scroll !important;
-        }
-    }
-}
 @layer comingsoon {
 body, html {
     height: 100%;

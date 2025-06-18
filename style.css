@@ -2021,4 +2021,65 @@ hr {
   opacity: 1;
 }
 }
+@layer membership {
+    .membership-section {
+        text-align: center;
+    }
+    .membership-section h1 {
+        font-size: 2.5rem;
+        color: var(--padresgold);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .pricing-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 2rem;
+        height: 100%;
+    }
+    .pricing-tier {
+        background-color: var(--padresbrown);
+        border: 2px solid var(--padresgold);
+        border-radius: 20px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+    .price {
+        font-size: 2rem;
+        color: var(--padresgold);
+        margin: 10px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .pricing-tier h2 {
+        font-size: 1.5rem;
+        color: var(--padresgold);
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .pricing-tier li {
+        margin: 0.75rem 0;
+    }
+    .pricing-tier ul {
+        color: var(--padresgold);
+        margin: 0px 15px;
+        font-size: 1.2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        justify-content: center;
+    }
+    .pricing-tier a {
+        display: inline-block;
+        background-color: var(--padresgold);
+        color: var(--padresbrown);
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 }

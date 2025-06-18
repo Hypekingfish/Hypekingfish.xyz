@@ -1,0 +1,68 @@
+@layer Plane {
+    .flight-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        position: relative;
+        width: 80vw;
+        margin: 20px auto;
+        max-width: 100%;  /* Ensure it doesn't exceed the viewport width */
+        padding-left: 0;  /* Prevent any unwanted padding on the left */
+    }    
+
+    .airport-label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0;
+        /* width: 100%;  Make label take full width */
+    }
+
+    .left {
+        align-self: flex-start; /* Align to the left */
+        text-align: left;
+        font-weight: bold;
+        text-shadow: 0 0 10px var(--zseblue), 0 0 15px rgba(0, 0, 0, 0.5); /* Add a subtle highlight */
+        background-image: linear-gradient(to right,
+            #ff3333,  /* Bright Red */
+            #aa66bb, 
+            #55aadd, 
+            #00aa88
+        );
+        -webkit-background-clip: text; /* Clip the background to the text */
+        background-clip: text; /* Standard property for compatibility */
+        color: transparent;  /* Make the text color transparent to show the gradient */
+    }
+
+
+
+    .right {
+        align-self: flex-end;  /* Align to the right */
+        text-align: right;     /* Align text to the right */
+        font-weight: bold;     /* Optional: Make text bold */
+        background-image: linear-gradient(to right, 
+            #002664,  /* Dark Blue */
+            #50c800,  /* Green */
+            #00afff   /* Blue */
+        );
+        -webkit-background-clip: text; /* Clip the background to the text */
+        background-clip: text; /* Standard property for compatibility */
+        color: transparent;   /* Make the text color transparent so the gradient is visible */
+    }
+
+
+    .flight-path {
+        position: relative;
+        width: 80vw;
+        height: 50px;
+        border-bottom: 2px dashed white;
+        overflow: hidden;
+    }
+
+    .plane {
+        position: absolute;
+        width: 100px;
+        height: 100%;
+        transition: transform 1s ease-in-out, left 15s linear;
+    }
+}

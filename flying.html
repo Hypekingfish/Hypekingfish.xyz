@@ -11,6 +11,7 @@
     />
     <title>Hypekingfish</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="css/Plane.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
     <link
       rel="stylesheet"
@@ -324,119 +325,45 @@
         />
       </div>
     </div>
-    <footer>
-      <p>
-        <img src="/img/Progress_Pride_Flag.png" />Made with passion by
-        Hypekingfish<img src="/img/Progress_Pride_Flag.png" />
-      </p>
-      <p>
-        <small
-          >All content &copy; of Hypekingfish, unless previous copyright
-          exists.</small
-        >
-      </p>
-    </footer>
-    <div class="social-links">
-        <a
-          href="https://bsky.app/profile/hypekingfish.bsky.social"
-          class="social-button"
-          aria-label="Bluesky"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-bluesky"></i>
-        </a>
-        <a
-          href="https://discord.gg/AxeJ6ryn2x"
-          class="social-button"
-          aria-label="Discord"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-discord"></i>
-        </a>
-        <a
-          href="https://github.com/Hypekingfish"
-          class="social-button"
-          aria-label="GitHub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a
-          href="https://www.instagram.com/yourprofile"
-          class="social-button"
-          aria-label="Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a
-          href="https://ko-fi.com/yourkofi"
-          class="social-button"
-          aria-label="Ko-fi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-solid fa-mug-hot"></i>
-        </a>
-        <a
-          href="https://paypal.me/yourlink"
-          class="social-button"
-          aria-label="PayPal"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-paypal"></i>
-        </a>
-        <a
-          href="https://steamcommunity.com/id/yourprofile"
-          class="social-button"
-          aria-label="Steam"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-steam"></i>
-        </a>
-        <a
-          href="https://tiktok.com/@yourusername"
-          class="social-button"
-          aria-label="TikTok"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
-        <a
-          href="https://twitch.tv/hypekingfish"
-          class="social-button"
-          aria-label="Twitch"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-twitch"></i>
-        </a>
-        <a
-          href="https://twitter.com/fishnbuckjr02"
-          class="social-button"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-        <a
-          href="https://www.youtube.com/@yourchannel"
-          class="social-button"
-          aria-label="YouTube"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-    </div>
+    <footer class="site-footer">
+                <div class="footer-content">
+                    <div class="footer-branding">
+                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
+                        <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
+                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitch"></i>
+                        </a>
+                        <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                    <div class="footer-support">
+                        <h4>Support the Site</h4>
+                        <a href="https://www.buymeacoffee.com/Hypekingfish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
+                    </div>
+                    <p class="footer-copyright">
+                        <small>
+                            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br>
+                            All content is property of Hypekingfish unless otherwise noted.
+                        </small>
+                    </p>
+                </div>
+            </footer>
+        <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     <script src="scripts/atc.js"></script>
     <script src="scripts/lightbox.js"></script>
     <script src="scripts/carousel.js"></script>

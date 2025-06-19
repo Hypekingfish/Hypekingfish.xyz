@@ -1,0 +1,42 @@
+@layer navbar {
+    .topnav {
+        overflow: hidden;
+        color: var(--padresgold);
+        background-color: #2f241d;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        }
+    }
+    .topnav #myLinks {
+        display: none;
+        width: 100%;
+    }
+    .topnav a {
+        color: var(--padresgold);
+        font-family: var(--heading);
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+    }
+    .topnav a.topnav-icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+    }
+    .topnav img {
+        height: 38px;
+        width: auto;
+        display: inline-block;
+        margin: 0 1rem 0 0;
+        vertical-align: middle;
+    }

@@ -11,7 +11,12 @@
     />
     <title>Hypekingfish</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="css/Controller.css" rel="stylesheet" />
+    <link href="css/Footer.css" rel="stylesheet" />
+    <link href="css/Plane-Modal.css" rel="stylesheet" />
+    <link href="css/Nav.css" rel="stylesheet" />
     <link href="css/Plane.css" rel="stylesheet" />
+    <!-- <link href="css/Plane-Image.css" rel="stylesheet" /> -->
     <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
     <link
       rel="stylesheet"
@@ -23,9 +28,10 @@
     ></script>
   </head>
   <body>
-    <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
     <div class="topnav">
-      <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png"/>Hypekingfish</a>
+      <a href="index.html" class="active"
+        ><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a
+      >
       <div id="myLinks">
         <a href="about.html">About</a>
         <a href="flying.html">Flying</a>
@@ -123,12 +129,13 @@
       <!-- About Section -->
       <div class="About-Vatsim-Controlling">
         <p>
-          My journey as a <strong>VATSIM controller</strong> started in <strong>July 2024</strong>, and it
-          has been an adrenaline-fueled adventure ever since. From a <strong>VATSIM
-          pilot</strong> to an air traffic controller, I’ve developed a deep
-          appreciation for the art of <strong>handling live traffic</strong> and coordinating
-          at <strong>ZSE ARTCC</strong>. The teamwork, the rush, the challenge – it's what
-          keeps me coming back!
+          My journey as a <strong>VATSIM controller</strong> started in
+          <strong>July 2024</strong>, and it has been an adrenaline-fueled
+          adventure ever since. From a <strong>VATSIM pilot</strong> to an air
+          traffic controller, I’ve developed a deep appreciation for the art of
+          <strong>handling live traffic</strong> and coordinating at
+          <strong>ZSE ARTCC</strong>. The teamwork, the rush, the challenge –
+          it's what keeps me coming back!
         </p>
       </div>
 
@@ -240,130 +247,132 @@
         Total Pilot Hours: <span id="pilot-hours">Loading...</span>
       </h3>
     </section>
-    <div class="Icontainer">
-      <div class="mySlides">
-        <div class="numbertext">1 / 6</div>
-        <img src="img/Air_Canada/ACA-C-FTJV.png" />
+    <div class="Image-Row">
+      <div class="Image-Column">
+        <img src="img/Alaska Airlines/ASA - N570AS.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
       </div>
-      <div class="mySlides">
-        <div class="numbertext">2 / 6</div>
-        <img src="img/Alaska Airlines/ASA - N570AS.png" />
+      <div class="Image-Column">
+        <img src="img/Freedom_One.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
       </div>
-      <div class="mySlides">
-        <div class="numbertext">3 / 6</div>
-        <img src="img/American Airlines/AAL - N337PJ.png" />
+      <div class="Image-Column">
+        <img src="img/N915AK.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
       </div>
-      <div class="mySlides">
-        <div class="numbertext">4 / 6</div>
-        <img src="img/Avelo Airlines/VXP - N801XT.png" />
-      </div>
-      <div class="mySlides">
-        <div class="numbertext">5 / 6</div>
-        <img src="img/Comair Limited/BAW - ZS-ZWG.png" />
-      </div>
-      <div class="mySlides">
-        <div class="numbertext">6 / 6</div>
-        <img src="img/Corendon Dutch Airlines/CND - PH-CDF.png" />
+      <div class="Image-Column">
+        <img src="img/GA_Friend.PNG" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
       </div>
     </div>
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-    <div class="row">
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/Air_Canada/ACA-C-FTJV.png"
-          style="width: 100%"
-          onclick="currentSlide(1)"
-          alt="Air Canada Boeing 737-800"
-        />
-      </div>
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/Alaska Airlines/ASA - N570AS.png"
-          style="width: 100%"
-          onclick="currentSlide(2)"
-          alt="Cinque Terre"
-        />
-      </div>
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/American Airlines/AAL - N337PJ.png"
-          style="width: 100%"
-          onclick="currentSlide(3)"
-          alt="Mountains and fjords"
-        />
-      </div>
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/Avelo Airlines/VXP - N801XT.png"
-          style="width: 100%"
-          onclick="currentSlide(4)"
-          alt="Northern Lights"
-        />
-      </div>
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/Comair Limited/BAW - ZS-ZWG.png"
-          style="width: 100%"
-          onclick="currentSlide(5)"
-          alt="Nature and sunrise"
-        />
-      </div>
-      <div class="column">
-        <img
-          class="demo cursor"
-          src="img/Corendon Dutch Airlines/CND - PH-CDF.png"
-          style="width: 100%"
-          onclick="currentSlide(6)"
-          alt="Snowy Mountains"
-        />
-      </div>
+    <div id="PlaneModal" class="PlaneModal">
+      <span class="close cursor"onclick="closeModal()">&times;</span>
+      <div class="PlaneModal-Content">
+        <div class="PlaneSlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="img/Alaska Airlines/ASA - N570AS.png" style="width:100%" />
+        </div>
+        <div class="PlaneSlides">
+          <div class="numbertext">2 / 4</div>
+          <img src="img/Freedom_One.png" style="width:100%" />
+        </div>
+        <div class="PlaneSlides">
+          <div class="numbertext">3 / 4</div>
+          <img src="img/N915AK.png" style="width:100%" />
+        </div>
+        <div class="PlaneSlides">
+          <div class="numbertext">4 / 4</div>
+          <img src="img/GA_Friend.PNG" style="width:100%" />
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+        <div class="Image-Column">
+          <img class="demo" src="img/Alaska Airlines/ASA - N570AS.png" onclick="currentSlide(1)" alt="Alaska Airlines N570AS" />
+        </div>
+        <div class="Image-Column">
+          <img class="demo" src="img/Freedom_One.png" onclick="currentSlide(2)" alt="Freedom One" />
+        </div>
+        <div class="Image-Column">
+          <img class="demo" src="img/N915AK.png" onclick="currentSlide(3)" alt="N915AK" />
+        </div>
+        <div class="Image-Column">
+          <img class="demo" src="img/GA_Friend.PNG" onclick="currentSlide(4)" alt="GA Friend" />
+        </div>
     </div>
     <footer class="site-footer">
-                <div class="footer-content">
-                    <div class="footer-branding">
-                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
-                        <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
-                        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag"/>
-                    </div>
-                    <div class="footer-social">
-                        <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-twitch"></i>
-                        </a>
-                        <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                    <div class="footer-support">
-                        <h4>Support the Site</h4>
-                        <a href="https://www.buymeacoffee.com/Hypekingfish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
-                    </div>
-                    <p class="footer-copyright">
-                        <small>
-                            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br>
-                            All content is property of Hypekingfish unless otherwise noted.
-                        </small>
-                    </p>
-                </div>
-            </footer>
-        <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-        </script>
+      <div class="footer-content">
+        <div class="footer-branding">
+          <img
+            src="img/Progress_Pride_Flag.png"
+            alt="Progress Pride Flag"
+            class="footer-flag"
+          />
+          <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
+          <img
+            src="img/Progress_Pride_Flag.png"
+            alt="Progress Pride Flag"
+            class="footer-flag"
+          />
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://github.com/[your-actual-username]"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://twitter.com/fishnbuckjr02"
+            aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a
+            href="https://youtube.com/yourchannel"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a
+            href="https://twitch.tv/hypekingfish"
+            aria-label="Twitch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-twitch"></i>
+          </a>
+          <a
+            href="https://discord.gg/yourdiscord"
+            aria-label="Discord"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <div class="footer-support">
+          <h4>Support the Site</h4>
+          <a href="https://www.buymeacoffee.com/Hypekingfish"
+            ><img
+              src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00"
+          /></a>
+        </div>
+        <p class="footer-copyright">
+          <small>
+            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
+            All content is property of Hypekingfish unless otherwise noted.
+          </small>
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
     <script src="scripts/atc.js"></script>
     <script src="scripts/lightbox.js"></script>
     <script src="scripts/carousel.js"></script>
@@ -371,6 +380,7 @@
     <script src="scripts/controlling.js"></script>
     <script src="scripts/pilot.js"></script>
     <script src="scripts/plane.js"></script>
+    <script src="scripts/Modal.js"></script>
     <script src="scripts/navmenu.js"></script>
     <script src="scripts/testimonials.js"></script>
   </body>

@@ -887,10 +887,25 @@ nav li {
             text-align: center;
             color: var(--twitchpurple);
             font-size: 1.2em;
+            background-color: var(--padresbrown);
             margin-top: 20px;
+            padding: 16px 10px;
+            border-radius: 14px;
+            box-shadow: 0 0 8px var(--twitchpurple);
+            font-family: var(--heading);
         }
-    }
-    
+        .mobile-message a {
+            color: var(--padresgold);
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .mobile-message a:hover,
+        .mobile-message a:focus {
+            color: var(--paypalblue);
+            text-decoration: none;
+        }
+   
     @media (min-width: 769px) {
         .mobile-message {
             display: none;

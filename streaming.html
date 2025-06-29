@@ -15,6 +15,7 @@
   <link href="css/Footer.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
   <link href="css/Pricing.css" rel="stylesheet" />
+  <link href="css/Twitch.css" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
@@ -33,6 +34,29 @@
       <i class="fa fa-bars"></i>
     </a>
   </div>
+  <section class="twitch-embed">
+    <h2>Watch Me Live on Twitch</h2>
+    <div id="twitch-embed"></div>
+  </section>
+  <section class="mobile-message">
+    <div class="mobile-message">
+      🎥 Twitch embed is hidden on mobile. Watch the stream on <a href="https://www.twitch.tv/hypekingfish"
+        target="_blank">Twitch</a>
+    </div>
+  </section>
+  <div class="Player">
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <script>
+      new Twitch.Embed("twitch-embed", {
+        width: "100%",
+        height: 480,
+        channel: "hypekingfish",  // Your Twitch usernameMore actions
+        layout: "video", // Can be "video-with-chat" or just "video"
+        theme: "dark"
+      });
+    </script>
+  </div>
+  </section>
   <section class="membership-section">
     <h1>Become a Member on Ko-fi</h1>
     <p>

@@ -163,20 +163,6 @@
           </h3>
         </div>
       </div>
-
-      <!-- Memorable Moments Section -->
-      <div class="atc-moments">
-        <h3>Memorable ATC Moments</h3>
-        <ul>
-          <li>
-            🚀 Semi-Successfully managed **record-breaking arrivals** at PDX.
-          </li>
-          <!-- <li>🎤 Directed a low-visibility **ILS approach** like a pro.</li> -->
-          <!-- <li>🌍 Helped mentor new controllers at **ZSE ARTCC**.</li> -->
-          <!-- <li>⚡ Handled an emergency **Mayday situation** with precision.</li> -->
-        </ul>
-      </div>
-
       <div class="testimonials">
         <h2>VATSIM Controller Reviews</h2>
         <div class="testimonial">
@@ -247,57 +233,6 @@
         Total Pilot Hours: <span id="pilot-hours">Loading...</span>
       </h3>
     </section>
-    <div class="Image-Row">
-      <div class="Image-Column">
-        <img src="img/Alaska Airlines/ASA - N570AS.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
-      </div>
-      <div class="Image-Column">
-        <img src="img/Freedom_One.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
-      </div>
-      <div class="Image-Column">
-        <img src="img/N915AK.png" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
-      </div>
-      <div class="Image-Column">
-        <img src="img/GA_Friend.PNG" onclick="openModal();currentSlide(1)" class="Image-Shadow"/>
-      </div>
-    </div>
-    <div id="PlaneModal" class="PlaneModal">
-      <span class="close cursor"onclick="closeModal()">&times;</span>
-      <div class="PlaneModal-Content">
-        <div class="PlaneSlides">
-          <div class="numbertext">1 / 4</div>
-          <img src="img/Alaska Airlines/ASA - N570AS.png" style="width:100%" />
-        </div>
-        <div class="PlaneSlides">
-          <div class="numbertext">2 / 4</div>
-          <img src="img/Freedom_One.png" style="width:100%" />
-        </div>
-        <div class="PlaneSlides">
-          <div class="numbertext">3 / 4</div>
-          <img src="img/N915AK.png" style="width:100%" />
-        </div>
-        <div class="PlaneSlides">
-          <div class="numbertext">4 / 4</div>
-          <img src="img/GA_Friend.PNG" style="width:100%" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="caption-container">
-          <p id="caption"></p>
-        </div>
-        <div class="Image-Column">
-          <img class="demo" src="img/Alaska Airlines/ASA - N570AS.png" onclick="currentSlide(1)" alt="Alaska Airlines N570AS" />
-        </div>
-        <div class="Image-Column">
-          <img class="demo" src="img/Freedom_One.png" onclick="currentSlide(2)" alt="Freedom One" />
-        </div>
-        <div class="Image-Column">
-          <img class="demo" src="img/N915AK.png" onclick="currentSlide(3)" alt="N915AK" />
-        </div>
-        <div class="Image-Column">
-          <img class="demo" src="img/GA_Friend.PNG" onclick="currentSlide(4)" alt="GA Friend" />
-        </div>
-    </div>
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-branding">
@@ -364,12 +299,24 @@
         </div>
         <p class="footer-copyright">
           <small>
-            &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
-            All content is property of Hypekingfish unless otherwise noted.
+            &copy; <span id="year"></span> <strong>Hypekingfish</strong> All rights reserved.<br />
+            All content is property of Hypekingfish unless otherwise noted.<br />
+            VATSIM, vZSE ARTCC, and all related logos are trademarks of their respective owners.<br />
+            This site is not affiliated with or endorsed by VATSIM or any official aviation authority.<br />
+            Images and content may not be reproduced without permission.<br />
+            For inquiries, contact: <a href="mailto:hypekingfishttv@gmail.com">hypekingfishttv@gmail.com</a><br />
+            Website code and design by Hypekingfish.<br />
+            Some images and data may be used under fair use for educational or informational purposes.<br />
+            If you believe your copyright has been infringed, please contact me for prompt removal or credit.<br />
+            No personal data is collected or stored by this site.<br />
+            Last updated: <span id="last-updated">2024-06-09</span>
           </small>
         </p>
       </div>
     </footer>
+    <script>
+          document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
+    </script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>

@@ -11,6 +11,7 @@
     rel="stylesheet" />
   <title>Hypekingfish</title>
   <link href="style.css" rel="stylesheet">
+  <link href="css/Discord.css" rel="stylesheet" />
   <link href="css/Follows.css" rel="stylesheet" />
   <link href="css/Footer.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
@@ -65,7 +66,7 @@
     </p>
     <div class="pricing-table">
       <div class="pricing-tier">
-        <h2>Bronze</h2>
+        <h2 id="kofi-bronze">Bronze</h2>
         <p class="price">$2.50/month</p>
         <div class="tier-description">
           <ul>
@@ -106,6 +107,15 @@
         </a>
       </p>
   </section>
+  </div>
+  <div id="discord-card">
+    <div class="discord-card">
+    <img id="discord-icon" class="pulse" src="img/Discord-Logo-Blurple.png" alt="Discord Icon" />
+    <h1 id="discord-name">Loading...</h1>
+    <p class="stat-line" id="discord-members">Fetching online users...</p>
+    <p class="stat-line" id="discord-channels"></p>
+    <div class="avatar-row" id="discord-avatars"></div>
+    <a id="discord-invite" href="#" class="join-button" target="_blank">Join Discord</a>
   </div>
   <footer class="site-footer">
     <div class="footer-content">
@@ -160,6 +170,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="scripts/Discord.js"></script>
   <script src="scripts/navmenu.js"></script>
 </body>
 

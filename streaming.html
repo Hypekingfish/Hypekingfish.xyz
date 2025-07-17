@@ -35,16 +35,33 @@
       <i class="fa fa-bars"></i>
     </a>
   </div>
-  <section class="twitch-embed">
-    <h2>Watch Me Live on Twitch</h2>
-    <div id="twitch-embed"></div>
-  </section>
-  <section class="mobile-message">
-    <div class="mobile-message">
-      🎥 Twitch embed is hidden on mobile. Watch the stream on <a href="https://www.twitch.tv/hypekingfish"
-        target="_blank">Twitch</a>
-    </div>
-  </section>
+  <div id="stream-shell">
+  <div id="stream-header">
+    <span id="live-badge">🔴 Live</span>
+    <h2>Hypekingfish is Live!</h2>
+    <p id="live-title">Loading title...</p>
+    <p id="live-game">Playing: Loading...</p>
+  </div>
+
+  <div class="stream-player">
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <script>
+      new Twitch.Embed("twitch-embed", {
+        width: "100%",
+        height: 480,
+        channel: "hypekingfish",  // Your Twitch usernameMore actions
+        layout: "video", // Can be "video-with-chat" or just "video"
+        theme: "dark"
+      });
+    </script>
+  </div>
+
+  <div id="stream-tools">
+    <a href="https://www.twitch.tv/hypekingfish/chat?popout=" target="_blank">💬 Popout Chat</a>
+    <a href="https://ko-fi.com/hypekingfish" target="_blank">☕ Tip the Stream</a>
+    <a href="https://discord.gg/YOURDISCORD" target="_blank">📣 Join Discord</a>
+  </div>
+</div>
   <div class="Player">
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
     <script>
@@ -172,6 +189,7 @@
   </script>
   <script src="scripts/Discord.js"></script>
   <script src="scripts/navmenu.js"></script>
+  <script src="scripts/twitch.js"></script>
 </body>
 
 </html>

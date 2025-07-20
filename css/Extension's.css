@@ -32,7 +32,6 @@
   }
 }
 
-
 .extension-card {
   background: var(--padresbrown);
   border: 2px solid rgba(255, 196, 37, 0.15);
@@ -45,6 +44,27 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
+
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeInUp 0.6s ease forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+@keyframes cardFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.extension-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 10px 2px #ffc425aa,
+    0 6px 20px rgba(0,0,0,0.15);
+  border-color: #ffc425cc;
 }
 
 .extension-card::before {
@@ -60,13 +80,10 @@
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 0.5;
   }
-
   50% {
     transform: scale(1.1);
     opacity: 1;
@@ -80,17 +97,8 @@ hr {
   border-top: 3px solid var(--padresgold);
   opacity: 0.8;
   border-radius: 2px;
-  text-shadow: 0 0 6px #ffc42555
+  text-shadow: 0 0 6px #ffc42555;
 }
-
-.extension-card:hover {
-  box-shadow:
-    0 0 10px #ffc42544,
-    0 0 20px #ffc42522,
-    0 0 30px #ffc42511;
-}
-
-
 
 .extension-icon {
   width: 72px;
@@ -111,6 +119,11 @@ hr {
   z-index: 1;
   position: relative;
   text-shadow: 0 0 6px #ffc42555;
+
+  /* Text gradient */
+  background: linear-gradient(90deg, #ffc425, #ffda6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .extension-card p {
@@ -120,6 +133,11 @@ hr {
   margin-bottom: 1.5rem;
   z-index: 1;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+.extension-card:hover p {
+  color: #fff;
 }
 
 .card-button {
@@ -138,5 +156,55 @@ hr {
 
 .card-button:hover {
   background-color: #ffd633;
-  box-shadow: 0 0 12px 4px #ffc425aa;
+  box-shadow:
+    0 0 12px 4px #ffc425aa,
+    0 0 8px 2px #ffb600bb;
+}
+
+.card-button:focus-visible {
+  outline: 2px solid #ffc425;
+  outline-offset: 2px;
+}
+
+/* Sparkle dot effect */
+.extension-card::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 6px;
+  height: 6px;
+  background: #ffc425;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 4px #ffc425);
+  animation: sparkle 3s infinite ease-in-out;
+  z-index: 2;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .extension-card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .extension-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .extension-card h3 {
+    font-size: 1.4rem;
+  }
 }

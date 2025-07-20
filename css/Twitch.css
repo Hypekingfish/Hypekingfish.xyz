@@ -40,3 +40,8 @@
 #stream-tools a:hover {
   background: #772ce8;
 }
+#twitch-embed {
+        width: 100%;
+        max-width: 850px;
+        height: 400px;
+    }

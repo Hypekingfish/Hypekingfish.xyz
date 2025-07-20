@@ -123,6 +123,7 @@ hr {
   /* Text gradient */
   background: linear-gradient(90deg, #ffc425, #ffda6a);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -174,7 +175,6 @@ hr {
   left: 1rem;
   width: 6px;
   height: 6px;
-  background: #ffc425;
   border-radius: 50%;
   filter: drop-shadow(0 0 4px #ffc425);
   animation: sparkle 3s infinite ease-in-out;

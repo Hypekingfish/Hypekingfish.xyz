@@ -35,22 +35,30 @@
       <i class="fa fa-bars"></i>
     </a>
   </div>
-  <div id="stream-shell">
-  <div id="stream-header">
-    <span id="live-badge">🔴 Live</span>
-    <h2>Hypekingfish is Live!</h2>
-    <p id="live-title">Loading title...</p>
-    <p id="live-game">Playing: Loading...</p>
+  <!-- Mobile-only warning -->
+  <div id="mobile-warning">
+    <div class="warning-box">
+      <h2>📵 Mobile Streaming Not Available</h2>
+      <p>Due to Twitch embed limitations, the stream can't be viewed directly on mobile. Please <strong>open the Twitch
+          app</strong> or use a <strong>desktop browser</strong> to watch.</p>
+      <a href="https://www.twitch.tv/hypekingfish" target="_blank" class="watch-btn">Watch on Twitch</a>
+    </div>
+  </div>
+  <div id="stream-info">
+    <p><strong>Status:</strong> <span id="stream-status">Checking...</span></p>
+    <p><strong>Stream Title:</strong> <span id="stream-title">-</span></p>
+    <p><strong>Current Game:</strong> <span id="stream-game">-</span></p>
   </div>
 
-   <div class="Player">
+  <div class="Player">
+    <div id="twitch-embed"></div>
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
     <script>
       new Twitch.Embed("twitch-embed", {
         width: "100%",
-        height: 480,
-        channel: "hypekingfish",  // Your Twitch usernameMore actions
-        layout: "video", // Can be "video-with-chat" or just "video"
+        height: "100%",
+        channel: "hypekingfish",
+        layout: "video",
         theme: "dark"
       });
     </script>
@@ -60,19 +68,6 @@
     <a href="https://www.twitch.tv/hypekingfish/chat?popout=" target="_blank">💬 Popout Chat</a>
     <a href="https://ko-fi.com/hypekingfish" target="_blank">☕ Tip the Stream</a>
     <a href="https://discord.gg/YOURDISCORD" target="_blank">📣 Join Discord</a>
-  </div>
-</div>
-  <div class="Player">
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
-    <script>
-      new Twitch.Embed("twitch-embed", {
-        width: "100%",
-        height: 480,
-        channel: "hypekingfish",  // Your Twitch usernameMore actions
-        layout: "video", // Can be "video-with-chat" or just "video"
-        theme: "dark"
-      });
-    </script>
   </div>
   </section>
   <section class="membership-section">
@@ -127,69 +122,69 @@
   </div>
   <div id="discord-card">
     <div class="discord-card">
-    <img id="discord-icon" class="pulse" src="img/Discord-Logo-Blurple.png" alt="Discord Icon" />
-    <h1 id="discord-name">Loading...</h1>
-    <p class="stat-line" id="discord-members">Fetching online users...</p>
-    <p class="stat-line" id="discord-channels"></p>
-    <div class="avatar-row" id="discord-avatars"></div>
-    <a id="discord-invite" href="#" class="join-button" target="_blank">Join Discord</a>
-  </div>
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-branding">
-        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
-        <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
-        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
-      </div>
-      <div class="footer-social">
-        <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank"
-          rel="noopener noreferrer">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-twitch"></i>
-        </a>
-        <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-discord"></i>
-        </a>
-      </div>
-      <div class="footer-support">
-        <h4>Support the Site</h4>
-        <a href="https://www.buymeacoffee.com/Hypekingfish"><img
-            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
-      </div>
-      <p class="footer-copyright">
-        <small>
-          &copy; <span id="year"></span> <strong>Hypekingfish</strong> All rights reserved.<br />
-          All content is property of Hypekingfish unless otherwise noted.<br />
-          VATSIM, vZSE ARTCC, and all related logos are trademarks of their respective owners.<br />
-          This site is not affiliated with or endorsed by VATSIM or any official aviation authority.<br />
-          Images and content may not be reproduced without permission.<br />
-          For inquiries, contact: <a href="mailto:hypekingfishttv@gmail.com">hypekingfishttv@gmail.com</a><br />
-          Website code and design by Hypekingfish.<br />
-          Some images and data may be used under fair use for educational or informational purposes.<br />
-          If you believe your copyright has been infringed, please contact me for prompt removal or credit.<br />
-          No personal data is collected or stored by this site.<br />
-          Last updated: <span id="last-updated">2024-06-09</span>
-        </small>
-      </p>
+      <img id="discord-icon" class="pulse" src="img/Discord-Logo-Blurple.png" alt="Discord Icon" />
+      <h1 id="discord-name">Loading...</h1>
+      <p class="stat-line" id="discord-members">Fetching online users...</p>
+      <p class="stat-line" id="discord-channels"></p>
+      <div class="avatar-row" id="discord-avatars"></div>
+      <a id="discord-invite" href="#" class="join-button" target="_blank">Join Discord</a>
     </div>
-  </footer>
-  <script>
-    document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
-  </script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script src="scripts/Discord.js"></script>
-  <script src="scripts/navmenu.js"></script>
-  <script src="scripts/twitch.js"></script>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-branding">
+          <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
+          <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
+          <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank"
+            rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitch"></i>
+          </a>
+          <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+        <div class="footer-support">
+          <h4>Support the Site</h4>
+          <a href="https://www.buymeacoffee.com/Hypekingfish"><img
+              src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
+        </div>
+        <p class="footer-copyright">
+          <small>
+            &copy; <span id="year"></span> <strong>Hypekingfish</strong> All rights reserved.<br />
+            All content is property of Hypekingfish unless otherwise noted.<br />
+            VATSIM, vZSE ARTCC, and all related logos are trademarks of their respective owners.<br />
+            This site is not affiliated with or endorsed by VATSIM or any official aviation authority.<br />
+            Images and content may not be reproduced without permission.<br />
+            For inquiries, contact: <a href="mailto:hypekingfishttv@gmail.com">hypekingfishttv@gmail.com</a><br />
+            Website code and design by Hypekingfish.<br />
+            Some images and data may be used under fair use for educational or informational purposes.<br />
+            If you believe your copyright has been infringed, please contact me for prompt removal or credit.<br />
+            No personal data is collected or stored by this site.<br />
+            Last updated: <span id="last-updated">2024-06-09</span>
+          </small>
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
+    </script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="scripts/Discord.js"></script>
+    <script src="scripts/navmenu.js"></script>
+    <script src="scripts/twitch.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,37 @@
-fetch('https://api.twitch.tv/helix/streams?user_login=hypekingfish', {
-  headers: {
-    'Client-ID': 'qd07drxh7kt12pfrlq93v4k8z5sbw2',
-    'Authorization': '3az3yvhpqktzsn5sevhxl3n93kweyj'
+const username = 'Hypekingfish';
+
+  async function updateStreamInfo() {
+    try {
+      // Check if user is live
+      const uptimeRes = await fetch(`https://decapi.me/twitch/uptime/${username}`);
+      const uptimeText = await uptimeRes.text();
+
+      const isOffline = uptimeText.toLowerCase().includes('not live');
+
+      const statusSpan = document.getElementById('stream-status');
+      const titleSpan = document.getElementById('stream-title');
+      const gameSpan = document.getElementById('stream-game');
+
+      if (isOffline) {
+        statusSpan.textContent = 'Offline';
+        titleSpan.textContent = '-';
+        gameSpan.textContent = '-';
+      } else {
+        statusSpan.textContent = `(${uptimeText})`;
+
+        const titleRes = await fetch(`https://decapi.me/twitch/title/${username}`);
+        const title = await titleRes.text();
+        titleSpan.textContent = title;
+
+        const gameRes = await fetch(`https://decapi.me/twitch/game/${username}`);
+        const game = await gameRes.text();
+        gameSpan.textContent = game;
+      }
+    } catch (err) {
+      console.error('Error fetching Twitch data:', err);
+      document.getElementById('stream-status').textContent = 'Error';
+    }
   }
-})
-.then(res => res.json())
-.then(data => {
-  if (data.data && data.data.length > 0) {
-    const stream = data.data[0];
-    document.getElementById("live-title").textContent = `"${stream.title}"`;
-    document.getElementById("live-game").textContent = `Playing: ${stream.game_name}`;
-  }
-});
+
+  // Initial check
+  updateStreamInfo();

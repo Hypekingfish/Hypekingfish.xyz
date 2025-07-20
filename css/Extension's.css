@@ -10,7 +10,7 @@
   font-weight: 700;
   margin-bottom: 2rem;
   color: #ffc425;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .card-container {
@@ -54,20 +54,40 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,196,37,0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(255, 196, 37, 0.08) 0%, transparent 60%);
   animation: pulse 4s infinite;
   z-index: 0;
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+hr {
+  margin: 2rem auto;
+  width: auto;
+  border: 0;
+  border-top: 3px solid var(--padresgold);
+  opacity: 0.8;
+  border-radius: 2px;
+  text-shadow: 0 0 6px #ffc42555
 }
 
 .extension-card:hover {
-  transform: translateY(-10px) scale(1.015);
-  border-color: rgba(255, 196, 37, 0.4);
-  box-shadow: 0 12px 36px rgba(255, 196, 37, 0.2);
+  box-shadow:
+    0 0 10px #ffc42544,
+    0 0 20px #ffc42522,
+    0 0 30px #ffc42511;
 }
 
 

@@ -1,37 +1,64 @@
 const username = 'Hypekingfish';
 
+  const statusSpan = document.getElementById('stream-status');
+  const titleSpan = document.getElementById('stream-title');
+  const gameSpan = document.getElementById('stream-game');
+
+  function animateFade(el) {
+    el.classList.remove('fade');
+    void el.offsetWidth; // Force reflow to restart animation
+    el.classList.add('fade');
+  }
+
   async function updateStreamInfo() {
     try {
-      // Check if user is live
+      statusSpan.textContent = 'Loading...';
+      statusSpan.classList.add('loading');
+      titleSpan.textContent = '...';
+      gameSpan.textContent = '...';
+
       const uptimeRes = await fetch(`https://decapi.me/twitch/uptime/${username}`);
       const uptimeText = await uptimeRes.text();
 
-      const isOffline = uptimeText.toLowerCase().includes('not live');
+      // Handle various offline responses
+      const isOffline = /not live|offline/i.test(uptimeText);
 
-      const statusSpan = document.getElementById('stream-status');
-      const titleSpan = document.getElementById('stream-title');
-      const gameSpan = document.getElementById('stream-game');
+      statusSpan.classList.remove('loading');
 
       if (isOffline) {
-        statusSpan.textContent = 'Offline';
+        statusSpan.textContent = '⚫ Offline';
+        statusSpan.style.color = 'gray';
         titleSpan.textContent = '-';
         gameSpan.textContent = '-';
       } else {
-        statusSpan.textContent = `(${uptimeText})`;
+        statusSpan.textContent = `🔴 Live (${uptimeText})`;
+        statusSpan.style.color = '#ff4e4e';
 
-        const titleRes = await fetch(`https://decapi.me/twitch/title/${username}`);
-        const title = await titleRes.text();
-        titleSpan.textContent = title;
+        const [titleRes, gameRes] = await Promise.all([
+          fetch(`https://decapi.me/twitch/title/${username}`),
+          fetch(`https://decapi.me/twitch/game/${username}`)
+        ]);
 
-        const gameRes = await fetch(`https://decapi.me/twitch/game/${username}`);
-        const game = await gameRes.text();
-        gameSpan.textContent = game;
+        titleSpan.textContent = await titleRes.text();
+        gameSpan.textContent = await gameRes.text();
       }
+
+      animateFade(statusSpan);
+      animateFade(titleSpan);
+      animateFade(gameSpan);
+
     } catch (err) {
       console.error('Error fetching Twitch data:', err);
-      document.getElementById('stream-status').textContent = 'Error';
+      statusSpan.classList.remove('loading');
+      statusSpan.textContent = '⚠️ Error';
+      statusSpan.style.color = 'orange';
+      titleSpan.textContent = '-';
+      gameSpan.textContent = '-';
     }
   }
 
-  // Initial check
+  // Initial load
   updateStreamInfo();
+
+  // Auto-refresh every 60 seconds
+  setInterval(updateStreamInfo, 60000);

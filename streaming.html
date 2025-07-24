@@ -44,12 +44,6 @@
       <a href="https://www.twitch.tv/hypekingfish" target="_blank" class="watch-btn">Watch on Twitch</a>
     </div>
   </div>
-  <div id="stream-info">
-    <p><strong>Status:</strong> <span id="stream-status"></span></p>
-    <p><strong>Title:</strong> <span id="stream-title"></span></p>
-    <p><strong>Game:</strong> <span id="stream-game"></span></p>
-  </div>
-
   <div class="Player">
     <div id="twitch-embed"></div>
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
@@ -62,6 +56,13 @@
         theme: "dark"
       });
     </script>
+  </div>
+
+  <div id="stream-info">
+    <p><strong>Status:</strong> <span id="stream-status"></span></p>
+    <p><strong>Title:</strong> <span id="stream-title"></span></p>
+    <p><strong>Game:</strong> <span id="stream-game"></span></p>
+    <p><strong>Viewers:</strong> <span id="stream-viewers">...</span></p>
   </div>
 
   <div id="stream-tools">

@@ -105,6 +105,7 @@
   box-shadow: 0 6px 12px rgba(119, 44, 232, 0.5);
 }
 
+
 /* Hide mobile warning by default */
 #mobile-warning {
   display: none;
@@ -161,4 +162,30 @@
   #mobile-warning {
     display: block;
   }
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  background-color: #9146FF;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+button:hover {
+  background-color: #772ce8;
+  transform: translateY(-1px);
+}
+
+button:active {
+  background-color: #5a1ebd;
+  transform: translateY(1px);
 }

@@ -1,4 +1,4 @@
-const username = 'hypekingfish'; // Replace with your Twitch username
+const username = 'dougdoug'; // Replace with your Twitch username
 
 const statusSpan = document.getElementById('stream-status');
 const titleSpan = document.getElementById('stream-title');
@@ -45,14 +45,15 @@ async function updateStreamInfo() {
       statusSpan.textContent = `🔴 Live (${uptimeText})`;
       statusSpan.style.color = '#ff4e4e';
 
+
       const [titleRes, gameRes, viewersRes, followRes] = await Promise.all([
         fetch(`https://decapi.me/twitch/title/${username}`),
         fetch(`https://decapi.me/twitch/game/${username}`),
         fetch(`https://decapi.me/twitch/viewercount/${username}`),
       ]);
 
-      titleSpan.textContent = await titleRes.text();
-      gameSpan.textContent = await gameRes.text();
+      titleSpan.textContent = `🎯 ${await titleRes.text()}`;
+      gameSpan.textContent = `🎮 ${await gameRes.text()}`;
       viewerSpan.textContent = `👥 ${await viewersRes.text()}`;
     }
 

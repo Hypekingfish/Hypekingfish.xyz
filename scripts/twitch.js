@@ -1,4 +1,4 @@
-const username = 'dougdoug'; // Replace with your Twitch username
+const username = 'hypekingfish'; // Replace with your Twitch username
 
 const statusSpan = document.getElementById('stream-status');
 const titleSpan = document.getElementById('stream-title');

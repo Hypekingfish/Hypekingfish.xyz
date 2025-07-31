@@ -16,6 +16,7 @@
   <link href="css/Footer.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
   <link href="css/Pricing.css" rel="stylesheet" />
+  <link href="css/Scroll.css" rel="stylesheet" />
   <link href="css/Twitch.css" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -23,6 +24,7 @@
 </head>
 
 <body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i><span class="ripple"></span></button>
   <div class="topnav">
     <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
     <div id="myLinks">
@@ -83,9 +85,8 @@
         <p class="price">$2.50/month</p>
         <div class="tier-description">
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Discord Role</li>
+            <li>5% Ko-Fi Discount</li>
           </ul>
         </div>
         <a class="join-btn" href="https://ko-fi.com/hypekingfish/tiers" target="_blank" rel="noopener">Join</a>
@@ -95,9 +96,8 @@
         <p class="price">$5/month</p>
         <div class="tier-description">
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>All Bronze Perks</li>
+            <li>Discounted SB Extension's</li>
           </ul>
         </div>
         <a class="join-btn" href="https://ko-fi.com/hypekingfish/tiers" target="_blank" rel="noopener">Join</a>
@@ -109,7 +109,6 @@
           <ul>
             <li>All Silver Perks</li>
             <li>Free Streamer Bot Extension's</li>
-            <li></li>
           </ul>
           <a class="join-btn" href="https://ko-fi.com/hypekingfish/tiers" target="_blank" rel="noopener">Join</a>
         </div>
@@ -121,15 +120,6 @@
       </p>
   </section>
   </div>
-  <div id="discord-card">
-    <div class="discord-card">
-      <img id="discord-icon" class="pulse" src="img/Discord-Logo-Blurple.png" alt="Discord Icon" />
-      <h1 id="discord-name">Loading...</h1>
-      <p class="stat-line" id="discord-members">Fetching online users...</p>
-      <p class="stat-line" id="discord-channels"></p>
-      <div class="avatar-row" id="discord-avatars"></div>
-      <a id="discord-invite" href="#" class="join-button" target="_blank">Join Discord</a>
-    </div>
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-branding">
@@ -183,6 +173,7 @@
     </script>
     <script src="scripts/Discord.js"></script>
     <script src="scripts/navmenu.js"></script>
+    <script src="scripts/scroll.js"></script>
     <script src="scripts/twitch.js"></script>
 </body>
 

@@ -62,6 +62,19 @@ function formatVisibility(vis) {
   return `${displayValue} Statute Miles`;
 }
 
+function formatClouds(clouds) {
+  if (!clouds?.length) return 'Clear';
+
+  return clouds
+    .filter(c => c.type)
+    .map(c => {
+      const type = c.type.toUpperCase();
+      const baseFt = c.altitude != null ? `${c.altitude * 100} ft` : '';
+      return baseFt ? `${type} at ${baseFt}` : `${type}`;
+    })
+    .join(', ');
+}
+
 
 
 function formatTime(str) {

@@ -12,7 +12,7 @@ const windEl = document.getElementById('wind');
 const windArrow = document.getElementById('wind-arrow');
 const visibilityEl = document.getElementById('visibility');
 const altimeterEl = document.getElementById('altimeter');
-const wxEl = document.getElementById('weather');
+// const wxEl = document.getElementById('weather');
 const skyConditionsEl = document.getElementById('sky-conditions');
 const obsTimeEl = document.getElementById('obs-time');
 const lastUpdatedEl = document.getElementById('last-updated');
@@ -38,13 +38,13 @@ function formatWind(dir, speed, gust) {
   return str;
 }
 
-function getWeatherEmoji(wx) {
-  const map = {
-    RA: '🌧️', TS: '⛈️', SN: '❄️', FG: '🌫️', BR: '🌁', HZ: '🌤️', DZ: '🌦️',
-    '+RA': '🌧️', '-RA': '🌦️', '+SN': '❄️', '-SN': '🌨️'
-  };
-  return wx?.map(w => map[w.value] || '').join(' ') || '☀️';
-}
+// function getWeatherEmoji(wx) {
+//   const map = {
+//     RA: '🌧️', TS: '⛈️', SN: '❄️', FG: '🌫️', BR: '🌁', HZ: '🌤️', DZ: '🌦️',
+//     '+RA': '🌧️', '-RA': '🌦️', '+SN': '❄️', '-SN': '🌨️'
+//   };
+//   return wx?.map(w => map[w.value] || '').join(' ') || '☀️';
+// }
 
 function formatClouds(clouds) {
   if (!clouds?.length) return 'Clear';
@@ -136,7 +136,7 @@ async function fetchMetar(icao) {
     altimeterEl.textContent = alt != null ? `${alt.toFixed(2)} inHg 🧭` : 'N/A';
     altimeterEl.title = alt != null ? `${(alt * 33.8639).toFixed(0)} hPa` : '';
 
-    wxEl.textContent = getWeatherEmoji(data.weather) + ' ' + (data.weather?.map(w => w.value).join(', ') || 'None');
+    // wxEl.textContent = getWeatherEmoji(data.weather) + ' ' + (data.weather?.map(w => w.value).join(', ') || 'None');
     skyConditionsEl.textContent = formatClouds(data.clouds);
     obsTimeEl.textContent = formatTime(data.time?.dt);
 

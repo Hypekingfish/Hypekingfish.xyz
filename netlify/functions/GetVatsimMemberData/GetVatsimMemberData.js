@@ -1,41 +1,40 @@
-export const handler = async (event, context) => {
+import { schedule } from '@netlify/functions';
+import fetch from 'node-fetch';
+
+const handler = schedule("* * * * *", async (event, context) => {
   try {
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/history', {
+    console.log('Function started');
+    const response = await fetch('https://api.vatsim.net/v2/members/1630701/atc', {
       headers: {
         'Accept': 'application/json'
       }
     });
-
-    if (!response.ok) {
-      throw new Error(`VATSIM API error: ${response.status}`);
-    }
-
+    
     const data = await response.json();
-
-    const latestSession = data.pilot || data.atc || [];
-    const latest = latestSession.length > 0 ? latestSession[0] : null;
-
-    return {
+    console.log('Received data:', data);
+    
+    const result = {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*", // Enable CORS
       },
       body: JSON.stringify({
-        callsign: latest ? latest.callsign : null,
-        type: latest ? (data.pilot ? "pilot" : "atc") : null
+        callsign: data.callsign,
       }),
     };
+    
+    console.log('Returning:', result);
+    return result;
+    
   } catch (error) {
-    console.error(error);
+    console.error('Error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
     };
   }
-};
+});
 
+export { handler };
 
-export const config = {
-  schedule: '@hourly', // Options: @daily, @hourly, @weekly, etc.
-};
+ 

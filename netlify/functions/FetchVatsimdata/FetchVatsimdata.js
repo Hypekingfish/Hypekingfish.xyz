@@ -19,6 +19,7 @@ const handler = schedule("0 * * * *", async (event, context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        callsign: data.callsign,
         controllerHours: data.atc,
         pilotHours: data.pilot,
         s1Hours: data.s1,

@@ -1,40 +1,33 @@
 import { schedule } from '@netlify/functions';
-import fetch from 'node-fetch';
 
-const handler = schedule("* * * * *", async (event, context) => {
+const CID = 1630701; // Replace with your actual CID
+const url = `https://api.vatsim.net/v2/members/${CID}/atc`;
+const params = new URLSearchParams({ limit: '1' });
+
+export const handler = schedule("* * * * *", async () => {
   try {
-    console.log('Function started');
-    const response = await fetch('https://api.vatsim.net/v2/members/1630701/atc', {
-      headers: {
-        'Accept': 'application/json'
-      }
+    const response = await fetch(`${url}?${params.toString()}`, {
+      headers: { 'Accept': 'application/json' }
     });
-    
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
-    console.log('Received data:', data);
-    
-    const result = {
+    const callsign = data[0]?.callsign || 'No callsign found';
+
+    console.log(`Latest ATC callsign: ${callsign}`);
+
+    return {
       statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        callsign: data.callsign,
-      }),
+      body: JSON.stringify({ callsign })
     };
-    
-    console.log('Returning:', result);
-    return result;
-    
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error fetching VATSIM data:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
+      body: JSON.stringify({ error: error.message })
     };
   }
 });
-
-export { handler };
-
- 

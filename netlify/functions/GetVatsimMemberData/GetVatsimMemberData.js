@@ -1,9 +1,8 @@
 import { schedule } from '@netlify/functions';
 import fetch from 'node-fetch';
 
-// Fetch the latest ATC callsign for a specific VATSIM member
-// Replace CID with the actual VATSIM member ID you want to query
-const CID = 1630701; // Replace with your actual CID
+// Replace CID with the actual VATSIM member ID
+const CID = 1630701;
 const url = `https://api.vatsim.net/v2/members/${CID}/atc`;
 const params = new URLSearchParams({ limit: '1' });
 
@@ -34,5 +33,3 @@ export const handler = schedule("* * * * *", async () => {
     };
   }
 });
-
-export { handler };

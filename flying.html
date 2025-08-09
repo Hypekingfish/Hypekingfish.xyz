@@ -40,6 +40,19 @@
     <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
     <div id="vatsim-stats">
       <h2>my VATSIM Stats</h2>
+      <div class="haze"></div>
+      <div class="static-line"></div>
+
+      <!-- radar blips -->
+      <div class="blip b1"></div>
+      <div class="blip b2"></div>
+      <div class="blip b3"></div>
+
+      <!-- perimeter lights -->
+      <div class="perimeter-light p1"></div>
+      <div class="perimeter-light p2"></div>
+      <div class="perimeter-light p3"></div>
+      <div class="perimeter-light p4"></div>
       <div class="stats-container">
         <div class="stat-item">
           <h3>Total Pilot Hours</h3>
@@ -66,7 +79,7 @@
 
 
     <div id="flight-summary-banner"></div>
-        <div id="metar-ticker"><span id="metar-ticker-text"></span></div>
+    <div id="metar-ticker"><span id="metar-ticker-text"></span></div>
     <div id="metar-container" class="fade-in">
       <div class="row"><span class="label">Station:</span> <span id="airport-code"></span>
         <a id="map-link" target="_blank">🌍 SkyVector</a>
@@ -76,7 +89,8 @@
       <div class="row"><span class="label">Temperature:</span> <span id="temperature"></span></div>
       <div class="row"><span class="label">Dewpoint:</span> <span id="dewpoint"></span></div>
       <div class="row"><span class="label">Humidity:</span> <span id="humidity"></span></div>
-      <div class="row"><span class="label">Wind:</span> <span id="wind"></span> <span id="wind-arrow">&#x2191;</span></div>
+      <div class="row"><span class="label">Wind:</span> <span id="wind"></span> <span id="wind-arrow">&#x2191;</span>
+      </div>
       <div class="row"><span class="label">Visibility:</span> <span id="visibility"></span></div>
       <div class="row"><span class="label">Altimeter:</span> <span id="altimeter" title=""></span></div>
       <!-- <div class="row"><span class="label">Weather:</span> <span id="weather"></span></div> -->
@@ -90,7 +104,7 @@
       </div>
       <div class="airport-label right">SEA (Seattle-Tacoma Intl)</div>
     </div>
-    
+
 
   </section>
   <!-- <section class="virtual-zse">

@@ -1,0 +1,93 @@
+/* Testimonials container */
+.testimonials {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    padding: 30px;
+    text-align: center;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+}
+
+/* Individual testimonial card */
+.testimonial {
+    background: linear-gradient(145deg, #1a1a2e, #161625);
+    padding: 20px 24px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Reviewer name */
+.reviewer {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #00ffcc;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Reviewer position */
+.position {
+    font-style: italic;
+    color: #ffcc00;
+    font-size: 0.95em;
+}
+
+/* Date */
+.review-date {
+    font-size: 0.85em;
+    color: #bbbbbb;
+    margin-bottom: 10px;
+}
+
+/* Review text */
+.review-text {
+    font-size: 1.05em;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #e6e6e6;
+}
+
+/* Signature */
+.review-signature {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #aaaaaa;
+}
+
+/* Star Rating - Enhanced Glow */
+.star-rating {
+    font-size: 1.8em;
+    margin-top: 8px;
+    letter-spacing: 3px;
+    display: inline-block;
+}
+
+.star-rating span {
+    display: inline-block;
+    transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+    color: #ffdd00;
+    text-shadow: 0 0 8px rgba(255, 221, 0, 0.6);
+}
+
+.star-rating span:hover {
+    transform: scale(1.3) rotate(-8deg);
+    color: #fff47a;
+    text-shadow: 0 0 14px rgba(255, 221, 0, 1);
+}
+
+.star-rating span.empty {
+    color: #444;
+    text-shadow: none;
+}

@@ -6,9 +6,18 @@ fetch('/.netlify/functions/GetVatsimData')
         // Function to convert decimal hours to HH:mm format, handling 1000+ hours
         function formatHours(hours) {
             const totalMinutes = Math.round(hours * 60);
-            const hh = Math.floor(totalMinutes / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
             const mm = totalMinutes % 60;
-            return `${hh.toLocaleString()}:${mm.toString().padStart(2, '0')}`;
+
+            // If more than 24 hours, break into days
+            if (totalHours >= 24) {
+                const days = Math.floor(totalHours / 24);
+                const hh = totalHours % 24;
+                return `${days}d ${hh}:${mm.toString().padStart(2, '0')}`;
+            }
+
+            // Less than a day: show normal hours
+            return `${totalHours}:${mm.toString().padStart(2, '0')}`;
         }
 
         // Ensure values are numbers and handle missing data

@@ -1,23 +1,32 @@
 fetch('/.netlify/functions/GetVatsimData')
     .then(response => response.json())
     .then(data => {
-        // Function to convert decimal hours to HH:mm format
-        function formatHours(hours) {
+        // Function to convert decimal hours to HH:mm format and show days if applicable
+        function formatHoursWithDays(hours) {
             const totalMinutes = Math.round(hours * 60);
             const hh = Math.floor(totalMinutes / 60);
             const mm = totalMinutes % 60;
-            return `${hh}:${mm.toString().padStart(2, '0')}`;
+
+            const days = Math.floor(hh / 24);
+            const remHours = hh % 24;
+
+            let result = `${hh}:${mm.toString().padStart(2, '0')}`;
+            if (days > 0) {
+                result += ` (≈ ${days}d ${remHours}h)`;
+            }
+
+            return result;
         }
 
         // Add error checking before setting values
         const elements = {
-            'pilot-hours': data.pilotHours,
+            'pilot-hours': parseFloat(data.pilotHours) || 0,
         };
 
         for (const [id, value] of Object.entries(elements)) {
             const element = document.getElementById(id);
             if (element) {
-                element.textContent = formatHours(value);
+                element.textContent = formatHoursWithDays(value);
             }
         }
     })

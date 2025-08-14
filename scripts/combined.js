@@ -3,21 +3,25 @@ fetch('/.netlify/functions/GetVatsimData')
     .then(data => {
         console.log('Fetched Data:', data); // Debugging line
 
-        // Function to convert decimal hours to HH:mm format, handling 1000+ hours
-        function formatHours(hours) {
+        // Function to convert decimal hours to HH:mm format and also show days
+        function formatHoursWithDays(hours) {
             const totalMinutes = Math.round(hours * 60);
-            const totalHours = Math.floor(totalMinutes / 60);
+            const hh = Math.floor(totalMinutes / 60);
             const mm = totalMinutes % 60;
 
-            // If more than 24 hours, break into days
-            if (totalHours >= 24) {
-                const days = Math.floor(totalHours / 24);
-                const hh = totalHours % 24;
-                return `${days}d ${hh}:${mm.toString().padStart(2, '0')}`;
+            // Calculate days equivalent
+            const days = Math.floor(hh / 24);
+            const remHours = hh % 24;
+
+            // Original hours display
+            let result = `${hh.toLocaleString()}:${mm.toString().padStart(2, '0')}`;
+
+            // Append days display if more than 24h
+            if (days > 0) {
+                result += ` (≈ ${days}d ${remHours}h)`;
             }
 
-            // Less than a day: show normal hours
-            return `${totalHours}:${mm.toString().padStart(2, '0')}`;
+            return result;
         }
 
         // Ensure values are numbers and handle missing data
@@ -30,9 +34,9 @@ fetch('/.netlify/functions/GetVatsimData')
         console.log('Combined Hours:', combinedHours);
 
         const elements = {
-            'controller-hours': formatHours(controllerHours),
-            'pilot-hours': formatHours(pilotHours),
-            'vatsim-hours': formatHours(combinedHours)
+            'controller-hours': formatHoursWithDays(controllerHours),
+            'pilot-hours': formatHoursWithDays(pilotHours),
+            'vatsim-hours': formatHoursWithDays(combinedHours)
         };
 
         for (const [id, value] of Object.entries(elements)) {

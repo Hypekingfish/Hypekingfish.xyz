@@ -1,18 +1,8 @@
-
 fetch('/.netlify/functions/GetVatsimData')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        console.debug('VATSIM data fetched:', data);
-
         // Function to convert decimal hours to HH:mm format and show days if applicable
         function formatHoursWithDays(hours) {
-            if (isNaN(hours)) return '0:00';
-
             const totalMinutes = Math.round(hours * 60);
             const hh = Math.floor(totalMinutes / 60);
             const mm = totalMinutes % 60;
@@ -20,40 +10,30 @@ fetch('/.netlify/functions/GetVatsimData')
             const days = Math.floor(hh / 24);
             const remHours = hh % 24;
 
-            let base = `${hh}:${mm.toString().padStart(2, '0')}`;
+            let result = `${hh}:${mm.toString().padStart(2, '0')}`;
             if (days > 0) {
-                const dLabel = days === 1 ? 'day' : 'days';
-                const hLabel = remHours === 1 ? 'hr' : 'hrs';
-                base += ` (~${days} ${dLabel} ${remHours} ${hLabel})`;
+                result += ` (≈ ${days}d ${remHours}h)`;
             }
-            return base;
+
+            return result;
         }
 
-        // Define all elements to update and their data mapping
+        // Add error checking before setting values
         const elements = {
             'pilot-hours': parseFloat(data.pilotHours) || 0,
-            // Add more mappings here if needed
         };
 
-        // Update DOM elements safely
         for (const [id, value] of Object.entries(elements)) {
             const element = document.getElementById(id);
             if (element) {
                 element.textContent = formatHoursWithDays(value);
             }
         }
-
-        // Clear loading text if present
-        const statsElement = document.getElementById('vatsim-stats');
-        if (statsElement && Object.keys(elements).length > 0) {
-            statsElement.textContent = '';
-        }
     })
     .catch(error => {
-        console.error('Error fetching VATSIM stats:', error);
+        console.error('Error:', error);
         const statsElement = document.getElementById('vatsim-stats');
         if (statsElement) {
-            statsElement.textContent = '⚠ Failed to load VATSIM stats. Please try again later.';
-            statsElement.style.color = 'red';
+            statsElement.textContent = 'Failed to load VATSIM stats';
         }
     });

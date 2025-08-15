@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching VATSIM stats:', error);
+            const statsElement = document.getElementById('vatsim-stats');
             if (statsElement) {
                 statsElement.textContent = '⚠ Failed to load VATSIM stats. Please try again later.';
                 statsElement.style.color = 'red';

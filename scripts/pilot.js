@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Define all elements to update and their data mapping
             const elements = {
-                'pilot-hours': parseFloat(data?.pilotHours) || 0,
+                'pilot-hours': parseFloat(data.pilotHours) || 0,
                 // Add more mappings here if needed
             };
 

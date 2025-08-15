@@ -44,6 +44,7 @@ fetch('/.netlify/functions/GetVatsimData')
         }
 
         // Clear loading text if present
+        const statsElement = document.getElementById('vatsim-stats');
         if (statsElement && Object.keys(elements).length > 0) {
             statsElement.textContent = '';
         }

@@ -13,7 +13,6 @@
   <link href="style.css" rel="stylesheet" />
   <link href="css/Controller.css" rel="stylesheet" />
   <link href="css/Footer.css" rel="stylesheet" />
-  <link href="css/Plane-Modal.css" rel="stylesheet" />
   <link href="css/Metar.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
   <link href="css/Plane.css" rel="stylesheet" />
@@ -60,9 +59,11 @@
           </ul>
         </div>
         <div class="stat-item-hours">
-          <h3>Total Vatsim Hours</h3>
-          <p id="vatsim-hours">Loading...</p>
-        </div>
+  <h3>Total Vatsim Hours</h3>
+  <p id="vatsim-hours">Loading...</p>
+  <small id="last-updated">Last updated: --</small>
+</div>
+
       </div>
     </div>
 
@@ -294,11 +295,11 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="scripts/atc.js"></script>
+  <!-- <script src="scripts/atc.js"></script> -->
   <script src="scripts/lightbox.js"></script>
   <script src="scripts/carousel.js"></script>
   <script src="scripts/combined.js"></script>
-  <script src="scripts/pilot.js"></script>
+  <!-- <script src="scripts/pilot.js"></script> -->
   <script src="scripts/plane.js"></script>
   <script src="scripts/Metar.js"></script>
   <script src="scripts/Modal.js"></script>

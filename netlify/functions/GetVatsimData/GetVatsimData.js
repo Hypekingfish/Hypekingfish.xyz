@@ -9,6 +9,9 @@ export const handler = async (event, context) => {
     });
     
     const data = await response.json();
+
+    // ✅ Add server-side timestamp
+    const lastFetched = new Date().toISOString();
     
     return {
       statusCode: 200,
@@ -21,7 +24,8 @@ export const handler = async (event, context) => {
         pilotHours: data.pilot,
         s1Hours: data.s1,
         s2Hours: data.s2,
-        s3Hours: data.s3
+        s3Hours: data.s3,
+        lastFetched
       }),
     };
   } catch (error) {
@@ -30,4 +34,4 @@ export const handler = async (event, context) => {
       body: JSON.stringify({ error: 'Failed to fetch VATSIM data' }),
     };
   }
-}; 
+};

@@ -45,11 +45,22 @@ fetch('/.netlify/functions/GetVatsimData')
                 element.textContent = value;
             }
         }
+
+        const lastUpdated = document.getElementById('last-updated');
+        if (lastUpdated && data.lastFetched) {
+            const fetchedTime = new Date(data.lastFetched);
+            lastUpdated.textContent = "Last fetched: " + fetchedTime.toLocaleString();
+        }
     })
     .catch(error => {
         console.error('Error fetching VATSIM data:', error);
         const statsElement = document.getElementById('vatsim-stats');
         if (statsElement) {
             statsElement.textContent = 'Failed to load VATSIM stats';
+        }
+
+        const lastUpdated = document.getElementById('last-updated');
+        if (lastUpdated) {
+            lastUpdated.textContent = "Last updated: failed to load";
         }
     });

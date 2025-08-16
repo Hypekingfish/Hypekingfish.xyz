@@ -22,6 +22,7 @@
 <body>
     <div class="topnav">
         <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
+        <span id="local-time" class="time-display"></span>
         <div id="myLinks">
             <a href="about.html">About</a>
             <a href="flying.html">Flying</a>
@@ -31,7 +32,6 @@
         <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-        <span id="local-time" class="time-display"></span>
     </div>
     <main>
         <section class="AHeader">
@@ -196,20 +196,18 @@
                         Images and content may not be reproduced without permission.<br />
                         For inquiries, contact: <a
                             href="mailto:hypekingfishttv@gmail.com">hypekingfishttv@gmail.com</a><br />
-                        Website coded and designed by Hypekingfish.<br />
+                        Website code and design by Hypekingfish.<br />
                         Some images and data may be used under fair use for educational or informational purposes.<br />
                         If you believe your copyright has been infringed, please contact me for prompt removal or
                         credit.<br />
                         No personal data is collected or stored by this site.<br />
-                        Last updated: <span id="last-updated">2024-06-09</span>
+                        Last updated: <span id="last-page-update">2024-06-09</span>
                     </small>
                 </p>
             </div>
         </footer>
         <script>
-            document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
-        </script>
-        <script>
+            document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
             document.getElementById("year").textContent = new Date().getFullYear();
         </script>
     </main>

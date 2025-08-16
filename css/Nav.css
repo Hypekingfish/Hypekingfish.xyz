@@ -48,9 +48,10 @@
 .local-time {
     color: #ccc;
     font-size: 0.9rem;
+    margin-left: auto;
 }
 
 #local-time::before {
-    content: "Local Time: ";
+    content: "🕒 ";
     font-weight: bold;
 }

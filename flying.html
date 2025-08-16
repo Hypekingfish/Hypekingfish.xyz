@@ -59,11 +59,9 @@
           </ul>
         </div>
         <div class="stat-item-hours">
-  <h3>Total Vatsim Hours</h3>
-  <p id="vatsim-hours">Loading...</p>
-  <small id="last-updated">Last updated: --</small>
-</div>
-
+          <h3>Total Vatsim Hours</h3>
+          <p id="vatsim-hours">Loading...</p>
+        </div>
       </div>
     </div>
 
@@ -284,22 +282,19 @@
           Some images and data may be used under fair use for educational or informational purposes.<br />
           If you believe your copyright has been infringed, please contact me for prompt removal or credit.<br />
           No personal data is collected or stored by this site.<br />
-          Last updated: <span id="last-updated">2024-06-09</span>
+          Last updated: <span id="last-page-update">2024-06-09</span>
         </small>
       </p>
     </div>
   </footer>
   <script>
-    document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
-  </script>
-  <script>
+    document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <!-- <script src="scripts/atc.js"></script> -->
-  <script src="scripts/lightbox.js"></script>
+  <script src="scripts/atc.js"></script>
   <script src="scripts/carousel.js"></script>
   <script src="scripts/combined.js"></script>
-  <!-- <script src="scripts/pilot.js"></script> -->
+  <script src="scripts/pilot.js"></script>
   <script src="scripts/plane.js"></script>
   <script src="scripts/Metar.js"></script>
   <script src="scripts/Modal.js"></script>

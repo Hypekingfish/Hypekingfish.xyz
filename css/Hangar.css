@@ -1,0 +1,51 @@
+body {
+      font-family: Arial, sans-serif;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .hangar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .plane-card {
+      background: #1e293b;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .plane-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .plane-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .plane-info {
+      padding: 1rem;
+    }
+
+    .plane-info h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .plane-info p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }

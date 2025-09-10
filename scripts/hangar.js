@@ -1,6 +1,6 @@
 const aircraftList = [
       { name: "Cessna 172", image: "", typecode: "C172", specs: "Single-engine | 4 seats", routes: "Short hops, VFR training" },
-      { name: "Boeing 737-900ER", image: "", typecode: "B739", specs: "Twin-engine | 220 seats", routes: "Regional & medium haul flights" },
+      { name: "Boeing 737-800", image: "https://github.com/Hypekingfish/Hypekingfish.xyz/blob/main/img/Freedom_One.PNG?raw=true", typecode: "B738", tailnumber: "N500WR", specs: "Twin-engine | 220 seats", routes: "Regional & medium haul flights" },
       { name: "Airbus A320neo", image: "", typecode: "A320", specs: "Twin-engine | 180-240 seats", routes: "Short to medium haul" },
       { name: "Boeing 787 Dreamliner", image: "", typecode: "B787", specs: "Twin-engine | 242-330 seats", routes: "Long haul international flights" },
       { name: "Cessna Citation X", image: "", typecode: "C750", specs: "Twin-engine | 8 seats", routes: "Business jet, transcontinental" },

@@ -23,7 +23,7 @@
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Boeing_787-9_Dreamliner%2C_Air_New_Zealand_AN2082984.jpg/640px-Boeing_787-9_Dreamliner%2C_Air_New_Zealand_AN2082984.jpg",
         specs: "Twin-engine | 242-330 seats",
         routes: "Long haul international flights"
-      }
+      },
       {
         name: "Cessna Citation X",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/N975QS_2002_Cessna_750_C-N_750-0175_Citation_X_%287039507775%29.jpg/500px-N975QS_2002_Cessna_750_C-N_750-0175_Citation_X_%287039507775%29.jpg",

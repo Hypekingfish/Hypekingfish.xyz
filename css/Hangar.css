@@ -25,9 +25,9 @@ h1 {
 }
 
 @media (max-width: 1200px) { #hangar { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 992px) { #hangar { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px) { #hangar { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; } }
-@media (max-width: 480px) { #hangar { grid-template-columns: 1fr; gap: 0.6rem; } }
+@media (max-width: 992px)  { #hangar { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { #hangar { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; } }
+@media (max-width: 480px)  { #hangar { grid-template-columns: 1fr; gap: 0.6rem; } }
 
 .plane-card {
   background: #1a1a1a;
@@ -104,6 +104,7 @@ h1 {
   padding: 3px 6px;
   border-radius: 4px;
   font-size: 0.75rem;
+  cursor: default;
 }
 
 .tooltip {
@@ -130,6 +131,10 @@ h1 {
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0,0,0,0.9) transparent transparent transparent;
+}
+
+.in-flight-badge:hover + .tooltip {
+  display: block;
 }
 
 #noPlanes {

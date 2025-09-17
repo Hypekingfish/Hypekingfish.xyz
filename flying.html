@@ -77,7 +77,8 @@
       <div class="row"><span class="label">Temperature:</span> <span id="temperature"></span></div>
       <div class="row"><span class="label">Dewpoint:</span> <span id="dewpoint"></span></div>
       <div class="row"><span class="label">Humidity:</span> <span id="humidity"></span></div>
-      <div class="row"><span class="label">Wind:</span> <span id="wind"></span> <span id="wind-arrow">&#x2191;</span></div>
+      <div class="row"><span class="label">Wind:</span> <span id="wind"></span> <span id="wind-arrow">&#x2191;</span>
+      </div>
       <div class="row"><span class="label">Visibility:</span> <span id="visibility"></span></div>
       <div class="row"><span class="label">Altimeter:</span> <span id="altimeter" title=""></span></div>
       <div class="row"><span class="label">Weather:</span> <span id="weather"></span></div>
@@ -221,7 +222,9 @@
     </div>
   </section>
   <h1>🛩️ Aircraft Hangar</h1>
-  <input type="text" id="searchPlanes" placeholder="Search aircraft by name or typecode...">
+  <input type="text" id="searchPlanes" placeholder="Search planes...">
+  <div id="hangar"></div>
+  <div id="noPlanes">No planes found 😢</div>
 
   <div id="hangar"></div>
   <footer class="site-footer">

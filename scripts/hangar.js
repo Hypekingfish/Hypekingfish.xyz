@@ -131,25 +131,33 @@ setInterval(updateLiveStatus, 30000);
 // --- PlaneSpotters.net API for Photos with Caching ---
 async function fetchPlanePhoto(icao24, reg) {
   try {
+    // Try hex first
     let url = `https://api.planespotters.net/pub/photos/hex/${icao24}`;
     let response = await fetch(url);
     let data = await response.json();
 
+    console.log("Photo fetch (hex):", icao24, data);
+
     if (data && data.photos && data.photos.length > 0) {
-      return data.photos[0].thumbnail_large || data.photos[0].thumbnail;
-    } else {
-      // fallback: try with registration
-      url = `https://api.planespotters.net/pub/photos/reg/${reg}`;
-      response = await fetch(url);
-      data = await response.json();
-      if (data && data.photos && data.photos.length > 0) {
-        return data.photos[0].thumbnail_large || data.photos[0].thumbnail;
-      }
+      const photo = data.photos[0];
+      return photo.thumbnail_large || photo.thumbnail || null;
+    }
+
+    // Fallback: try registration
+    url = `https://api.planespotters.net/pub/photos/reg/${reg}`;
+    response = await fetch(url);
+    data = await response.json();
+
+    console.log("Photo fetch (reg):", reg, data);
+
+    if (data && data.photos && data.photos.length > 0) {
+      const photo = data.photos[0];
+      return photo.thumbnail_large || photo.thumbnail || null;
     }
   } catch (err) {
     console.error("Photo fetch error:", err);
   }
-  return "https://dummyimage.com/600x400/000/fff&text=No+Photo"; // fallback
+  return null; // return null instead of dummy directly
 }
 
 async function updatePlanePhotos() {
@@ -160,16 +168,21 @@ async function updatePlanePhotos() {
     const index = parseInt(card.dataset.index, 10);
     const img = card.querySelector('img');
 
-    // If photo already cached in aircraftList, use it
+    // If cached already, use it
     if (aircraftList[index].image && !aircraftList[index].image.includes("dummyimage")) {
       img.src = aircraftList[index].image;
       continue;
     }
 
-    // Otherwise fetch and update cache
     const newPhoto = await fetchPlanePhoto(icao24, tail);
-    img.src = newPhoto;
-    aircraftList[index].image = newPhoto; // cache in array
+
+    if (newPhoto) {
+      img.src = newPhoto;
+      aircraftList[index].image = newPhoto; // cache in memory
+    } else {
+      img.src = "https://dummyimage.com/600x400/000/fff&text=No+Photo"; // fallback
+      aircraftList[index].image = img.src;
+    }
   }
 }
 

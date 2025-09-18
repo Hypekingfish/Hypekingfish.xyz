@@ -13,7 +13,7 @@
   <link href="style.css" rel="stylesheet" />
   <link href="css/Controller.css" rel="stylesheet" />
   <link href="css/Footer.css" rel="stylesheet" />
-  <!-- <link href="css/Hangar.css" rel="stylesheet" /> -->
+  <link href="css/Hangar.css" rel="stylesheet" />
   <link href="css/Metar.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
   <link href="css/Plane.css" rel="stylesheet" />
@@ -21,6 +21,7 @@
   <link href="css/Plane-Image.css" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
 </head>
 
@@ -221,6 +222,7 @@
       </div>
     </div>
   </section>
+<div id="hangar"></div>
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-branding">
@@ -272,10 +274,11 @@
     document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="scripts/atc.js"></script>
   <script src="scripts/carousel.js"></script>
   <script src="scripts/combined.js"></script>
-  <!-- <script src="scripts/hangar.js"></script> -->
+  <script src="scripts/hangar.js"></script>
   <script src="scripts/pilot.js"></script>
   <script src="scripts/plane.js"></script>
   <script src="scripts/Metar.js"></script>

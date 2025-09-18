@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Hangar — Live OpenSky tracker</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --bg:#0b0f14;
+      --card:#0f1720;
+      --muted:#99a0aa;
+      --accent:#1f8ef1;
+      --glass: rgba(255,255,255,0.03);
+    }
+    body { margin:0; font-family:Inter,system-ui,Segoe UI,Roboto; background:linear-gradient(180deg,#061018, #07161f); color:#e6eef6; }
+    .container { max-width:1100px; margin:28px auto; padding:16px; }
+    header { display:flex; gap:12px; align-items:center; margin-bottom:14px; }
+    h1 { font-size:1.4rem; margin:0; }
+    .controls { margin-left:auto; display:flex; gap:8px; align-items:center; }
+    input[type="search"], .btn { padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); background:var(--glass); color:inherit; }
+    .btn { cursor:pointer; background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+    .card { background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 6px 20px rgba(2,6,23,0.6); display:flex; gap:12px; align-items:flex-start; }
+    .thumb { width:120px; height:80px; background:#081018; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .thumb img { width:100%; height:100%; object-fit:cover; }
+    .meta { flex:1; min-width:0; }
+    .title { display:flex; gap:8px; align-items:center; justify-content:space-between; }
+    .title h2 { margin:0; font-size:1rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .specs { color:var(--muted); font-size:0.85rem; margin-top:6px; }
+    .badge { padding:6px 8px; border-radius:999px; font-weight:600; font-size:0.85rem; }
+    .status-in { background:linear-gradient(90deg,#14481a,#197a2b); color:white; }
+    .status-ground { background:linear-gradient(90deg,#0b3a59,#0f6c8a); color:white; }
+    .status-none { background:linear-gradient(90deg,#3b3f45,#66696f); color:white; }
+    .stats { margin-top:8px; display:flex; gap:12px; color:var(--muted); font-size:0.9rem; flex-wrap:wrap; }
+    .small { font-size:0.85rem; color:var(--muted); }
+    #map { height:220px; border-radius:8px; margin-top:10px; }
+    .footer { margin-top:14px; color:var(--muted); font-size:0.9rem; }
+    .inputs { display:flex; gap:8px; margin-bottom:10px; }
+    .inputs input { flex:1; }
+    .muted { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Hangar — live OpenSky tracker</h1>
+        <div class="small muted">Real-world tails only. Add your icao24 hexes to each plane.</div>
+      </div>
+
+      <div class="controls" aria-hidden>
+        <input id="search" type="search" placeholder="Search tail, model..." />
+        <button class="btn" id="refreshBtn">Refresh</button>
+      </div>
+    </header>
+
+    <!-- quick add / edit UI -->
+    <section style="margin-bottom:12px;">
+      <div style="display:flex; gap:8px; align-items:center;">
+        <input id="newName" placeholder="Plane name (eg. Cessna 172)" />
+        <input id="newTail" placeholder="Tail/Reg (eg. N123AB)" />
+        <input id="newIcao" placeholder="icao24 hex (eg. a1b2c3)" />
+        <button class="btn" id="addBtn">Add</button>
+        <button class="btn" id="saveLocalBtn">Save (local)</button>
+      </div>
+      <div class="muted small" style="margin-top:6px;">Saved locally in your browser. The icao24 hex is required for live checks.</div>
+    </section>
+
+    <main>
+      <div id="grid" class="grid"></div>
+      <div class="footer">Tip: If you get CORS errors, run the included node proxy (server.js) and set <code>API_BASE</code> below to your server address (e.g. <code>http://localhost:3000</code>).</div>
+    </main>
+  </div>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // ===== CONFIG =====
+    // Change this to your backend (node server). If you run the server.js locally, set http://localhost:3000
+    const API_BASE = 'http://localhost:3000'; // <-- change if needed
+
+    // Sample aircraft list. Fill icao24 with hexes manually (you said you'll add them).
+    // Save locally via 'Save (local)' button.
+    let aircraftList = [
+      { id: cryptoRandomId(), name: 'Cessna 172', tail: 'N172EX', icao24: '', image: '', specs: 'Single-engine | 4 seats' },
+      { id: cryptoRandomId(), name: 'Boeing 737-800', tail: 'N500WR', icao24: '', image: '', specs: 'Twin-engine | 175 seats' },
+    ];
+
+    // ===== Utilities =====
+    function cryptoRandomId() {
+      return Math.random().toString(36).slice(2,9);
+    }
+
+    function saveLocal() {
+      localStorage.setItem('myHangar_v1', JSON.stringify(aircraftList));
+      alert('Saved locally');
+    }
+    function loadLocal() {
+      const raw = localStorage.getItem('myHangar_v1');
+      if (raw) {
+        try { aircraftList = JSON.parse(raw); } catch(e){}
+      }
+    }
+
+    // conversions
+    function mToFeet(m) { if (m == null) return null; return Math.round(m * 3.28084); } // meters -> feet
+    function msToKts(ms) { if (ms == null) return null; return (ms * 1.94384449).toFixed(0); } // m/s -> kt
+    function formatAltitude(m) {
+      const ft = mToFeet(m);
+      return ft == null ? 'N/A' : ft + ' ft';
+    }
+
+    // ===== Rendering =====
+    const grid = document.getElementById('grid');
+    const searchInput = document.getElementById('search');
+
+    function renderCards(filter = '') {
+      grid.innerHTML = '';
+      const q = filter.trim().toLowerCase();
+      const list = aircraftList.filter(a => {
+        if (!q) return true;
+        return (a.name || '').toLowerCase().includes(q) ||
+               (a.tail || '').toLowerCase().includes(q) ||
+               (a.icao24 || '').toLowerCase().includes(q);
+      });
+
+      for (const a of list) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="thumb">
+            <img src="${a.image || placeholderDataUri(a.name)}" alt="${a.name}" onerror="this.src='${placeholderDataUri(a.name)}'"/>
+          </div>
+          <div class="meta">
+            <div class="title">
+              <h2 title="${a.name}">${a.name} <span style="color:var(--muted);font-weight:500;font-size:0.9rem">(${a.tail || '—'})</span></h2>
+              <div style="display:flex;gap:8px;align-items:center">
+                <div id="badge-${a.id}" class="badge status-none">Not checked</div>
+                <button class="btn" data-id="${a.id}" onclick="editPlane('${a.id}')">edit</button>
+              </div>
+            </div>
+
+            <div class="specs">${a.specs || ''} <span class="small" style="margin-left:10px">ICAO24: <strong id="icao-${a.id}">${a.icao24 || '—'}</strong></span></div>
+
+            <div id="stats-${a.id}" class="stats small">
+              <div>callsign: <span id="call-${a.id}">—</span></div>
+              <div>alt: <span id="alt-${a.id}">—</span></div>
+              <div>spd: <span id="spd-${a.id}">—</span></div>
+              <div>hdg: <span id="hdg-${a.id}">—</span></div>
+            </div>
+
+            <div id="map-${a.id}" style="display:none; margin-top:8px;">
+              <div id="leaflet-${a.id}" style="height:220px;"></div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    // Simple placeholder data URI (svg) for missing images
+    function placeholderDataUri(text) {
+      const label = encodeURIComponent(text || 'plane');
+      return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%230a1620'/><text x='50%' y='50%' font-size='28' fill='%2398a4ad' text-anchor='middle' dominant-baseline='middle' font-family='Segoe UI, Roboto'>${label}</text></svg>`;
+    }
+
+    // ===== Live fetch =====
+    async function fetchStatuses() {
+      // collect icao24 values that are set
+      const icaoList = aircraftList.map(a => (a.icao24 || '').trim().toLowerCase()).filter(Boolean);
+
+      if (icaoList.length === 0) {
+        alert('No ICAO24 hexes set. Add them in each plane card or via Add form.');
+        return;
+      }
+
+      // call our backend proxy
+      try {
+        const url = `${API_BASE}/api/status?icao24=${encodeURIComponent(icaoList.join(','))}`;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error('Fetch failed: ' + r.status);
+        const json = await r.json();
+        // json.results is an array in the same order: { icao24, state }
+        // map each returned entry to the plane(s) with that icao24
+        const mapByIcao = {};
+        for (const item of json.results || []) {
+          mapByIcao[String(item.icao24).toLowerCase()] = item.state;
+        }
+
+        for (const a of aircraftList) {
+          const icao = (a.icao24 || '').toLowerCase();
+          const state = mapByIcao[icao] || null;
+          updateCardForAircraft(a, state);
+        }
+      } catch (err) {
+        console.error('Error fetching statuses', err);
+        alert('Error fetching statuses: ' + err.message + '. Check server and CORS.');
+      }
+    }
+
+    // Keep a map of Leaflet maps per aircraft
+    const leafletMapById = {};
+    const leafletMarkerById = {};
+
+    function updateCardForAircraft(a, state) {
+      const badge = document.getElementById(`badge-${a.id}`);
+      const callEl = document.getElementById(`call-${a.id}`);
+      const altEl = document.getElementById(`alt-${a.id}`);
+      const spdEl = document.getElementById(`spd-${a.id}`);
+      const hdgEl = document.getElementById(`hdg-${a.id}`);
+      const icaoEl = document.getElementById(`icao-${a.id}`);
+      const mapWrap = document.getElementById(`map-${a.id}`);
+      const leafletContainerId = `leaflet-${a.id}`;
+
+      if (!badge) return; // card may not be rendered
+
+      icaoEl.textContent = a.icao24 || '—';
+
+      if (!state) {
+        badge.textContent = 'Not detected';
+        badge.className = 'badge status-none';
+        callEl.textContent = '—';
+        altEl.textContent = '—';
+        spdEl.textContent = '—';
+        hdgEl.textContent = '—';
+        mapWrap.style.display = 'none';
+        // remove leaflet if exists
+        if (leafletMapById[a.id]) {
+          try { leafletMapById[a.id].remove(); } catch(e){}
+          delete leafletMapById[a.id];
+          delete leafletMarkerById[a.id];
+        }
+        return;
+      }
+
+      // state present
+      const altitude = state.geo_altitude_m ?? state.baro_altitude_m;
+      const altitudeText = altitude != null ? formatAltitude(altitude) : 'N/A';
+      const speedText = state.velocity_ms != null ? msToKts(state.velocity_ms) + ' kt' : 'N/A';
+      const headingText = state.heading_deg != null ? Math.round(state.heading_deg) + '°' : 'N/A';
+      const callsignText = state.callsign || '—';
+
+      callEl.textContent = callsignText;
+      altEl.textContent = altitudeText;
+      spdEl.textContent = speedText;
+      hdgEl.textContent = headingText;
+
+      // badge status
+      if (state.on_ground) {
+        badge.textContent = 'On ground';
+        badge.className = 'badge status-ground';
+      } else {
+        badge.textContent = 'In flight';
+        badge.className = 'badge status-in';
+      }
+
+      // show map if lat/lon exist
+      if (state.lat != null && state.lon != null) {
+        mapWrap.style.display = 'block';
+        // init leaflet if needed
+        if (!leafletMapById[a.id]) {
+          const map = L.map(leafletContainerId, { zoomControl: false, attributionControl: false }).setView([state.lat, state.lon], 6);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+          const marker = L.marker([state.lat, state.lon]).addTo(map);
+          leafletMapById[a.id] = map;
+          leafletMarkerById[a.id] = marker;
+        } else {
+          leafletMarkerById[a.id].setLatLng([state.lat, state.lon]);
+          leafletMapById[a.id].setView([state.lat, state.lon]);
+        }
+      } else {
+        mapWrap.style.display = 'none';
+      }
+    }
+
+    // ===== UI actions =====
+    document.getElementById('refreshBtn').addEventListener('click', () => {
+      fetchStatuses();
+    });
+    document.getElementById('addBtn').addEventListener('click', () => {
+      const name = document.getElementById('newName').value.trim();
+      const tail = document.getElementById('newTail').value.trim();
+      const icao = document.getElementById('newIcao').value.trim().toLowerCase();
+      if (!name) { alert('Provide a name'); return; }
+      aircraftList.unshift({ id: cryptoRandomId(), name, tail, icao24: icao, image: '', specs: '' });
+      renderCards(searchInput.value);
+      document.getElementById('newName').value=''; document.getElementById('newTail').value=''; document.getElementById('newIcao').value='';
+    });
+    document.getElementById('saveLocalBtn').addEventListener('click', saveLocal);
+    searchInput.addEventListener('input', (e) => renderCards(e.target.value));
+
+    window.editPlane = function(id) {
+      const a = aircraftList.find(x => x.id === id);
+      if (!a) return;
+      const newName = prompt('Name', a.name) || a.name;
+      const newTail = prompt('Tail/Reg', a.tail) || a.tail;
+      const newIcao = prompt('icao24 hex (lowercase)', a.icao24 || '') || (a.icao24||'');
+      a.name = newName; a.tail = newTail; a.icao24 = newIcao.toLowerCase();
+      renderCards(searchInput.value);
+    };
+
+    // initialize
+    (function init() {
+      loadLocal();
+      renderCards();
+      // initial fetch attempt (user can click refresh)
+      // fetchStatuses(); // don't auto call to avoid surprises; user can hit refresh
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+@layer base {
+    :root {
+        --black: #000000FF;
+        --white: #FFFFFFFF;
+        --grey: #8f8e8e;
+        --darkBlue: #0077be;
+        --red: #ff0000;
+        --twitchpurple: #a970ff;
+        --paypalblue: #002991;
+        --zseblue: #1f7cbc;
+        --zsegreen: #486c3e;
+        --padresbrown: #2f241d;
+        --padresgold: #FFC425;
+        --main: "Montserrat", sans-serif;
+        --heading: "EB Garamond", serif;
+        --body: "Montserrat", sans-serif;
+        --font-weight-heading: 600;
+        --base-size: 1.167rem;
+        --scale: 1.2;
+        --h1: calc(var(--h2) * var(--scale));
+        --h2: calc(var(--h3) * var(--scale));
+        --h3: calc(var(--h4) * var(--scale));
+        --h4: calc(var(--h5) * var(--scale));
+        --h5: calc(var(--h6) * var(--scale));
+        --h6: var(--base-size);
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        /* Dark overlay */
+        z-index: -1;
+    }
+
+    body {
+        font-family: var(--main);
+        margin: 0;
+        padding: 0;
+        font-size: var(--base-size);
+        line-height: 1.5;
+        background: url('img/Freedom_One.PNG/') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        transition: background-color 0.3s, color 0.3s;
+        /* backdrop-filter: blur(2px); */
+
+        /* Special handling for iOS devices */
+        @supports (-webkit-touch-callout: none) {
+            background-attachment: scroll;
+            /* Prevents split background on iOS */
+            min-height: -webkit-fill-available;
+            /* Better height handling on iOS */
+        }
+
+        /* Other mobile optimizations */
+        @media (max-width: 768px) {
+            background-attachment: scroll;
+            background-position: top center;
+        }
+    }
+
+    p {
+        color: var(--white);
+    }
+
+    ul {
+        color: var(--white);
+        list-style-type: none;
+    }
+
+    li {
+        padding-top: 2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--heading);
+        text-transform: uppercase;
+        color: var(--white);
+    }
+
+    h1 {
+        font-size: var(--h1);
+    }
+
+    h2 {
+        font-size: var(--h2);
+    }
+
+    h3 {
+        font-size: var(--h3);
+    }
+
+    h4 {
+        font-size: var(--h4);
+    }
+
+    h5 {
+        font-size: var(--h5);
+    }
+
+    h6 {
+        font-size: var(--h6);
+    }
+
+    a {
+        color: var(--pink);
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: var(--blue);
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    figure {
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        /* Make text more readable on mobile */
+        @media (max-width: 768px) {
+            font-size: calc(var(--base-size) * 0.9);
+            padding-top: 1rem;
+        }
+
+        /* Mobile optimization for background */
+        @media (max-width: 768px) {
+            padding: 0 0.5rem;
+        }
+    }
+}

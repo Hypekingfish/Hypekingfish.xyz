@@ -4,62 +4,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>Hypekingfish</title>
-  <link href="style.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/Countdown.css" />
-  <link href="css/Footer.css" rel="stylesheet" />
-  <link href="css/Nav.css" rel="stylesheet" />
-  <link href="css/Visitors.css" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
-  <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/Footer.css" />
+  <link rel="stylesheet" href="css/Nav.css" />
+  <link rel="stylesheet" href="css/Visitors.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/FnBLogo_FINAL_800.png" />
+
+  <title>Hypekingfish</title>
 </head>
 
 <body>
+  <!-- Navigation -->
   <div class="topnav">
-    <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
-    <div id="myLinks">
-      <a href="flying.html">Flying</a>
-      <a href="project.html">Projects</a>
-      <a href="streaming.html">Streaming</a>
+        <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
+        <div id="myLinks">
+            <a href="flying.html">Flying</a>
+            <a href="project.html">Projects</a>
+            <a href="streaming.html">Streaming</a>
+        </div>
+        <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
-    <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-  <div class="bgimg">
-    <div class="middle">
+
+  <!-- Hero / Coming Soon Section -->
+  <main class="bgimg">
+    <section class="middle">
       <h1>COMING SOON</h1>
       <hr />
       <p id="Timer"></p>
-      <p style="margin-top:24px;">
-        We're working on something exciting!<br>
-        This page will showcase our latest projects, including:<br>
-      <ul style="text-align:left; display:inline-block; margin-top:12px;">
+      <p>
+        We're working on something exciting!<br />
+        This page will showcase our latest projects, including:
+      </p>
+      <ul class="project-list">
         <li>Flight Sim Add-ons &amp; Tools</li>
         <li>Streaming Resources</li>
         <li>Open Source Utilities</li>
         <li>Community Events</li>
       </ul>
-      Stay tuned for updates and sneak peeks.<br>
-      For inquiries or collaborations, <a href="about.html#contact">contact us</a>.
+      <p>
+        Stay tuned for updates and sneak peeks.<br />
+        For inquiries or collaborations, <a href="about.html#contact">contact us</a>.
       </p>
-    </div>
-    <div class="bottomleft">
+    </section>
+
+    <!-- Bottom info -->
+    <aside class="bottomleft">
       <p>
         <strong>Follow us:</strong>
-        <a href="https://twitter.com/hypekingfish" target="_blank"><i class="fa fa-twitter"></i></a>
-        <a href="https://github.com/hypekingfish" target="_blank"><i class="fa fa-github"></i></a>
-        <a href="https://twitch.tv/hypekingfish" target="_blank"><i class="fa fa-twitch"></i></a>
+        <a href="https://twitter.com/hypekingfish" target="_blank" aria-label="Twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://github.com/hypekingfish" target="_blank" aria-label="GitHub">
+          <i class="fa fa-github"></i>
+        </a>
+        <a href="https://twitch.tv/hypekingfish" target="_blank" aria-label="Twitch">
+          <i class="fa fa-twitch"></i>
+        </a>
       </p>
-      <p style="margin-top:8px;"></span>Last updated: <span id="last-updated">2024-06-09</span></p>
-    </div>
-  </div>
+      <p>Last updated: <span id="last-updated"></span></p>
+    </aside>
+  </main>
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-branding">
@@ -67,9 +91,9 @@
         <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
         <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
       </div>
+
       <div class="footer-social">
-        <a href="https://github.com/[your-actual-username]" aria-label="GitHub" target="_blank"
-          rel="noopener noreferrer">
+        <a href="https://github.com/hypekingfish" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-github"></i>
         </a>
         <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
@@ -85,6 +109,7 @@
           <i class="fab fa-discord"></i>
         </a>
       </div>
+
       <p class="footer-copyright">
         <small>
           &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
@@ -92,12 +117,13 @@
         </small>
       </p>
     </div>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-      document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
-    </script>
-
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
+  </script>
   <script src="scripts/countdown.js"></script>
   <script src="scripts/navmenu.js"></script>
   <script src="scripts/visitorCount.js"></script>

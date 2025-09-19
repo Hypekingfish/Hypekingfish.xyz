@@ -1,255 +1,130 @@
-@layer comingsoon {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-    }
+html, body {
+  height: 100%;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--ff-body);
+  line-height: 1.6;
+}
 
-    @keyframes bgmove {
-        0% {
-            background-position: 0% 50%;
-        }
+a {
+  color: var(--clr-accent);
+  text-decoration: none;
+}
 
-        100% {
-            background-position: 100% 50%;
-        }
-    }
+a:hover {
+  color: var(--clr-accent-hover);
+}
 
-    .bgimg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(270deg, #9147ff, #ff7300, #ffcc00, #9147ff);
-        background-size: 600% 600%;
-        animation: bgmove 30s ease infinite;
-        opacity: 0.15;
-        z-index: 0;
-        pointer-events: none;
-    }
+h1, h2, h3 {
+  font-family: var(--ff-heading);
+  font-weight: 700;
+}
 
+/* =======================
+   Hero / Coming Soon
+   ======================= */
+.bgimg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #111 0%, #1b1f27 100%);
+}
 
-    .bgimg {
-        height: 100vh;
-        min-height: 100vh;
-        position: relative;
-        color: #fff;
-        font-family: "Montserrat", "Courier New", Courier, monospace;
-        font-size: 2rem;
-        letter-spacing: 2px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(2px);
-    }
+.middle h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
 
-    .topleft {
-        position: absolute;
-        top: 24px;
-        left: 32px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-        color: #222;
-        padding: 10px 22px;
-        border-radius: 12px;
-        z-index: 2;
-    }
+.middle hr {
+  width: 120px;
+  margin: 1rem auto;
+  border: 2px solid var(--clr-accent);
+}
 
-    .bottomleft {
-        position: absolute;
-        bottom: 24px;
-        left: 32px;
-        font-size: 1rem;
-        opacity: 0.9;
-        letter-spacing: 1px;
-        font-family: "Montserrat", "Courier New", Courier, monospace;
-        color: #fff;
-        padding: 8px 18px;
-        border-radius: 10px;
-        font-weight: 600;
-        z-index: 2;
-    }
+.project-list {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+}
 
-    .middle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        background: rgba(34, 34, 34, 0.85);
-        padding: 3rem 2.5rem;
-        border-radius: 22px;
-        animation: fadeIn 1.2s cubic-bezier(.4, 2, .6, 1);
-        border: 2px solid #ffcc00;
-        z-index: 3;
-    }
+.project-list li::before {
+  content: "✈ ";
+  color: var(--clr-accent);
+  margin-right: 4px;
+}
 
-    .middle h1,
-    .middle h2,
-    .middle h3 {
-        margin: 0 0 1.2rem 0;
-        font-size: 2.7rem;
-        color: #ffcc00;
-        text-shadow: 0 2px 10px #000, 0 0 24px #ffcc00, 0 0 8px #9147ff;
-        letter-spacing: 4px;
-        font-family: "EB Garamond", "Montserrat", serif;
-        font-weight: 800;
-        animation: popTitle 1s cubic-bezier(.4, 2, .6, 1);
-    }
+.bottomleft {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 0.9rem;
+}
 
-    @keyframes popTitle {
-        0% {
-            opacity: 0;
-            transform: scale(0.8);
-        }
+.bottomleft a {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+}
 
-        80% {
-            opacity: 1;
-            transform: scale(1.08);
-        }
+/* =======================
+   Footer
+   ======================= */
+.site-footer {
+  background: var(--clr-footer);
+  color: var(--clr-text);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--clr-border);
+}
 
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    .middle p {
-        font-size: 1.35rem;
-        color: #fff;
-        margin-bottom: 1.2rem;
-        font-family: "Montserrat", "Courier New", Courier, monospace;
-        font-weight: 500;
-        letter-spacing: 1.5px;
-        line-height: 1.5;
-        animation: fadeIn 1.8s cubic-bezier(.4, 2, .6, 1);
-    }
+.footer-branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
 
-    .comingsoon-btn {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 1rem 2.5rem;
-        font-size: 1.2rem;
-        color: #fff;
-        background: linear-gradient(90deg, #ff7300 0%, #ffcc00 100%);
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        font-weight: bold;
-        letter-spacing: 2px;
-        box-shadow: 0 2px 16px #ffcc0044, 0 2px 8px #9147ff33;
-        transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-        text-shadow: 0 1px 4px #0008;
-        border: 2px solid #fff2;
-        animation: pulseBtn 2.5s infinite alternate;
-    }
+.footer-flag {
+  height: 20px;
+}
 
-    @keyframes pulseBtn {
-        0% {
-            box-shadow: 0 2px 16px #ffcc0044, 0 2px 8px #9147ff33;
-        }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 
-        100% {
-            box-shadow: 0 4px 32px #ffcc00aa, 0 2px 16px #9147ff66;
-        }
-    }
+.footer-social a {
+  font-size: 1.2rem;
+  transition: color 0.2s ease-in-out;
+}
 
-    .comingsoon-btn:hover,
-    .comingsoon-btn:focus {
-        background: linear-gradient(90deg, #ffcc00 0%, #ff7300 100%);
-        transform: scale(1.07) rotate(-2deg);
-        box-shadow: 0 4px 32px #ffcc00aa, 0 2px 16px #9147ff66;
-        outline: none;
-    }
+.footer-social a:hover {
+  color: var(--clr-accent-hover);
+}
 
-    hr {
-        margin: 2rem auto;
-        width: 40%;
-        border: 0;
-        border-top: 3px solid #ffcc00;
-        opacity: 0.8;
-        border-radius: 2px;
-    }
+.footer-title {
+  font-family: var(--ff-heading);
+}
 
-    @media (max-width: 900px) {
-        .middle {
-            padding: 2rem 1rem;
-            border-radius: 14px;
-        }
-
-        .middle h1,
-        .middle h2,
-        .middle h3 {
-            font-size: 2rem;
-        }
-
-        .topleft,
-        .bottomleft {
-            left: 10px;
-            right: 10px;
-            font-size: 1rem;
-            padding: 7px 12px;
-        }
-
-        .comingsoon-btn {
-            font-size: 1rem;
-            padding: 0.8rem 1.5rem;
-        }
-
-        hr {
-            width: 60%;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .bgimg {
-            font-size: 1.1rem;
-            padding: 0 6px;
-        }
-
-        .middle {
-            padding: 1.2rem 0.5rem;
-            border-radius: 10px;
-        }
-
-        .middle h1,
-        .middle h2,
-        .middle h3 {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-        }
-
-        .topleft,
-        .bottomleft {
-            left: 6px;
-            right: 6px;
-            font-size: 0.85rem;
-            padding: 5px 8px;
-        }
-
-        .comingsoon-btn {
-            font-size: 0.95rem;
-            padding: 0.7rem 1.2rem;
-        }
-
-        hr {
-            width: 80%;
-        }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translate(-50%, -60%);
-        }
-
-        to {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
-    }
+.footer-content small {
+  font-size: 0.8rem;
+  color: #8b949e;
 }

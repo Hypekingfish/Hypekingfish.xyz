@@ -1,4 +1,4 @@
-/* Styles for the About section */
+/* ================= About Section ================= */
 .about {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   padding: 30px;
@@ -11,23 +11,24 @@
 }
 
 /* Headings */
-.about h2 {
+.about h2,
+.about h3 {
   color: var(--padresgold);
-  margin-bottom: 1rem;
   font-weight: var(--font-weight-heading);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
 }
 
 .about h3 {
-  color: var(--padresgold);
-  text-align: center;
   margin: 1.5rem 0 1rem;
-  font-weight: var(--font-weight-heading);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 /* Paragraphs */
-.about p {
+.about p,
+.about-columns ul,
+.about-extra p,
+.about-extra ul {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   padding: 25px;
   border-radius: 12px;
@@ -37,61 +38,21 @@
   line-height: 1.6;
   font-size: 1.05rem;
   color: var(--white);
-  letter-spacing: 0.3px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Paragraph hover effect */
-.about p:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-/* Columns with list */
-.about-columns ul {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  padding: 25px;
-  border-radius: 12px;
-  margin: 20px auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
-  text-align: left; /* makes lists easier to scan */
-  list-style: none;
-  line-height: 1.6;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* extra about section */
-.about-extra p {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  padding: 25px;
-  border-radius: 12px;
-  margin: 20px auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
-  text-align: left; /* makes lists easier to scan */
-  list-style: none;
-  line-height: 1.6;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.about-extra ul {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  padding: 25px;
-  border-radius: 12px;
-  margin: 20px auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
-  text-align: left; /* makes lists easier to scan */
-  list-style: none;
-  line-height: 1.6;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* List hover effect */
+/* Paragraph hover */
+.about p:hover,
 .about-columns ul:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* List styling */
+.about-columns ul,
+.about-extra ul {
+  text-align: left;
+  list-style: none;
 }
 
 .about-columns li {
@@ -105,20 +66,35 @@
   border-bottom: none;
 }
 
-/* Mobile adjustments */
+/* ================= Mobile ================= */
 @media (max-width: 768px) {
   .about {
-    padding: 2rem 1rem; /* tighter on mobile */
+    padding: 1.5rem 1rem;
+    margin: 20px auto;
   }
 
   .about p,
   .about-columns ul,
-  .about-extra {
-    padding: 1.5rem;
+  .about-extra p,
+  .about-extra ul {
+    padding: 1.25rem;
     margin: 15px auto;
+    font-size: 1rem;
+  }
+
+  .about h2,
+  .about h3 {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+  }
+
+  .about-columns li {
+    font-size: 1rem;
   }
 
   img {
     border-radius: 12px;
+    max-width: 100%;
+    height: auto;
   }
 }

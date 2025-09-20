@@ -10,7 +10,7 @@
         --zseblue: #1f7cbc;
         --zsegreen: #486c3e;
         --padresbrown: #2f241d;
-        --padresgold: #ffc425;
+        --padresgold: #FFC425;
         --main: "Montserrat", sans-serif;
         --heading: "EB Garamond", serif;
         --body: "Montserrat", sans-serif;
@@ -147,6 +147,11 @@
 
     img {
         max-width: 100%;
+    }
+
+    figure {
+        padding: 0;
+        margin: 0;
     }
 
     .container {
@@ -669,8 +674,99 @@
         }
     }
 
+    @layer Rainier {
+        .rainier {
+            text-align: center;
+        }
 
+        .rainier img {
+            border-radius: 40px;
+        }
 
+        .rainier p {
+            color: var(--blue);
+        }
+
+        .RHeader h2 {
+            text-align: center;
+            color: var(--blue);
+        }
+
+        /* Make sections more mobile-friendly */
+        @media (max-width: 768px) {
+            .rainier {
+                padding: 2rem 0;
+                /* Reduced padding on mobile */
+            }
+
+            img {
+                border-radius: 20px;
+                /* Smaller radius on mobile */
+            }
+        }
+    }
+
+    @layer About {
+        .AHeader {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .AHeader h2 {
+            color: var(--darkBlue);
+            margin: 0;
+            font-weight: var(--font-weight-heading);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .about {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .about p {
+            color: var(--pink);
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .about ul {
+            padding-left: 1.5rem;
+        }
+
+        .about li {
+            color: var(--pink);
+            text-align: center;
+            font-family: var(--heading);
+            font-weight: var(--font-weight-heading);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0.5rem;
+        }
+
+        .about h3 {
+            color: var(--darkBlue);
+            text-align: center;
+            margin: 0;
+            font-weight: var(--font-weight-heading);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Make sections more mobile-friendly */
+        @media (max-width: 768px) {
+            .about {
+                padding: 2rem 0;
+                /* Reduced padding on mobile */
+            }
+
+            img {
+                border-radius: 20px;
+                /* Smaller radius on mobile */
+            }
+        }
+    }
 
     @layer Welcome {
         .welcome {
@@ -1605,7 +1701,3 @@
                         opacity: 1;
                     }
                 }
-            }
-        }
-    }
-}

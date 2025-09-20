@@ -2,24 +2,26 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <title>Hypekingfish</title>
-  <link href="style.css" rel="stylesheet" />
-   <link href="css/About.css" rel="stylesheet" />
-  <link href="css/Footer.css" rel="stylesheet" />
-  <link href="css/Nav.css" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <title>Hypekingfish</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="css/About.css" rel="stylesheet" />
+    <link href="css/Footer.css" rel="stylesheet" />
+    <link href="css/Nav.css" rel="stylesheet" />
+    <link href="css/Scroll.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
     <div class="topnav">
         <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" alt="Logo" />Hypekingfish</a>
         <span id="local-time" class="time-display"></span>
@@ -34,13 +36,11 @@
     </div>
 
     <main>
-        <section class="AHeader">
-            <h2>About Me</h2>
-        </section>
-
         <section class="about">
+            <h2>About Me</h2>
             <p>
-                Hello! I'm <strong>Hypekingfish</strong>, a passionate programmer, gamer, and flight simulation enthusiast.
+                Hello! I'm <strong>Hypekingfish</strong>, a passionate programmer, gamer, and flight simulation
+                enthusiast.
                 With over 1,500 hours in Microsoft Flight Simulator and a love for coding in Python and web development,
                 I enjoy creating content, exploring virtual skies, and connecting with like-minded individuals.
                 Whether I'm flying a Boeing 737-800 or working on my latest programming project, I strive to bring
@@ -165,12 +165,16 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
+
     <!-- Scripts at bottom for performance -->
     <script>
         document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script src="scripts/navmenu.js"></script>
+    <script src="scripts/scroll.js"></script>
     <script src="scripts/time.js"></script>
 </body>
 

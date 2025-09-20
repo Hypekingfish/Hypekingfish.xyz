@@ -28,6 +28,7 @@
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i><span class="ripple"></span></button>
   <div class="topnav">
     <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
+    <span id="local-time" class="time-display"></span>
     <div id="myLinks">
       <a href="flying.html">Flying</a>
       <a href="project.html">Projects</a>
@@ -69,10 +70,16 @@
   </div>
 
   <div id="stream-tools">
-    <a href="https://www.twitch.tv/hypekingfish/chat?popout=" target="_blank">💬 Popout Chat</a>
-    <a href="https://ko-fi.com/hypekingfish" target="_blank">☕ Tip the Stream</a>
-    <a href="https://discord.gg/YOURDISCORD" target="_blank">📣 Join Discord</a>
-  </div>
+  <a href="https://www.twitch.tv/hypekingfish/chat?popout=" target="_blank">💬 Popout Chat</a>
+  <a href="https://ko-fi.com/hypekingfish" target="_blank">
+   <I class="fa fa-kofi"></I>  Tip on Ko-Fi
+  </a>
+  <a href="https://paypal.me/hypekingfish" target="_blank">
+    <i class="fa fa-paypal"></i> Donate with PayPal
+  </a>
+  <a href="https://discord.gg/YOURDISCORD" target="_blank">📣 Join Discord</a>
+</div>
+
   <section class="membership-section">
     <h1>Become a Member on Ko-fi</h1>
     <p>
@@ -174,6 +181,7 @@
     <script src="scripts/Discord.js"></script>
     <script src="scripts/navmenu.js"></script>
     <script src="scripts/scroll.js"></script>
+    <script src="scripts/time.js"></script>
     <script src="scripts/twitch.js"></script>
 </body>
 

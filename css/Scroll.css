@@ -1,80 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+/* Scroll to top button */
+    #scrollBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif;
+      transition: background 0.3s, transform 0.2s;
+    }
 
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  z-index: 999;
-  width: 70px;
-  height: 70px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(10, 10, 30, 0.7);
-  backdrop-filter: blur(10px);
-  font-family: 'Orbitron', sans-serif;
-  color: white;
-  cursor: pointer;
-  overflow: hidden;
-  isolation: isolate;
-  box-shadow: 0 0 15px rgba(144, 0, 255, 0.5);
-  border: 2px solid transparent;
-  transition: all 0.3s ease-in-out;
-}
-
-#myBtn .inner-content {
-  position: relative;
-  z-index: 2;
-  font-size: 24px;
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-#myBtn:hover .inner-content {
-  transform: scale(1.2) rotate(-5deg);
-  color: #00f0ff;
-}
-
-/* Animated Gradient Ring */
-#myBtn::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #9147ff, #00f0ff, #9147ff);
-  z-index: 1;
-  animation: spin-border 5s linear infinite;
-  filter: blur(8px);
-  opacity: 0.6;
-}
-
-/* Shine */
-#myBtn .shine {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, #00f0ff33 0%, transparent 70%);
-  animation: pulse-glow 3s infinite ease-in-out;
-  z-index: 0;
-}
-
-/* Animations */
-@keyframes spin-border {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.1); }
-}
-
-/* Optional Click Animation */
-#myBtn:active {
-  transform: scale(0.95);
-}
+    #scrollBtn:hover {
+      background-color: #ffc425;
+      color: #000;
+      transform: translateY(-2px);
+    }

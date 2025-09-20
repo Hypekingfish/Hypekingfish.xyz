@@ -66,6 +66,42 @@
   border-bottom: none;
 }
 
+/*Link Decoration*/
+
+.about-extra p {
+    text-align: center;
+}
+
+/* Buttons under the paragraph */
+.about-extra p a {
+  display: inline-block;
+  margin: 1rem 0.5rem 0;  /* space above + spacing between */
+  text-decoration: none;
+  background-color: var(--padresbrown);
+  color: var(--padresgold);
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect */
+.about-extra p a:hover {
+  background-color: var(--padresbrown);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 196, 37, 0.5);
+}
+
+/* Mobile: stack buttons vertically */
+@media (max-width: 768px) {
+  .about-extra p a {
+    display: block;
+    margin: 0.75rem auto 0; /* centered with space between */
+    width: fit-content;     /* button only as wide as content */
+  }
+}
+
 /* ================= Mobile ================= */
 @media (max-width: 768px) {
   .about {

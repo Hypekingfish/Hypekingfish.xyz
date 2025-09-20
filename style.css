@@ -10,7 +10,7 @@
         --zseblue: #1f7cbc;
         --zsegreen: #486c3e;
         --padresbrown: #2f241d;
-        --padresgold: #FFC425;
+        --padresgold: #ffc425;
         --main: "Montserrat", sans-serif;
         --heading: "EB Garamond", serif;
         --body: "Montserrat", sans-serif;
@@ -147,11 +147,6 @@
 
     img {
         max-width: 100%;
-    }
-
-    figure {
-        padding: 0;
-        margin: 0;
     }
 
     .container {
@@ -1610,3 +1605,7 @@
                         opacity: 1;
                     }
                 }
+            }
+        }
+    }
+}

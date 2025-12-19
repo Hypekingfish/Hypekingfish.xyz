@@ -1,112 +1,143 @@
 (() => {
   const now = new Date();
-  if (now.getMonth() !== 11) return;
-
+  if (now.getMonth() !== 11) return; // December only
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const snowContainer = document.getElementById("snow-container");
-  const ground = document.getElementById("snow-ground");
-  if (!snowContainer || !ground) return;
+  if (!snowContainer) return;
 
   let isMobile = window.innerWidth < 768;
-  let MAX_FLAKES = isMobile ? 120 : 260;
-
-  const SPAWN_RATE = 10;
-  const COLUMN_COUNT = 50; // number of snow “columns”
-
-  let activeFlakes = 0;
-  let snowInterval = null;
-  let running = true;
-
-  // Wind state
-  let targetWind = 0;
-  let currentWind = 0;
-  let windTimer = 0;
-
-  // Snow pile state (array of heights per column)
-  let columns = new Array(COLUMN_COUNT).fill(0);
+  const MAX_FLAKES = () => (isMobile ? 120 : 260);
+  const SNOW_SYMBOLS = ["❄", "❅", "❆", "✻", "✼"];
+  const flakes = [];
 
   window.addEventListener("resize", () => {
     isMobile = window.innerWidth < 768;
-    MAX_FLAKES = isMobile ? 120 : 260;
   });
 
-  function createSnowflake() {
-    if (!running || activeFlakes >= MAX_FLAKES) return;
+  class Snowflake {
+    constructor() {
+      this.depth = Math.random(); // 0 = far, 1 = near
+      this.el = document.createElement("div");
+      this.el.className = "snowflake";
+      this.el.textContent = SNOW_SYMBOLS[Math.floor(Math.random() * SNOW_SYMBOLS.length)];
 
-    activeFlakes++;
+      // Parallax & visual properties
+      this.size = 8 + 20 * this.depth;
+      this.speed = 30 + 120 * this.depth;
+      this.swayAmplitude = 10 + 40 * this.depth;
+      this.swayFrequency = 0.5 + 2 * this.depth;
+      this.drift = (Math.random() - 0.5) * (5 + 30 * this.depth);
+      this.rotation = Math.random() * 360;
+      this.rotationSpeed = (Math.random() - 0.5) * (30 + 180 * this.depth);
+      this.opacity = 0.3 + 0.7 * this.depth;
 
-    const flake = document.createElement("div");
-    flake.className = "snowflake";
-    flake.textContent = Math.random() > 0.5 ? "❄" : "❅";
+      // Sparkle / glow effect
+      this.glowColor = Math.random() > 0.8 ? "lightblue" : "white"; // subtle blue accent
+      this.textShadowBase = `0 0 6px rgba(255,255,255,0.6)`;
+      this.el.style.textShadow = this.textShadowBase;
 
-    const size = Math.random() * 12 + 8;
-    const duration = Math.random() * 10 + 8;
-    const opacity = Math.random() * 0.6 + 0.3;
+      // Position
+      this.x = Math.random() * window.innerWidth;
+      this.y = -20;
 
-    const leftPercent = Math.random() * 100;
-    flake.style.left = leftPercent + "vw";
-    flake.style.fontSize = size + "px";
-    flake.style.opacity = opacity;
-    flake.style.animationDuration = `${duration}s, ${Math.random() * 4 + 3}s`;
-    flake.style.willChange = "transform";
+      // Size variation over time
+      this.sizeVariation = (Math.random() - 0.5) * 4; // px/sec
 
-    snowContainer.appendChild(flake);
+      // For trailing effect
+      this.trailEl = document.createElement("div");
+      this.trailEl.className = "snowflake-trail";
+      this.trailEl.style.position = "fixed";
+      this.trailEl.style.pointerEvents = "none";
+      this.trailEl.style.color = this.glowColor;
+      this.trailEl.style.opacity = 0.2 * this.opacity;
+      this.trailEl.textContent = this.el.textContent;
 
-    setTimeout(() => {
-      flake.remove();
-      activeFlakes--;
+      this.el.style.position = "fixed";
+      this.el.style.top = "0px";
+      this.el.style.left = "0px";
+      this.el.style.fontSize = `${this.size}px`;
+      this.el.style.opacity = this.opacity;
+      this.el.style.color = this.glowColor;
+      this.el.style.pointerEvents = "none";
+      this.el.style.willChange = "transform";
 
-      // Determine column based on horizontal position
-      const columnIndex = Math.floor((leftPercent / 100) * COLUMN_COUNT);
-      columns[columnIndex] += 0.6; // increase pile height at this column
-
-      // Update ground height visually using linear-gradient
-      const gradientStops = columns.map((h, i) => {
-        const percent = (i / COLUMN_COUNT) * 100;
-        return `rgba(255,255,255,1) ${h}px`;
-      });
-      // Instead of actual gradient math, just set max pile
-      ground.style.height = Math.max(...columns) + "px";
-
-    }, duration * 1000);
-  }
-
-  function windLoop() {
-    if (!running) return;
-
-    windTimer++;
-    if (windTimer > 300) {
-      windTimer = 0;
-      targetWind = (Math.random() - 0.5) * 80;
+      snowContainer.appendChild(this.trailEl);
+      snowContainer.appendChild(this.el);
     }
 
-    currentWind += (targetWind - currentWind) * 0.02;
+    update(delta) {
+      this.y += this.speed * delta;
+      this.x += this.drift * delta;
 
-    document.querySelectorAll(".snowflake").forEach(flake => {
-      flake.style.transform = `translateX(${currentWind}px)`;
-    });
+      // Sway
+      const sway = Math.sin(this.y / window.innerHeight * this.swayFrequency * Math.PI * 2) * this.swayAmplitude;
 
-    requestAnimationFrame(windLoop);
-  }
+      // Rotation
+      this.rotation += this.rotationSpeed * delta;
 
-  function startSnow() {
-    running = true;
-    if (!snowInterval) {
-      snowInterval = setInterval(createSnowflake, SPAWN_RATE);
+      // Size variation
+      this.size += this.sizeVariation * delta;
+      this.el.style.fontSize = `${this.size}px`;
+
+      // Fade near bottom
+      let fade = 1;
+      if (this.y > window.innerHeight * 0.8) {
+        fade = 1 - (this.y - window.innerHeight * 0.8) / (window.innerHeight * 0.2);
+      }
+
+      // Sparkle effect (subtle pulsing opacity)
+      const sparkle = 0.8 + Math.sin(this.y * 0.1) * 0.2;
+
+      // Update main flake
+      this.el.style.transform = `translate(${this.x + sway}px, ${this.y}px) rotate(${this.rotation}deg)`;
+      this.el.style.opacity = Math.max(0, fade * this.opacity * sparkle);
+
+      // Update trail
+      this.trailEl.style.transform = `translate(${this.x + sway}px, ${this.y - this.size/2}px) rotate(${this.rotation}deg)`;
+      this.trailEl.style.opacity = Math.max(0, fade * 0.2 * sparkle);
     }
-    requestAnimationFrame(windLoop);
+
+    isOutOfView() {
+      return this.y > window.innerHeight + 50;
+    }
+
+    destroy() {
+      this.el.remove();
+      this.trailEl.remove();
+    }
   }
 
-  function stopSnow() {
-    running = false;
-    clearInterval(snowInterval);
-    snowInterval = null;
+  let lastTime = performance.now();
+
+  function animate(time) {
+    const delta = (time - lastTime) / 1000;
+    lastTime = time;
+
+    // Occasionally spawn small clusters
+    const clusterChance = Math.random();
+    if (flakes.length < MAX_FLAKES()) {
+      if (clusterChance > 0.95) {
+        const clusterCount = 2 + Math.floor(Math.random() * 3);
+        for (let i = 0; i < clusterCount; i++) {
+          flakes.push(new Snowflake());
+        }
+      } else {
+        flakes.push(new Snowflake());
+      }
+    }
+
+    for (let i = flakes.length - 1; i >= 0; i--) {
+      const flake = flakes[i];
+      flake.update(delta);
+      if (flake.isOutOfView()) {
+        flake.destroy();
+        flakes.splice(i, 1);
+      }
+    }
+
+    requestAnimationFrame(animate);
   }
 
-  document.addEventListener("visibilitychange", () => {
-    document.hidden ? stopSnow() : startSnow();
-  });
-
-  startSnow();
+  requestAnimationFrame(animate);
 })();

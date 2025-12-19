@@ -12,7 +12,6 @@
   let MAX_FLAKES = isMobile ? 120 : 260;
 
   const SPAWN_RATE = 10;
-  const MAX_GROUND = 120;
   const COLUMN_COUNT = 50; // number of snow “columns”
 
   let activeFlakes = 0;

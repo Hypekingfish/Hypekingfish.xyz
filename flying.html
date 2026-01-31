@@ -18,7 +18,7 @@
   <link href="css/Metar.css" rel="stylesheet" />
   <link href="css/Nav.css" rel="stylesheet" />
   <link href="css/Plane.css" rel="stylesheet" />
-  <!-- <link href="css/Testimonials.css" rel="stylesheet" /> -->
+  <link href="css/Testimonials.css" rel="stylesheet" />
   <!-- <link href="css/Plane-Image.css" rel="stylesheet" /> -->
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -27,17 +27,22 @@
 </head>
 
 <body>
-  <div class="topnav">
-    <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
-    <div id="myLinks">
-      <a href="flying.html">Flying</a>
-      <a href="project.html">Projects</a>
-      <a href="streaming.html">Streaming</a>
+  <section>
+        <div id="snow-container"></div>
+        <div id="snow-ground"></div>
+    </section>
+    <div class="topnav">
+        <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" alt="Logo" />Hypekingfish</a>
+        <span id="local-time" class="time-display"></span>
+        <div id="myLinks">
+            <a href="flying.html">Flying</a>
+            <a href="project.html">Projects</a>
+            <a href="streaming.html">Streaming</a>
+        </div>
+        <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
-    <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
   <section class="seattle_artcc">
     <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
     <div id="vatsim-stats">
@@ -239,7 +244,8 @@
   <script src="scripts/Metar.js"></script>
   <!-- <script src="scripts/Modal.js"></script> -->
   <script src="scripts/navmenu.js"></script>
-  <!-- <script src="scripts/testimonials.js"></script> -->
+  <script src="scripts/testimonials.js"></script>
+  <script src="scripts/time.js"></script>
 </body>
 
 </html>

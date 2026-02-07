@@ -33,13 +33,12 @@ function updateLiveStatus() {
         frequency,
         aircraft,
         departure,
-        arrival,
-        rating
+        arrival
       } = data;
 
       if (mode === 'ATC') {
         text.innerHTML = `
-          🟢 <strong>${callsign}, ${rating}</strong><br>
+          🟢 <strong>${callsign}</strong><br>
           ${position || 'Unknown position'} (${facility || 'N/A'})<br>
           ${frequency ? `📻 ${frequency}` : ''}
         `;

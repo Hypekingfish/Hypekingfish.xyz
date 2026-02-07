@@ -1,4 +1,4 @@
-fetch('/.netlify/functions/FetchVatsimdata')
+fetch('/.netlify/functions/GetVatsimData')
     .then(response => response.json())
     .then(data => {
         // Function to convert decimal hours to HH:mm format and show days if applicable

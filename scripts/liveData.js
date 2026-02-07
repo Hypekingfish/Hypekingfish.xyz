@@ -47,7 +47,6 @@ function updateLiveStatus() {
           ✈️ <strong>${callsign}</strong><br>
           ${aircraft || 'Unknown aircraft'}<br>
           ${departure || '----'} → ${arrival || '----'}
-          ${sessionTime ? `<br>⏱ ${formatTime(sessionTime)}` : ''}
         `;
       }
     })

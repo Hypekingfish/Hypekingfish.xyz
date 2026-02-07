@@ -1,4 +1,5 @@
-const statusElement = document.getElementById('live-status');
+const card = document.getElementById('live-card');
+const text = document.getElementById('live-text');
 
 function formatTime(seconds = 0) {
   const h = Math.floor(seconds / 3600);
@@ -6,8 +7,9 @@ function formatTime(seconds = 0) {
   return `${h}h ${m}m`;
 }
 
-function updateStatus() {
-  statusElement.textContent = 'Checking VATSIM status…';
+function updateLiveStatus() {
+  card.className = 'loading';
+  text.textContent = '🟡 Checking VATSIM…';
 
   fetch('/.netlify/functions/GetVatsimData')
     .then(res => {
@@ -15,61 +17,51 @@ function updateStatus() {
       return res.json();
     })
     .then(data => {
-      console.log('Live Data:', data);
-
       if (!data || !data.online) {
-        statusElement.textContent = '🔴 Offline on VATSIM';
-        statusElement.className = 'offline';
+        card.className = 'offline';
+        text.textContent = '🔴 Offline on VATSIM';
         return;
       }
+
+      card.className = 'online';
 
       const {
         mode,
         callsign,
         position,
         facility,
-        latitude,
-        longitude,
+        frequency,
         sessionTime,
         aircraft,
         departure,
-        arrival,
-        frequency
+        arrival
       } = data;
 
-      statusElement.className = 'online';
-
-      // Google Maps link if coords exist
-      const mapLink = (latitude && longitude)
-        ? `https://maps.google.com/?q=${latitude},${longitude}`
-        : null;
-
       if (mode === 'ATC') {
-        statusElement.innerHTML = `
+        text.innerHTML = `
           🟢 <strong>${callsign}</strong><br>
           ${position || 'Unknown position'} (${facility || 'N/A'})<br>
-          ${frequency ? `📻 ${frequency}` : ''}  
-          ⏱ ${formatTime(sessionTime)}
+          ${frequency ? `📻 ${frequency}` : ''}
+          ${sessionTime ? `• ⏱ ${formatTime(sessionTime)}` : ''}
         `;
       } else {
-        statusElement.innerHTML = `
+        text.innerHTML = `
           ✈️ <strong>${callsign}</strong><br>
           ${aircraft || 'Unknown aircraft'}<br>
-          ${departure || '----'} → ${arrival || '----'}<br>
-          ⏱ ${formatTime(sessionTime)}
-          ${mapLink ? `<br><a href="${mapLink}" target="_blank">📍 View on map</a>` : ''}
+          ${departure || '----'} → ${arrival || '----'}
+          ${sessionTime ? `<br>⏱ ${formatTime(sessionTime)}` : ''}
         `;
       }
     })
     .catch(err => {
-      console.error('Error fetching live data:', err);
-      statusElement.textContent = '⚠️ Failed to load VATSIM data';
-      statusElement.className = 'error';
+      console.error(err);
+      card.className = 'error';
+      text.textContent = '⚠️ Unable to load VATSIM status';
     });
 }
 
 // Initial load
-updateStatus();
+updateLiveStatus();
 
-// Auto-refresh every 60s
-setInterval(updateStatus, 60000);
+// Refresh every minute
+setInterval(updateLiveStatus, 60000);

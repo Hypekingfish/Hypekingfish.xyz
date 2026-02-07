@@ -1,5 +1,3 @@
-
-You said:
 fetch("/.netlify/functions/vatsim-live")
   .then(res => res.json())
   .then(data => {
@@ -15,9 +13,9 @@ fetch("/.netlify/functions/vatsim-live")
     card.className = "online";
 
     if (data.mode === "ATC") {
-      text.textContent = 🟢 Controlling ${data.callsign} (${data.position});
+      text.textContent = "🟢 Controlling ${data.callsign} (${data.position})";
       highlightFIR(data.callsign);
     } else {
-      text.textContent = ✈️ Flying as ${data.callsign};
+      text.textContent = "✈️ Flying as ${data.callsign}";
     }
   });

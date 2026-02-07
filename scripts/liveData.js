@@ -8,6 +8,7 @@ function formatTime(seconds = 0) {
 }
 
 let map, marker;
+let markerInitialized = false;
 
 function initMap(lat, lon) {
     if (!map) {
@@ -18,7 +19,9 @@ function initMap(lat, lon) {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
+    }
 
+    if (!markerInitialized) {
         marker = L.marker([lat, lon], {
             icon: L.divIcon({
                 html: '✈️',
@@ -26,6 +29,8 @@ function initMap(lat, lon) {
                 className: 'plane-icon'
             })
         }).addTo(map);
+
+        markerInitialized = true;
     }
 }
 
@@ -33,7 +38,11 @@ function updateMap(lat, lon, heading) {
     if (!map || !marker) return;
 
     marker.setLatLng([lat, lon]);
-    map.panTo([lat, lon], { animate: true, duration: 0.5 });
+    map.panTo([lat, lon], {
+        animate: true,
+        duration: 1,
+        easeLinearity: 0.1
+    });
 
     if (heading !== undefined && marker._icon) {
         marker._icon.style.transform += ` rotate(${heading}deg)`;

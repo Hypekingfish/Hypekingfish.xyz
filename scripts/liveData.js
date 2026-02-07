@@ -19,7 +19,13 @@ function initMap(lat, lon) {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        marker = L.marker([lat, lon]).addTo(map);
+        marker = L.marker([lat, lon], {
+            icon: L.divIcon({
+                html: '✈️',
+                iconSize: [24, 24],
+                className: 'plane-icon'
+            })
+        }).addTo(map);
     }
 }
 
@@ -29,11 +35,8 @@ function updateMap(lat, lon, heading) {
     marker.setLatLng([lat, lon]);
     map.panTo([lat, lon], { animate: true, duration: 0.5 });
 
-    if (heading !== undefined) {
-        marker.getElement()?.style.setProperty(
-            'transform',
-            `rotate(${heading}deg)`
-        );
+    if (heading !== undefined && marker._icon) {
+        marker._icon.style.transform += ` rotate(${heading}deg)`;
     }
 }
 
@@ -91,6 +94,21 @@ function updateLiveStatus() {
 
                 initMap(data.latitude, data.longitude);
                 updateMap(data.latitude, data.longitude, data.heading);
+            }
+            if (!map._airportsAdded && departure && arrival) {
+                map._airportsAdded = true;
+
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${departure} airport`)
+                    .then(r => r.json())
+                    .then(([dep]) => {
+                        if (dep) L.marker([dep.lat, dep.lon]).addTo(map).bindPopup(`🛫 ${departure}`);
+                    });
+
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${arrival} airport`)
+                    .then(r => r.json())
+                    .then(([arr]) => {
+                        if (arr) L.marker([arr.lat, arr.lon]).addTo(map).bindPopup(`🛬 ${arrival}`);
+                    });
             }
         })
         .catch(err => {

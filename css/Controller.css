@@ -95,6 +95,11 @@
   font-size: 1.1rem;
 }
 
+.plane-icon {
+  font-size: 22px;
+  transform-origin: center;
+}
+
 @keyframes ping {
 
   0%,

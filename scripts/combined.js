@@ -1,4 +1,4 @@
-fetch('/.netlify/functions/GetVatsimData')
+fetch('/.netlify/functions/FetchVatsimdata')
     .then(response => response.json())
     .then(data => {
         console.log('Fetched Data:', data); // Debugging line

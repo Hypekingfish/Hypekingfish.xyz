@@ -38,8 +38,7 @@ export const handler = async () => {
         callsign: controller.callsign,
         position: controller.frequency,
         facility: controller.facility,
-        latitude: controller.latitude,
-        longitude: controller.longitude
+        rating : controller.rating
       };
     } else if (pilot) {
       liveStatus = {

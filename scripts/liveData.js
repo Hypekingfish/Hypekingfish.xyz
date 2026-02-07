@@ -31,18 +31,17 @@ function updateLiveStatus() {
         position,
         facility,
         frequency,
-        sessionTime,
         aircraft,
         departure,
-        arrival
+        arrival,
+        rating
       } = data;
 
       if (mode === 'ATC') {
         text.innerHTML = `
-          🟢 <strong>${callsign}</strong><br>
+          🟢 <strong>${callsign}, ${rating}</strong><br>
           ${position || 'Unknown position'} (${facility || 'N/A'})<br>
           ${frequency ? `📻 ${frequency}` : ''}
-          ${sessionTime ? `• ⏱ ${formatTime(sessionTime)}` : ''}
         `;
       } else {
         text.innerHTML = `

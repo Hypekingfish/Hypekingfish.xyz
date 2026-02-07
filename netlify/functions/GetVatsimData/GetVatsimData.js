@@ -47,7 +47,8 @@ export const handler = async () => {
         callsign: pilot.callsign,
         aircraft: pilot.flight_plan?.aircraft,
         latitude: pilot.latitude,
-        longitude: pilot.longitude
+        longitude: pilot.longitude,
+        heading: pilot.heading
       };
     }
 

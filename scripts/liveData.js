@@ -65,7 +65,10 @@ function updateLiveStatus() {
                 frequency,
                 aircraft,
                 departure,
-                arrival
+                arrival,
+                latitude,
+                longitude,
+                heading
             } = data;
 
             if (mode === 'ATC') {

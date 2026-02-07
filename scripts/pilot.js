@@ -1,39 +1,44 @@
 fetch('/.netlify/functions/GetVatsimData')
-    .then(response => response.json())
-    .then(data => {
-        // Function to convert decimal hours to HH:mm format and show days if applicable
-        function formatHoursWithDays(hours) {
-            const totalMinutes = Math.round(hours * 60);
-            const hh = Math.floor(totalMinutes / 60);
-            const mm = totalMinutes % 60;
+  .then(response => {
+    if (!response.ok) throw new Error("Network error");
+    return response.json();
+  })
+  .then(data => {
 
-            const days = Math.floor(hh / 24);
-            const remHours = hh % 24;
+    // Convert decimal hours → HH:mm + days
+    function formatHoursWithDays(hours = 0) {
+      const totalMinutes = Math.round(hours * 60);
+      const hh = Math.floor(totalMinutes / 60);
+      const mm = totalMinutes % 60;
 
-            let result = `${hh}:${mm.toString().padStart(2, '0')}`;
-            if (days > 0) {
-                result += ` (≈ ${days}d ${remHours}h)`;
-            }
+      const days = Math.floor(hh / 24);
+      const remHours = hh % 24;
 
-            return result;
-        }
+      let result = `${hh}:${mm.toString().padStart(2, '0')}`;
+      if (days > 0) {
+        result += ` (≈ ${days}d ${remHours}h)`;
+      }
 
-        // Add error checking before setting values
-        const elements = {
-            'pilot-hours': parseFloat(data.pilotHours) || 0,
-        };
+      return result;
+    }
 
-        for (const [id, value] of Object.entries(elements)) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = formatHoursWithDays(value);
-            }
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        const statsElement = document.getElementById('vatsim-stats');
-        if (statsElement) {
-            statsElement.textContent = 'Failed to load VATSIM stats';
-        }
-    });
+    if (!data.hours) throw new Error("Missing hours object");
+
+    const elements = {
+      'pilot-hours': data.hours.pilot ?? 0
+    };
+
+    for (const [id, value] of Object.entries(elements)) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = formatHoursWithDays(value);
+      }
+    }
+  })
+  .catch(error => {
+    console.error('VATSIM error:', error);
+    const statsElement = document.getElementById('vatsim-stats');
+    if (statsElement) {
+      statsElement.textContent = 'Failed to load VATSIM stats';
+    }
+  });

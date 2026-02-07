@@ -22,7 +22,7 @@
   <!-- <link href="css/Plane-Image.css" rel="stylesheet" /> -->
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
 </head>
 
@@ -52,6 +52,7 @@
         <div id="live-card" class="offline">
           <p id="live-text">Checking VATSIM…</p>
         </div>
+        <div id="vatsim-map"></div>
       </section>
       <div class="stats-container">
         <div class="stat-item">
@@ -219,12 +220,13 @@
     document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="scripts/atc.js"></script>
+  <!-- <script src="scripts/atc.js"></script> -->
   <script src="scripts/carousel.js"></script>
-  <script src="scripts/combined.js"></script>
+  <!-- <script src="scripts/combined.js"></script> -->
   <script src="scripts/hangar.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="scripts/liveData.js"></script>
-  <script src="scripts/pilot.js"></script>
+  <!-- <script src="scripts/pilot.js"></script> -->
   <script src="scripts/plane.js"></script>
   <script src="scripts/Metar.js"></script>
   <!-- <script src="scripts/Modal.js"></script> -->

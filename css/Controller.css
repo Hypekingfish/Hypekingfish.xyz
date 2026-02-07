@@ -1,4 +1,13 @@
 /* Base */
+#vatsim-map {
+  height: 260px;
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display: none;
+}
+
 #vatsim-stats {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   padding: 30px;

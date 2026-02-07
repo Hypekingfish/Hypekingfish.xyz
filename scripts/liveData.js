@@ -39,6 +39,21 @@ function updateMap(lat, lon, heading) {
         marker._icon.style.transform += ` rotate(${heading}deg)`;
     }
 }
+if (map && !map._airportsAdded && departure && arrival) {
+    map._airportsAdded = true;
+
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${departure} airport`)
+        .then(r => r.json())
+        .then(([dep]) => {
+            if (dep) L.marker([dep.lat, dep.lon]).addTo(map).bindPopup(`🛫 ${departure}`);
+        });
+
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${arrival} airport`)
+        .then(r => r.json())
+        .then(([arr]) => {
+            if (arr) L.marker([arr.lat, arr.lon]).addTo(map).bindPopup(`🛬 ${arrival}`);
+        });
+}
 
 
 function updateLiveStatus() {
@@ -95,21 +110,7 @@ function updateLiveStatus() {
                 initMap(data.latitude, data.longitude);
                 updateMap(data.latitude, data.longitude, data.heading);
             }
-            if (!map._airportsAdded && departure && arrival) {
-                map._airportsAdded = true;
 
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${departure} airport`)
-                    .then(r => r.json())
-                    .then(([dep]) => {
-                        if (dep) L.marker([dep.lat, dep.lon]).addTo(map).bindPopup(`🛫 ${departure}`);
-                    });
-
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${arrival} airport`)
-                    .then(r => r.json())
-                    .then(([arr]) => {
-                        if (arr) L.marker([arr.lat, arr.lon]).addTo(map).bindPopup(`🛬 ${arrival}`);
-                    });
-            }
         })
         .catch(err => {
             console.error(err);

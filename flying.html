@@ -10,7 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
   <title>Hypekingfish</title>
-  <link href="style.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet" />
   <!-- <link href="css/Base.css" rel="stylesheet" /> -->
   <link href="css/Controller.css" rel="stylesheet" />
   <link href="css/Footer.css" rel="stylesheet" />
@@ -22,31 +22,37 @@
   <!-- <link href="css/Plane-Image.css" rel="stylesheet" /> -->
   <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <section>
-        <div id="snow-container"></div>
-        <div id="snow-ground"></div>
-    </section>
-    <div class="topnav">
-        <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" alt="Logo" />Hypekingfish</a>
-        <span id="local-time" class="time-display"></span>
-        <div id="myLinks">
-            <a href="flying.html">Flying</a>
-            <a href="project.html">Projects</a>
-            <a href="streaming.html">Streaming</a>
-        </div>
-        <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+    <div id="snow-container"></div>
+    <div id="snow-ground"></div>
+  </section>
+  <div class="topnav">
+    <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" alt="Logo" />Hypekingfish</a>
+    <span id="local-time" class="time-display"></span>
+    <div id="myLinks">
+      <a href="flying.html">Flying</a>
+      <a href="project.html">Projects</a>
+      <a href="streaming.html">Streaming</a>
     </div>
+    <a href="javascript:void(0);" class="topnav-icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
   <section class="seattle_artcc">
     <!-- <h2><img src="https://zseartcc.org/public/images/seattle_pics/Seattle_edit.png" class="rainbow-box">Seattle ARTCC Overview</h2> -->
     <div id="vatsim-stats">
       <h2>my VATSIM Stats</h2>
+      <section class="live-status">
+        <h2>Live Status</h2>
+        <div id="live-card" class="offline">
+          <p id="live-text">Checking VATSIM…</p>
+        </div>
+      </section>
       <div class="stats-container">
         <div class="stat-item">
           <h3>Total Pilot Hours</h3>
@@ -70,27 +76,6 @@
         </div>
       </div>
     </div>
-
-
-    <!-- <div id="flight-summary-banner"></div>
-    <div id="metar-ticker"><span id="metar-ticker-text"></span></div>
-    <div id="metar-container" class="fade-in">
-      <div class="row"><span class="label">Station:</span> <span id="airport-code"></span>
-        <a id="map-link" target="_blank">🌍 SkyVector</a>
-        <span id="refresh-button">🔄</span>
-      </div>
-      <div class="row"><span class="label">Flight Rules:</span> <span id="flight-rules"></span></div>
-      <div class="row"><span class="label">Temperature:</span> <span id="temperature"></span></div>
-      <div class="row"><span class="label">Dewpoint:</span> <span id="dewpoint"></span></div>
-      <div class="row"><span class="label">Humidity:</span> <span id="humidity"></span></div>
-      <div class="row"><span class="label">Wind:</span> <span id="wind"></span> <span id="wind-arrow">&#x2191;</span>
-      </div>
-      <div class="row"><span class="label">Visibility:</span> <span id="visibility"></span></div>
-      <div class="row"><span class="label">Altimeter:</span> <span id="altimeter" title=""></span></div>
-      <div class="row"><span class="label">Weather:</span> <span id="weather"></span></div>
-      <div class="row"><span class="label">Sky:</span> <span id="sky-conditions"></span></div>
-      <div class="row"><span class="label">Observation Time:</span> <span id="obs-time"></span></div>
-    </div> -->
     <div class="flight-container">
       <div class="airport-label left">PDX (Portland Intl)</div>
       <div class="flight-path">
@@ -126,62 +111,62 @@
                 <a href="https://www.vatsim.net" target="_blank" class="button">Visit VATSIM</a>
                 <a href="https://zseartcc.org" target="_blank" class="button">Visit ZSE ARTCC</a>
             </div>
-        </section> -->
+        </section>
   <section class="Vatsim-Controlling">
     <!-- About Section -->
-    <div class="About-Vatsim-Controlling">
-      <p>
-        My journey as a <strong>VATSIM controller</strong> started in
-        <strong>July 2024</strong>, and it has been an adrenaline-fueled
-        adventure ever since. From a <strong>VATSIM pilot</strong> to an air
-        traffic controller, I’ve developed a deep appreciation for the art of
-        <strong>handling live traffic</strong> and coordinating at
-        <strong>ZSE ARTCC</strong>. The teamwork, the rush, the challenge –
-        it's what keeps me coming back!
+  <div class="About-Vatsim-Controlling">
+    <p>
+      My journey as a <strong>VATSIM controller</strong> started in
+      <strong>July 2024</strong>, and it has been an adrenaline-fueled
+      adventure ever since. From a <strong>VATSIM pilot</strong> to an air
+      traffic controller, I’ve developed a deep appreciation for the art of
+      <strong>handling live traffic</strong> and coordinating at
+      <strong>ZSE ARTCC</strong>. The teamwork, the rush, the challenge –
+      it's what keeps me coming back!
+    </p>
+  </div>
+  <!-- Testimonials Section -->
+  <div class="testimonials">
+    <h2>VATSIM Controller Reviews</h2>
+    <div class="testimonial">
+      <p class="reviewer">
+        Trenton Sergeant on <span class="position">PDX_GND</span>
       </p>
+      <p class="review-date">2025-02-05</p>
+      <p class="review-text">
+        did really well, could tell hes new and he did great with ground
+        traffic!
+      </p>
+      <p>Would Fly Again: Yes</p>
+      <p class="review-signature">- unknown</p>
+      <div class="star-rating" data-rating="5"></div>
     </div>
-    <!-- Testimonials Section -->
-    <div class="testimonials">
-      <h2>VATSIM Controller Reviews</h2>
-      <div class="testimonial">
-        <p class="reviewer">
-          Trenton Sergeant on <span class="position">PDX_GND</span>
-        </p>
-        <p class="review-date">2025-02-05</p>
-        <p class="review-text">
-          did really well, could tell hes new and he did great with ground
-          traffic!
-        </p>
-        <p>Would Fly Again: Yes</p>
-        <p class="review-signature">- unknown</p>
-        <div class="star-rating" data-rating="5"></div>
-      </div>
-      <div class="testimonial">
-        <p class="reviewer">
-          Trenton Sergeant on <span class="position">SEA_GND</span>
-        </p>
-        <p class="review-date">202-09-22</p>
-        <p class="review-text">
-          First time using VATSIM for ATC/Ground. Trenton was patient!
-        </p>
-        <p>Would Fly Again: Yes</p>
-        <p class="review-signature">- unknown</p>
-        <div class="star-rating" data-rating="5"></div>
-      </div>
-      <div class="testimonial">
-        <p class="reviewer">
-          Trenton Sergeant on <span class="position">PDX_GND</span>
-        </p>
-        <p class="review-date">202-09-22</p>
-        <p class="review-text">
-          Very good work for what seemed like the first few sessions on
-          ground. Keep it up and keep practicing.
-        </p>
-        <p>Would Fly Again: Yes</p>
-        <p class="review-signature">- unknown</p>
-        <div class="star-rating" data-rating="4"></div>
-      </div>
+    <div class="testimonial">
+      <p class="reviewer">
+        Trenton Sergeant on <span class="position">SEA_GND</span>
+      </p>
+      <p class="review-date">202-09-22</p>
+      <p class="review-text">
+        First time using VATSIM for ATC/Ground. Trenton was patient!
+      </p>
+      <p>Would Fly Again: Yes</p>
+      <p class="review-signature">- unknown</p>
+      <div class="star-rating" data-rating="5"></div>
     </div>
+    <div class="testimonial">
+      <p class="reviewer">
+        Trenton Sergeant on <span class="position">PDX_GND</span>
+      </p>
+      <p class="review-date">202-09-22</p>
+      <p class="review-text">
+        Very good work for what seemed like the first few sessions on
+        ground. Keep it up and keep practicing.
+      </p>
+      <p>Would Fly Again: Yes</p>
+      <p class="review-signature">- unknown</p>
+      <div class="star-rating" data-rating="4"></div>
+    </div>
+  </div>
   </section>
   <footer class="site-footer">
     <div class="footer-content">
@@ -234,12 +219,12 @@
     document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="scripts/atc.js"></script>
+  <!-- <script src="scripts/atc.js"></script> -->
   <script src="scripts/carousel.js"></script>
-  <script src="scripts/combined.js"></script>
+  <!-- <script src="scripts/combined.js"></script> -->
   <script src="scripts/hangar.js"></script>
-  <script src="scripts/pilot.js"></script>
+  <script src="scripts/live-data.js"></script>
+  <!-- <script src="scripts/pilot.js"></script> -->
   <script src="scripts/plane.js"></script>
   <script src="scripts/Metar.js"></script>
   <!-- <script src="scripts/Modal.js"></script> -->

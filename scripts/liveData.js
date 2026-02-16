@@ -1,27 +1,40 @@
-const card = document.getElementById('live-card');
-const text = document.getElementById('live-text');
+const el = id => document.getElementById(id);
 
-function formatTime(seconds = 0) {
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
+const card = el('live-card');
+const modeEl = el('live-mode');
+const callsignEl = el('live-callsign');
+const subinfoEl = el('live-subinfo');
+const extraEl = el('live-extra');
+const sessionEl = el('live-session');
+const mapEl = el('vatsim-map');
+
+let map, marker;
+let currentRotation = 0;
+
+// ===============================
+// TIME FORMATTER
+// ===============================
+function formatSession(minutes = 0) {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
     return `${h}h ${m}m`;
 }
 
-let map, marker;
-let markerInitialized = false;
-
+// ===============================
+// MAP INIT
+// ===============================
 function initMap(lat, lon) {
     if (!map) {
-        map = L.map('vatsim-map', {
-            zoomControl: false
-        }).setView([lat, lon], 6);
+        map = L.map('vatsim-map', { zoomControl: false })
+            .setView([lat, lon], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap'
-        }).addTo(map);
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            { attribution: '&copy; OpenStreetMap' }
+        ).addTo(map);
     }
 
-    if (!markerInitialized) {
+    if (!marker) {
         marker = L.marker([lat, lon], {
             icon: L.divIcon({
                 html: '✈️',
@@ -29,45 +42,71 @@ function initMap(lat, lon) {
                 className: 'plane-icon'
             })
         }).addTo(map);
-
-        markerInitialized = true;
     }
 }
 
-function updateMap(lat, lon, heading) {
+// ===============================
+// MAP UPDATE (Smooth + Fixed Rotation)
+// ===============================
+function updateMap(lat, lon, heading = 0) {
     if (!map || !marker) return;
 
     marker.setLatLng([lat, lon]);
+
     map.panTo([lat, lon], {
         animate: true,
-        duration: 1,
-        easeLinearity: 0.1
+        duration: 1
     });
 
-    if (heading !== undefined && marker._icon) {
-        marker._icon.style.transform += ` rotate(${heading}deg)`;
+    if (marker._icon) {
+        currentRotation = heading;
+        marker._icon.style.transform = `rotate(${currentRotation}deg)`;
     }
 }
-if (map && !map._airportsAdded && departure && arrival) {
+
+// ===============================
+// AIRPORT MARKERS (Safe)
+// ===============================
+async function addAirportMarkers(departure, arrival) {
+    if (!map || map._airportsAdded || !departure || !arrival) return;
+
     map._airportsAdded = true;
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${departure} airport`)
-        .then(r => r.json())
-        .then(([dep]) => {
-            if (dep) L.marker([dep.lat, dep.lon]).addTo(map).bindPopup(`🛫 ${departure}`);
-        });
+    try {
+        const depRes = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${departure}+airport`
+        );
+        const depData = await depRes.json();
+        if (depData[0]) {
+            L.marker([depData[0].lat, depData[0].lon])
+                .addTo(map)
+                .bindPopup(`🛫 ${departure}`);
+        }
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${arrival} airport`)
-        .then(r => r.json())
-        .then(([arr]) => {
-            if (arr) L.marker([arr.lat, arr.lon]).addTo(map).bindPopup(`🛬 ${arrival}`);
-        });
+        const arrRes = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${arrival}+airport`
+        );
+        const arrData = await arrRes.json();
+        if (arrData[0]) {
+            L.marker([arrData[0].lat, arrData[0].lon])
+                .addTo(map)
+                .bindPopup(`🛬 ${arrival}`);
+        }
+
+    } catch (err) {
+        console.warn("Airport lookup failed");
+    }
 }
 
-
+// ===============================
+// MAIN UPDATE FUNCTION
+// ===============================
 function updateLiveStatus() {
+
+    if (!card) return;
+
     card.className = 'loading';
-    text.textContent = '🟡 Checking VATSIM…';
+    if (modeEl) modeEl.textContent = "Checking VATSIM…";
 
     fetch('/.netlify/functions/GetVatsimData')
         .then(res => {
@@ -75,61 +114,88 @@ function updateLiveStatus() {
             return res.json();
         })
         .then(data => {
+
             if (!data || !data.online) {
                 card.className = 'offline';
-                text.textContent = '🔴 Offline on VATSIM';
-                document.getElementById('vatsim-map').style.display = 'none';
+
+                if (modeEl) modeEl.textContent = "🔴 Offline on VATSIM";
+                if (callsignEl) callsignEl.textContent = "—";
+                if (subinfoEl) subinfoEl.textContent = "";
+                if (extraEl) extraEl.textContent = "";
+                if (sessionEl) sessionEl.textContent = "";
+
+                if (mapEl) mapEl.style.display = 'none';
+
                 return;
             }
 
             card.className = 'online';
 
-            const {
-                mode,
-                callsign,
-                position,
-                facility,
-                frequency,
-                aircraft,
-                departure,
-                arrival,
-                latitude,
-                longitude,
-                heading
-            } = data;
+            // ===============================
+            // ATC MODE
+            // ===============================
+            if (data.mode === "ATC") {
 
-            if (mode === 'ATC') {
-                document.getElementById('vatsim-map').style.display = 'none';
-                text.innerHTML = `
-          🟢 <strong>${callsign}</strong><br>
-          ${position || 'Unknown position'} (${facility || 'N/A'})<br>
-          ${frequency ? `📻 ${frequency}` : ''}
-        `;
-            } else if (mode === 'PILOT') {
-                text.innerHTML = `
-          ✈️ <strong>${callsign}</strong><br>
-          ${aircraft || 'Unknown aircraft'}<br>
-          ${departure || '----'} → ${arrival || '----'}
-        `;
+                if (modeEl) modeEl.textContent = "🟢 ATC";
+                if (callsignEl) callsignEl.textContent = data.callsign;
+
+                if (subinfoEl)
+                    subinfoEl.textContent =
+                        `${data.facility || ''} | ${data.frequency || ''}`;
+
+                if (extraEl && data.fir)
+                    extraEl.textContent = `FIR: ${data.fir}`;
+
+                if (mapEl) mapEl.style.display = 'none';
             }
-            if (data.latitude && data.longitude) {
-                const mapEl = document.getElementById('vatsim-map');
-                mapEl.style.display = 'block';
 
-                initMap(data.latitude, data.longitude);
-                updateMap(data.latitude, data.longitude, data.heading);
+            // ===============================
+            // PILOT MODE
+            // ===============================
+            if (data.mode === "PILOT") {
+
+                if (modeEl) modeEl.textContent = "✈️ PILOT";
+                if (callsignEl) callsignEl.textContent = data.callsign;
+
+                if (subinfoEl)
+                    subinfoEl.textContent =
+                        `${data.departure || '----'} → ${data.arrival || '----'} | ${data.aircraft || ''}`;
+
+                if (extraEl)
+                    extraEl.textContent =
+                        `FL${Math.round((data.altitude || 0) / 100)} | ${data.groundspeed || 0}kts ${data.flight_phase ? '| ' + data.flight_phase : ''}`;
+
+                if (mapEl) {
+                    mapEl.style.display = 'block';
+
+                    if (data.latitude && data.longitude) {
+                        initMap(data.latitude, data.longitude);
+                        updateMap(data.latitude, data.longitude, data.heading);
+                        addAirportMarkers(data.departure, data.arrival);
+                    }
+                }
+            }
+
+            // ===============================
+            // SESSION TIMER
+            // ===============================
+            if (sessionEl && data.session_minutes !== undefined) {
+                sessionEl.textContent =
+                    `Online ${formatSession(data.session_minutes)}`;
             }
 
         })
         .catch(err => {
             console.error(err);
             card.className = 'error';
-            text.textContent = '⚠️ Unable to load VATSIM status';
+
+            if (modeEl)
+                modeEl.textContent = "⚠️ Unable to load VATSIM status";
         });
 }
 
-// Initial load
+// ===============================
+// INIT
+// ===============================
 updateLiveStatus();
-
-// Refresh every minute
 setInterval(updateLiveStatus, 60000);

@@ -4,6 +4,19 @@ export const handler = async () => {
   const LIVE_URL = "https://data.vatsim.net/v3/vatsim-data.json";
   const STATS_URL = `https://api.vatsim.net/v2/members/${CID}/stats`;
 
+  function facilityName(fac) {
+    const map = {
+      0: "Observer",
+      1: "FSS",
+      2: "Delivery",
+      3: "Ground",
+      4: "Tower",
+      5: "Approach/Departure",
+      6: "Center"
+    };
+    return map[fac] || "Unknown";
+  }
+
   try {
     const [liveRes, statsRes] = await Promise.all([
       fetch(LIVE_URL, {
@@ -26,21 +39,26 @@ export const handler = async () => {
     const liveData = await liveRes.json();
     const statsData = await statsRes.json();
 
-    const controller = liveData.controllers.find(c => c.cid == CID);
-    const pilot = liveData.pilots.find(p => p.cid == CID);
+    const controller = liveData.controllers?.find(c => c.cid == CID);
+    const pilot = liveData.pilots?.find(p => p.cid == CID);
 
     let liveStatus = { online: false };
 
     if (controller) {
+      const fir = controller.callsign?.split("_")[0] || null;
+
       liveStatus = {
         online: true,
         mode: "ATC",
         callsign: controller.callsign,
-        position: controller.frequency,
-        facility: controller.facility,
-        rating : controller.rating
+        frequency: controller.frequency,
+        facility: facilityName(controller.facility),
+        fir,
+        text_atis: controller.text_atis
       };
+
     } else if (pilot) {
+
       liveStatus = {
         online: true,
         mode: "PILOT",
@@ -48,7 +66,9 @@ export const handler = async () => {
         aircraft: pilot.flight_plan?.aircraft,
         latitude: pilot.latitude,
         longitude: pilot.longitude,
-        heading: pilot.heading
+        heading: pilot.heading,
+        groundspeed: pilot.groundspeed,
+        altitude: pilot.altitude
       };
     }
 
@@ -56,16 +76,16 @@ export const handler = async () => {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=60", // 1 min cache
+        "Cache-Control": "public, max-age=30, stale-while-revalidate=60",
         "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify({
         ...liveStatus,
 
-        // ⏱️ Stats
-        hours: {
-          atc: statsData.atc,
-          pilot: statsData.pilot,
+        stats: {
+          rating: statsData.rating,
+          atc_hours: statsData.atc,
+          pilot_hours: statsData.pilot,
           s1: statsData.s1,
           s2: statsData.s2,
           s3: statsData.s3

@@ -53,7 +53,6 @@ export const handler = async () => {
         callsign: controller.callsign,
         frequency: controller.frequency,
         facility: facilityName(controller.facility),
-        fir,
         text_atis: controller.text_atis
       };
 

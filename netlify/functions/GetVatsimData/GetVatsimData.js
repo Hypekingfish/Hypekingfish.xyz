@@ -4,7 +4,10 @@ export const handler = async () => {
   const LIVE_URL = "https://data.vatsim.net/v3/vatsim-data.json";
   const STATS_URL = `https://api.vatsim.net/v2/members/${CID}/stats`;
 
-  // Facility name mapper
+  // ===============================
+  // Helpers
+  // ===============================
+
   function facilityName(fac) {
     const map = {
       0: "Observer",
@@ -18,7 +21,6 @@ export const handler = async () => {
     return map[fac] || "Unknown";
   }
 
-  // Rating name mapper
   function ratingName(rating) {
     const map = {
       1: "Observer",
@@ -37,18 +39,35 @@ export const handler = async () => {
     return map[rating] || "Unknown";
   }
 
+  function getSessionMinutes(logon) {
+    if (!logon) return 0;
+    return Math.floor((Date.now() - new Date(logon)) / 60000);
+  }
+
+  function detectFlightPhase(altitude, groundspeed) {
+    if (!altitude || !groundspeed) return null;
+
+    if (groundspeed < 30) return "Parked";
+    if (groundspeed < 80) return "Taxi";
+    if (altitude < 3000) return "Climb/Departure";
+    if (altitude > 30000 && groundspeed > 300) return "Cruise";
+    if (altitude < 10000 && groundspeed > 200) return "Arrival/Descent";
+
+    return "Enroute";
+  }
+
   try {
     const [liveRes, statsRes] = await Promise.all([
       fetch(LIVE_URL, {
         headers: {
           Accept: "application/json",
-          "User-Agent": "Hypekingfish-Live/1.0"
+          "User-Agent": "Hypekingfish-Live/2.0"
         }
       }),
       fetch(STATS_URL, {
         headers: {
           Accept: "application/json",
-          "User-Agent": "Hypekingfish-Stats/1.0"
+          "User-Agent": "Hypekingfish-Stats/2.0"
         }
       })
     ]);
@@ -66,7 +85,8 @@ export const handler = async () => {
     const pilot = liveData.pilots?.find(p => p.cid == CID);
 
     let liveStatus = {
-      online: false
+      online: false,
+      mode: null
     };
 
     // ===============================
@@ -74,6 +94,7 @@ export const handler = async () => {
     // ===============================
     if (controller) {
       const fir = controller.callsign?.split("_")[0] || null;
+      const sessionMinutes = getSessionMinutes(controller.logon_time);
 
       liveStatus = {
         online: true,
@@ -82,14 +103,21 @@ export const handler = async () => {
         frequency: controller.frequency,
         facility: facilityName(controller.facility),
         fir,
-        text_atis: controller.text_atis,
-        logon_time: controller.logon_time
+        text_atis: controller.text_atis || null,
+        logon_time: controller.logon_time,
+        session_minutes: sessionMinutes
       };
+    }
 
     // ===============================
     // PILOT MODE
     // ===============================
-    } else if (pilot) {
+    else if (pilot) {
+      const sessionMinutes = getSessionMinutes(pilot.logon_time);
+      const flightPhase = detectFlightPhase(
+        pilot.altitude,
+        pilot.groundspeed
+      );
 
       liveStatus = {
         online: true,
@@ -104,7 +132,9 @@ export const handler = async () => {
         heading: pilot.heading,
         groundspeed: pilot.groundspeed,
         altitude: pilot.altitude,
-        logon_time: pilot.logon_time
+        flight_phase: flightPhase,
+        logon_time: pilot.logon_time,
+        session_minutes: sessionMinutes
       };
     }
 
@@ -121,17 +151,25 @@ export const handler = async () => {
       body: JSON.stringify({
         ...liveStatus,
 
-        stats: statsData.rating ? {
-          rating_number: statsData.rating,
-          rating_name: ratingName(statsData.rating),
-          atc_hours: statsData.atc,
-          pilot_hours: statsData.pilot,
-          s1: statsData.s1,
-          s2: statsData.s2,
-          s3: statsData.s3,
-          division: statsData.division,
-          region: statsData.region
-        } : null,
+        stats: statsData.rating
+          ? {
+              rating_number: statsData.rating,
+              rating_name: ratingName(statsData.rating),
+              atc_hours: statsData.atc || 0,
+              pilot_hours: statsData.pilot || 0,
+              s1: statsData.s1 || 0,
+              s2: statsData.s2 || 0,
+              s3: statsData.s3 || 0,
+              division: statsData.division || null,
+              region: statsData.region || null
+            }
+          : null,
+
+        network: {
+          connected_clients:
+            (liveData.controllers?.length || 0) +
+            (liveData.pilots?.length || 0)
+        },
 
         fetched: new Date().toISOString()
       })

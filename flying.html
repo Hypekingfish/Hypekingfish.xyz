@@ -49,11 +49,33 @@
       <h2>my VATSIM Stats</h2>
       <section class="live-status">
         <h2>Live Status</h2>
+
         <div id="live-card" class="offline">
-          <p id="live-text">Checking VATSIM…</p>
+
+          <!-- Status Header -->
+          <div class="live-header">
+            <span id="live-indicator" class="status-dot"></span>
+            <span id="live-mode">Checking VATSIM…</span>
+          </div>
+
+          <!-- Main Info -->
+          <div class="live-main">
+            <h3 id="live-callsign">—</h3>
+            <p id="live-subinfo"></p>
+          </div>
+
+          <!-- Extra Info Row -->
+          <div id="live-extra" class="live-extra"></div>
+
+          <!-- Session Time -->
+          <div id="live-session" class="live-session"></div>
+
         </div>
-        <div id="vatsim-map"></div>
+
+        <!-- Map Container -->
+        <div id="vatsim-map" class="map-container"></div>
       </section>
+
       <div class="stats-container">
         <div class="stat-item">
           <h3>Total Pilot Hours</h3>

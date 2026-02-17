@@ -198,4 +198,5 @@ function updateLiveStatus() {
 // INIT
 // ===============================
 updateLiveStatus();
-setInterval(updateLiveStatus, 60000);
+setInterval(updateLiveStatus, 600000);
+

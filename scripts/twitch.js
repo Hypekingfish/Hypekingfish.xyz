@@ -46,7 +46,7 @@ async function updateStreamInfo() {
       statusSpan.style.color = '#ff4e4e';
 
 
-      const [titleRes, gameRes, viewersRes, followRes] = await Promise.all([
+      const [titleRes, gameRes, viewersRes] = await Promise.all([
         fetch(`https://decapi.me/twitch/title/${username}`),
         fetch(`https://decapi.me/twitch/game/${username}`),
         fetch(`https://decapi.me/twitch/viewercount/${username}`),

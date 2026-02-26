@@ -1,6 +1,7 @@
 (() => {
   const now = new Date();
-  if (now.getMonth() !== 11) return;
+  const FORCE_SNOW = false; // Set to true to force snow regardless of date
+  if (!FORCE_SNOW && now.getMonth() !== 11) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const snowContainer = document.getElementById("snow-container");

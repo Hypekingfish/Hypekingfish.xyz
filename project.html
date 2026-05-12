@@ -2,37 +2,36 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous" defer></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/Countdown.css" />
-  <link rel="stylesheet" href="css/Footer.css" />
-  <link rel="stylesheet" href="css/Nav.css" />
-  <link rel="stylesheet" href="css/Visitors.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/FnBLogo_FINAL_800.png" />
-
-  <title>Hypekingfish</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <title>Hypekingfish</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="css/About.css" rel="stylesheet" />
+    <link href="css/Countdown.css" rel="stylesheet"/>
+    <link href="css/Facts.css" rel="stylesheet" />
+    <link href="css/Footer.css" rel="stylesheet" />
+    <link href="css/Nav.css" rel="stylesheet" />
+    <link href="css/Scroll.css" rel="stylesheet" />
+    <link href="css/Snow.css" rel="stylesheet" />
+    <link href="css/Spotify.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/FnBLogo_FINAL_800.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/f78443c527.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <div class="topnav">
-        <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" />Hypekingfish</a>
+  <section>
+        <div id="snow-container"></div>
+        <div id="snow-ground"></div>
+    </section>
+    <div class="topnav">
+        <a href="index.html" class="active"><img src="img/FnBLogo_FINAL_800.png" alt="Logo" />Hypekingfish</a>
+        <span id="local-time" class="time-display"></span>
         <div id="myLinks">
             <a href="flying.html">Flying</a>
             <a href="project.html">Projects</a>
@@ -45,88 +44,134 @@
 
   <!-- Hero / Coming Soon Section -->
   <main class="bgimg">
+    <div class="overlay"></div>
+
     <section class="middle">
-      <h1>COMING SOON</h1>
-      <hr />
-      <p id="Timer"></p>
-      <p>
-        We're working on something exciting!<br />
-        This page will showcase our latest projects, including:
-      </p>
-      <ul class="project-list">
-        <li>Flight Sim Add-ons &amp; Tools</li>
-        <li>Streaming Resources</li>
-        <li>Open Source Utilities</li>
-        <li>Community Events</li>
-      </ul>
-      <p>
-        Stay tuned for updates and sneak peeks.<br />
-        For inquiries or collaborations, <a href="about.html#contact">contact us</a>.
-      </p>
+        <span class="status-badge">PROJECT STATUS</span>
+
+        <h1 class="title">COMING SOON</h1>
+
+        <hr class="divider" />
+
+        <p class="subtitle">
+            Something awesome is currently under development.
+            Stay tuned for updates, releases, and new projects.
+        </p>
+
+        <div class="countdown-box">
+            <p class="countdown-label">Launch Countdown</p>
+            <p id="Timer" class="timer-text"></p>
+        </div>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary-btn">
+                View Projects
+            </a>
+
+            <a href="mailto:hypekingfishttv@gmail.com" class="btn secondary-btn">
+                Contact Me
+            </a>
+        </div>
+
+        <div class="project-preview">
+            <h3>Upcoming Projects</h3>
+
+            <ul class="project-list">
+                <li>✈️ Flight Simulation Tools</li>
+                <li>🏎️ Racing HUD Development</li>
+                <li>🖥️ Custom Web Applications</li>
+                <li>🎮 Stream & Community Projects</li>
+            </ul>
+        </div>
     </section>
+</main>
 
-    <!-- Bottom info -->
-    <aside class="bottomleft">
-      <p>
-        <strong>Follow us:</strong>
-        <a href="https://twitter.com/hypekingfish" target="_blank" aria-label="Twitter">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="https://github.com/hypekingfish" target="_blank" aria-label="GitHub">
-          <i class="fa fa-github"></i>
-        </a>
-        <a href="https://twitch.tv/hypekingfish" target="_blank" aria-label="Twitch">
-          <i class="fa fa-twitch"></i>
-        </a>
-      </p>
-      <p>Last updated: <span id="last-updated"></span></p>
-    </aside>
-  </main>
-
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-branding">
-        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
-        <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
-        <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
-      </div>
+        <div class="footer-content">
+            <div class="footer-branding">
+                <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
+                <span class="footer-title">Created with passion by <strong>Hypekingfish</strong></span>
+                <img src="img/Progress_Pride_Flag.png" alt="Progress Pride Flag" class="footer-flag" />
+            </div>
 
-      <div class="footer-social">
-        <a href="https://github.com/hypekingfish" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-twitch"></i>
-        </a>
-        <a href="https://discord.gg/yourdiscord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-discord"></i>
-        </a>
-      </div>
+            <div class="footer-social">
+                <a href="https://github.com/YOUR-USERNAME" aria-label="GitHub" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/fishnbuckjr02" aria-label="Twitter" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://youtube.com/YOUR-CHANNEL" aria-label="YouTube" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://twitch.tv/hypekingfish" aria-label="Twitch" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitch"></i>
+                </a>
+                <a href="https://discord.gg/YOUR-DISCORD" aria-label="Discord" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
 
-      <p class="footer-copyright">
-        <small>
-          &copy; <span id="year"></span> Hypekingfish. All rights reserved.<br />
-          All content is property of Hypekingfish unless otherwise noted.
-        </small>
-      </p>
-    </div>
-  </footer>
+            <div class="footer-support">
+                <h4>Support the Site</h4>
+                <a href="https://www.buymeacoffee.com/Hypekingfish">
+                    <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Hypekingfish&button_colour=ffc425&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00"
+                        alt="Buy me a coffee button" />
+                </a>
+            </div>
 
-  <!-- Scripts -->
+            <p class="footer-copyright">
+                <small class="footer-legal">
+                  &copy; <span id="year"></span> <strong>Hypekingfish</strong>. All rights reserved.<br />
+
+                  All content on this website is the property of <strong>Hypekingfish</strong> unless otherwise stated.<br />
+
+                  VATSIM, vZSE ARTCC, Microsoft Flight Simulator, X-Plane, and all related trademarks, logos,
+                  and brand names are the property of their respective owners.<br />
+
+                  This website is independently operated and is not affiliated with, endorsed by,
+                  or officially connected to VATSIM, FAA, ICAO, or any aviation authority.<br />
+
+                  Images, graphics, flight data, and written content may not be copied, redistributed,
+                  or reproduced without written permission unless otherwise credited.<br />
+
+                  For business inquiries, copyright concerns, or contact requests:
+                  <a href="mailto:hypekingfishttv@gmail.com">
+                      hypekingfishttv@gmail.com
+                  </a><br />
+
+                  Website design, development, and branding by <strong>Hypekingfish</strong>.<br />
+
+                  Certain images, logos, and informational materials may be used under
+                  fair use for educational, commentary, simulation, or informational purposes.<br />
+
+                  If you believe copyrighted material has been used improperly,
+                  please contact me for prompt review, removal, or proper credit attribution.<br />
+
+                  This website does not intentionally collect, sell, or store personal user data.<br />
+
+                  Some external links may lead to third-party websites that operate under their own privacy policies.<br />
+
+                  Last updated:
+                  <span id="last-page-update">2026-05-11</span>
+              </small>
+            </p>
+        </div>
+    </footer>
+    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Back to Top</button>
   <script>
+    document.getElementById("last-page-update").textContent = document.lastModified.split(' ')[0];
     document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("last-updated").textContent = document.lastModified.split(' ')[0];
   </script>
   <script src="scripts/countdown.js"></script>
   <script src="scripts/navmenu.js"></script>
-  <script src="scripts/visitorCount.js"></script>
+  <script src="scripts/scroll.js"></script>
+  <script src="scripts/snow.js"></script>
+  <script src="scripts/time.js"></script>
 </body>
 
 </html>

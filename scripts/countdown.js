@@ -1,28 +1,33 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Dec 5, 2025 15:00:00").getTime();
+const launchDate = new Date("Jul 4, 2026 16:00:00").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+const timer = setInterval(() => {
 
-  // Get today's date and time
-  var now = new Date().getTime();
+    const now = new Date().getTime();
+    const distance = launchDate - now;
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
 
-  // Display the result in the element with id="demo"
-  document.getElementById("Timer").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) / 1000
+    );
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("Timer").innerHTML = "EXPIRED";
-  }
+    document.getElementById("Timer").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    if (distance < 0) {
+        clearInterval(timer);
+
+        document.getElementById("Timer").innerHTML =
+            "NOW LIVE";
+    }
+
 }, 1000);
